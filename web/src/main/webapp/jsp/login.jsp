@@ -28,8 +28,8 @@
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="text" id="login" class="form-control form-control-lg" />
-                                            <label class="form-label" for="login">Login</label>
+                                            <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                                            <label class="form-label" for="emailAddress">Login (email)</label>
                                         </div>
 
                                     </div>

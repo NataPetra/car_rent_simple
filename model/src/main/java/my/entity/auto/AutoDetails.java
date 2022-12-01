@@ -3,6 +3,7 @@ package my.entity.auto;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @PrimaryKeyJoinColumn(name = "auto_id")
-public class AutoDetails extends Auto{
+public class AutoDetails extends Auto implements Serializable {
 
     private static final Long serialVersionUID = 3L;
 

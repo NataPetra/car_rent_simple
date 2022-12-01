@@ -54,24 +54,9 @@
                                     </div>
                                     <div class="col-md-6 mb-4">
 
-                                        <h6 class="mb-2 pb-1">Gender: </h6>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                                   value="option1" checked />
-                                            <label class="form-check-label" for="femaleGender">Female</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                                   value="option2" />
-                                            <label class="form-check-label" for="maleGender">Male</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                                                   value="option3" />
-                                            <label class="form-check-label" for="otherGender">Other</label>
+                                        <div class="form-outline">
+                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                                            <label class="form-label" for="phoneNumber">Phone Number</label>
                                         </div>
 
                                     </div>
@@ -89,10 +74,9 @@
                                     <div class="col-md-6 mb-4 pb-2">
 
                                         <div class="form-outline">
-                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                                            <input type="password" id="form2Example22" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form2Example22">Password</label>
                                         </div>
-
 
                                     </div>
                                 </div>

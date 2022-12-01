@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -15,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "brand")
-public class Brand {
+public class Brand implements Serializable {
 
     @Id
     @Column(name = "car_brand_id")
@@ -33,7 +34,7 @@ public class Brand {
     @Column(name = "brand_name")
     private String brandName;
 
-    @OneToMany(mappedBy = "auto")
+    @OneToMany(mappedBy = "brand")
     private List<Auto> autos;
 
 }
