@@ -20,11 +20,7 @@ public class Brand implements Serializable {
 
     @Id
     @Column(name = "car_brand_id")
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(
-            name = "increment",
-            strategy = "org.hibernate.id.IncrementGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @ManyToOne

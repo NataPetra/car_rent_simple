@@ -17,11 +17,7 @@ public class Model implements Serializable {
 
     @Id
     @Column(name = "model_id")
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(
-            name = "increment",
-            strategy = "org.hibernate.id.IncrementGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "brand_id")

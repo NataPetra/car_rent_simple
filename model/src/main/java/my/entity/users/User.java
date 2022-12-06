@@ -17,11 +17,7 @@ public class User implements Serializable {
 
     @Id
     @Column(name = "user_id")
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(
-            name = "increment",
-            strategy = "org.hibernate.id.IncrementGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
     private String email;

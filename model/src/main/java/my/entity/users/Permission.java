@@ -16,11 +16,7 @@ public class Permission implements Serializable {
 
     @Id
     @Column(name = "permission_id")
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(
-            name = "increment",
-            strategy = "org.hibernate.id.IncrementGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer permissionId;
 
     private String permissionName;

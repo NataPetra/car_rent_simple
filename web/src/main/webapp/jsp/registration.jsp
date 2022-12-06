@@ -47,7 +47,7 @@
                                     <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                         <div class="form-outline datepicker w-100">
-                                            <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                                            <input type="text" class="form-control form-control-lg" id="birthdayDate" placeholder="1992-07-17"/>
                                             <label for="birthdayDate" class="form-label">Birthday</label>
                                         </div>
 
@@ -55,7 +55,7 @@
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" placeholder="+375(44)7204206"/>
                                             <label class="form-label" for="phoneNumber">Phone Number</label>
                                         </div>
 

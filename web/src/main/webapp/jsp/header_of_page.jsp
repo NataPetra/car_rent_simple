@@ -18,7 +18,7 @@
                     <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Show cars</a>
+                    <a class="nav-link" href="list_of_cars.jsp">Show cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.jsp">Login</a>

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,11 +20,7 @@ public class Auto implements Serializable {
 
     @Id
     @Column(name = "auto_id")
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(
-            name = "increment",
-            strategy = "org.hibernate.id.IncrementGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @ManyToOne
