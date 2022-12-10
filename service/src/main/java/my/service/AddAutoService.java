@@ -15,6 +15,8 @@ import java.math.BigDecimal;
 @Service
 public class AddAutoService {
 
+    //добавить логгер
+
     @Autowired
     private AutoDao autoDao;
     @Autowired
@@ -23,32 +25,45 @@ public class AddAutoService {
     private ModelDao modelDao;
 
     public void addCommonAuto (AutoCommonBean autoCommonBean){
+        //вывести бин
         Auto auto = new Auto();
-        Model model = new Model();
+        Model model = modelDao.getByName(autoCommonBean.getModelName());
         AutoDetails autoDetails = new AutoDetails();
 
-        model.setModelName(autoCommonBean.getModelName());
-        modelDao.createModel(model);
+        if (model!=null){
+            auto.setModel(model);
+        } else {
+            model = new Model();
+            model.setModelName(autoCommonBean.getModelName());
+            Model modelDB = modelDao.createModel(model);
+            auto.setModel(modelDB);
+        }
+
+        //вывести по всем объектам перед соданием в базе
 
         auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
         auto.setColour(autoCommonBean.getColour());
-        auto.setModel(modelDao.getModel(1));
-        autoDao.createAuto(auto);
 
-        autoDetails.setAuto(autoDao.getAuto(1));
+        //вывести по всем объектам перед соданием в базе
+        Auto autoDB = autoDao.createAuto(auto);
+
+        autoDetails.setAuto(autoDB);
         //посмотреть дефолт Bolean
-        if(autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("yes")){
+        if("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission())){
             autoDetails.setAutomaticTransmission(true);
         } else {
             autoDetails.setAutomaticTransmission(false);
         }
         autoDetails.setReleaseYear(autoCommonBean.getReleaseYear());
-        if(autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("yes")){
+        if("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission())){
             autoDetails.setWithDriver(true);
         } else {
             autoDetails.setWithDriver(false);
         }
+        //вывести по всем объектам перед соданием в базе
         autoDetailsDao.createAutoDetails(autoDetails);
+
+        //вывести по всем объектам перед соданием в базе
 
     }
 

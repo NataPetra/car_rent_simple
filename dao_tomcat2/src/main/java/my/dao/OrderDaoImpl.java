@@ -14,8 +14,8 @@ public class OrderDaoImpl implements OrderDao{
     private OrderRepository orderRepository;
 
     @Override
-    public void create(Order order) {
-        orderRepository.save(order);
+    public Order create(Order order) {
+        return orderRepository.save(order);
     }
 
     @Override

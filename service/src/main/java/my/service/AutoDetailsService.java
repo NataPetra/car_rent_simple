@@ -13,8 +13,8 @@ public class AutoDetailsService {
     private AutoDetailsDao autoDetailsDao;
 
     @Transactional
-    public void addAutoDetails (AutoDetails auto){
-        autoDetailsDao.createAutoDetails(auto);
+    public AutoDetails addAutoDetails (AutoDetails auto){
+        return autoDetailsDao.createAutoDetails(auto);
     }
 
     public Boolean existsById(Integer id){

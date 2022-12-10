@@ -13,8 +13,8 @@ public class UserService {
     private UserDao userDao;
 
     @Transactional
-    public void addUser (User user){
-        userDao.create(user);
+    public User addUser (User user){
+        return userDao.create(user);
     }
 
     @Transactional

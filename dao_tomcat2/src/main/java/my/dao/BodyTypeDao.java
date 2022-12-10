@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BodyTypeDao {
 
-    void create(BodyType bodyType);
+    BodyType create(BodyType bodyType);
     BodyType get(Integer id);
     void delete(Integer id);
 }

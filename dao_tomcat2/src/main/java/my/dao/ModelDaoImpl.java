@@ -12,13 +12,18 @@ public class ModelDaoImpl implements ModelDao{
     private ModelRepository modelRepository;
 
     @Override
-    public void createModel(Model model) {
-        modelRepository.save(model);
+    public Model createModel(Model model) {
+        return modelRepository.save(model);
     }
 
     @Override
-    public Model getModel(Integer id) {
-        return modelRepository.findById(id).orElseGet(null);
+    public Model getByName(String name) {
+        return modelRepository.findByName(name);
+    }
+
+    @Override
+    public Model getModelId(Integer id) {
+        return modelRepository.findById(id).get();
     }
 
     @Override

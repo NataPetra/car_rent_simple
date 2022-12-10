@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface AutoDetailsDao {
 
-    void createAutoDetails(AutoDetails auto);
+    AutoDetails createAutoDetails(AutoDetails auto);
     AutoDetails getAutoDetails(Integer id);
     Boolean isExistsById (Integer id);
     AutoDetails editAutoDetails(AutoDetails auto);

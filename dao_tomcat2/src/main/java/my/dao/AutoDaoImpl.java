@@ -21,7 +21,7 @@ public class AutoDaoImpl implements AutoDao{
 
     @Override
     public Auto getAuto(Integer id) {
-        return autoRepository.findById(id).orElseGet(null);
+        return autoRepository.findById(id).get();
     }
 
     public Boolean isExistsById (Integer id) {

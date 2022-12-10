@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface UserDao {
 
-    void create(User user);
+    User create(User user);
     User get(Integer id);
     Boolean isExistsById (Integer id);
     User edit(User user);

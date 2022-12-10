@@ -15,8 +15,8 @@ public class AutoDetailsDaoImpl implements AutoDetailsDao{
     private AutoDetailsRepository autoDetailsRepository;
 
     @Override
-    public void createAutoDetails(AutoDetails auto) {
-        autoDetailsRepository.save(auto);
+    public AutoDetails createAutoDetails(AutoDetails auto) {
+        return autoDetailsRepository.save(auto);
     }
 
     @Override

@@ -13,13 +13,13 @@ public class ModelService {
     private ModelDao modelDao;
 
     @Transactional
-    public void addModel (Model model){
-        modelDao.createModel(model);
+    public Model addModel (Model model){
+        return modelDao.createModel(model);
     }
 
     @Transactional
     public Model findById (Integer id){
-        return modelDao.getModel(id);
+        return modelDao.getModelId(id);
     }
 
     @Transactional

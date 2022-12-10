@@ -12,8 +12,8 @@ public class BodyTypeDaoImpl implements BodyTypeDao{
     private BodyTypeRepository bodyTypeRepository;
 
     @Override
-    public void create(BodyType bodyType) {
-        bodyTypeRepository.save(bodyType);
+    public BodyType create(BodyType bodyType) {
+        return bodyTypeRepository.save(bodyType);
     }
 
     @Override

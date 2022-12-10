@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface OrderDao {
 
-    void create(Order order);
+    Order create(Order order);
     Order get(Integer id);
     Boolean isExistsById (Integer id);
     Order edit(Order order);

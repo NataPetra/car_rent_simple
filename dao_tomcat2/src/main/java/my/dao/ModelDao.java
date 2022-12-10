@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ModelDao {
 
-    void createModel(Model model);
-    Model getModel(Integer id);
+    Model createModel(Model model);
+    Model getByName(String name);
+    Model getModelId(Integer id);
     void deleteModel(Integer id);
 }
