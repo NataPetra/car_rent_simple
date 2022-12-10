@@ -1,21 +1,33 @@
 package my.entity.auto;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
-@PrimaryKeyJoinColumn(name = "auto_id")
-public class AutoDetails extends Auto {
+//@PrimaryKeyJoinColumn(name = "auto_id")
+@Table(name = "auto_details")
+public class AutoDetails implements Serializable {
 
-    private static final Long serialVersionUID = 3L;
+    @Id
+    @Column(name = "auto_details_id")
+    @GeneratedValue(generator = "foreign_key_gen")
+    @GenericGenerator(name = "foreign_key_gen",
+            strategy = "foreign",
+            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "auto")
+    )
+    private Integer id;
 
-    @Column(name = "body_type_id")
-    private Integer bodyTypeId;
+    @ManyToOne
+    @JoinColumn(name = "body_type_id")
+    private BodyType bodyType;
 
     @Column(name = "releaseYear")
     private Integer releaseYear;
@@ -25,5 +37,9 @@ public class AutoDetails extends Auto {
 
     @Column(name = "with_driver")
     private Boolean withDriver;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Auto auto;
 
 }

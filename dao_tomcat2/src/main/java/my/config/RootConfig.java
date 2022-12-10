@@ -1,9 +1,11 @@
 package my.config;
 
 import org.hibernate.cfg.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -14,19 +16,21 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@PropertySource(value = "classpath:/car_rent_DB.jdbc.properties")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "my.repository")
 @ComponentScan(basePackages = "my")
 public class RootConfig {
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
+        em.setDataSource(dataSource);
         em.setPackagesToScan("my.entity");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -37,19 +41,24 @@ public class RootConfig {
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource(
+            @Value("${url}") String url,
+            @Value("${driver}") String driverClassName,
+            @Value("root") String userName,
+            @Value("${password}") String password
+    ){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/car_rent_DB?createDatabaseIfNotExist=true&serverTimezone=UTC");
-        dataSource.setUsername( "root" );
-        dataSource.setPassword( "root" );
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(url);
+        dataSource.setUsername(userName);
+        dataSource.setPassword(password);
         return dataSource;
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager() {
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
 
         return transactionManager;
     }
@@ -66,7 +75,7 @@ public class RootConfig {
         properties.put(Environment.SHOW_SQL, "true");
         properties.put(Environment.FORMAT_SQL, "true");
         properties.put(Environment.DEFAULT_SCHEMA, "car_rent_DB");
-        properties.put(Environment.HBM2DDL_AUTO, "create-only");
+        properties.put(Environment.HBM2DDL_AUTO, "update");
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 

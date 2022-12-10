@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <model model_id="1" brand_id="1" model_name="volvo" />
+    <auto auto_id="1" model_id="1"
+          colour="black" price="17000.00" />
+    <body_type body_type_id="1" type="jeep"/>
+    <auto_details auto_details_id="1" body_type_id="1" releaseYear="2015" automatic_transmission="true" with_driver="false"/>
+
+</dataset>

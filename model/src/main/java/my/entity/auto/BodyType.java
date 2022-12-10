@@ -1,5 +1,6 @@
 package my.entity.auto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,16 +8,18 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "brand")
-public class Brand implements Serializable {
+@Table(name = "body_type")
+public class BodyType implements Serializable {
 
     @Id
-    @Column(name = "car_brand_id")
+    @Column(name = "body_type_id")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(
             name = "increment",
@@ -24,16 +27,10 @@ public class Brand implements Serializable {
     )
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
-    private Model model;
+    @Column(name = "type")
+    private String type;
 
-    @Column(name = "brand_name")
-    private String brandName;
+    @OneToMany(mappedBy = "bodyType")
+    private List<AutoDetails> autoDetails;
 
-    public Brand(Integer id, Model model, String brandName) {
-        this.id = id;
-        this.model = model;
-        this.brandName = brandName;
-    }
 }

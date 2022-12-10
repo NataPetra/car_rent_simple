@@ -1,7 +1,6 @@
 package my.entity.users;
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,7 +27,10 @@ public class Role implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<Permission> permissions;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-    private Set<User> users;
+//    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+//    private Set<User> users;
+
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
 
 }

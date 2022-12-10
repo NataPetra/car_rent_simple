@@ -16,7 +16,7 @@
 
 <main>
 
-    <form method="post" action="/car_rent/create_car.action">
+    <form method="post" action="/car_rent/create_car.htm">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="modelName">Model</label>

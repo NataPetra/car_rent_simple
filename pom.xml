@@ -12,8 +12,8 @@
         <module>web</module>
         <module>model</module>
         <module>service</module>
-<!--        <module>dao_tomcat</module>-->
         <module>dao_tomcat2</module>
+<!--        <module>dao_tomcat_final</module>-->
     </modules>
 
     <properties>

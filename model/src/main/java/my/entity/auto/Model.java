@@ -17,7 +17,11 @@ public class Model implements Serializable {
 
     @Id
     @Column(name = "model_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(
+            name = "increment",
+            strategy = "org.hibernate.id.IncrementGenerator"
+    )
     private Integer id;
 
     @Column(name = "brand_id")
@@ -32,4 +36,10 @@ public class Model implements Serializable {
     @OneToMany(mappedBy = "model")
     private List<Auto> autos;
 
+    public Model(Integer id, Integer brandId, String modelName) {
+        this.id = id;
+        this.brandId = brandId;
+        this.modelName = modelName;
+
+    }
 }

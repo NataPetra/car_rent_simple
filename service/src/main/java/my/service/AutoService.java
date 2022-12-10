@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class AutoService {
 
     @Autowired
     private AutoDao autoDao;
 
+    @Transactional
     public void addAuto (Auto auto){
         autoDao.createAuto(auto);
     }
@@ -21,8 +21,14 @@ public class AutoService {
         return autoDao.isExistsById(id);
     }
 
+    @Transactional
     public Auto findById (Integer id){
         return autoDao.getAuto(id);
+    }
+
+    @Transactional
+    public void deleteById (Integer id){
+        autoDao.deleteAuto(id);
     }
 
 }
