@@ -85,7 +85,7 @@
                                     <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login.jsp"
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/car_rent/login.view"
                                                                                                         class="fw-bold text-body"><u>Login here</u></a></p>
 
                             </form>

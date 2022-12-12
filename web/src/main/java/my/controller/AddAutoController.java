@@ -13,7 +13,7 @@ public class AddAutoController {
     @Autowired
     private AddAutoService addAutoComm;
 
-    @GetMapping("/create_car.action")
+    @GetMapping("/create_car.view")
     public String showAddAutoCommPage() {
         return "create_car";
     }
@@ -21,7 +21,7 @@ public class AddAutoController {
     @PostMapping("/create_car.action")
     public String addAutoComm(AutoCommonBean autoCommonBean){
         addAutoComm.addCommonAuto(autoCommonBean);
-        return "create_car";
+        return "redirect:/create_car.view";
 
     }
 

@@ -49,17 +49,9 @@ public class AddAutoService {
 
         autoDetails.setAuto(autoDB);
         //посмотреть дефолт Bolean
-        if("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission())){
-            autoDetails.setAutomaticTransmission(true);
-        } else {
-            autoDetails.setAutomaticTransmission(false);
-        }
+        autoDetails.setAutomaticTransmission("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission()));
         autoDetails.setReleaseYear(autoCommonBean.getReleaseYear());
-        if("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission())){
-            autoDetails.setWithDriver(true);
-        } else {
-            autoDetails.setWithDriver(false);
-        }
+        autoDetails.setWithDriver("yes".equalsIgnoreCase(autoCommonBean.getWithDriver()));
         //вывести по всем объектам перед соданием в базе
         autoDetailsDao.createAutoDetails(autoDetails);
 

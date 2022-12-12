@@ -47,7 +47,7 @@
                                     <input class="btn btn-primary btn-lg" type="submit" value="LogIn" />
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="registration.jsp"
+                                <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="/car_rent/registration.view"
                                                                                                       class="fw-bold text-body"><u>Create new</u></a></p>
 
                             </form>

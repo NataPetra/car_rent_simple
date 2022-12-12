@@ -59,18 +59,18 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="automaticTransmission">Automatic Transmission</label>
-                <select id="automaticTransmission" class="form-control">
+                <select id="automaticTransmission" name="automaticTransmission" class="form-control">
                     <option selected>Choose...</option>
-                    <option>Yes</option>
-                    <option>No</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
                 </select>
             </div>
             <div class="form-group col-md-2">
                 <label for="withDriver">Driver</label>
-                <select id="withDriver" class="form-control">
+                <select id="withDriver" name="withDriver" class="form-control">
                     <option selected>Choose...</option>
-                    <option>Yes</option>
-                    <option>No</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
                 </select>
 <%--                <input type="text" class="form-control" id="inputDriver">--%>
             </div>

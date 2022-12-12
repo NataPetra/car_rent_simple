@@ -27,20 +27,20 @@
             <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list_of_cars.jsp">Show cars</a>
+                        <a class="nav-link" href="/car_rent/list_of_cars.view">Show cars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.jsp">Login</a>
+                        <a class="nav-link" href="/car_rent/login.view">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registration.jsp">Registration</a>
+                        <a class="nav-link" href="/car_rent/registration.view">Registration</a>
                     </li>
                 </ul>
             </div>
-            <a class="nav-link" href="create_car.jsp">
+            <a class="nav-link" href="/car_rent/create_car.view">
             <button type="button" class="btn btn-outline-dark">Add car(for admin)</button>
             </a>
         </div>
@@ -62,7 +62,7 @@
     <tr>
 
         <td>
-            <a class="nav-link" href="details_auto.jsp">{auto.id}</a>
+            <a class="nav-link" href="/car_rent/details_auto.view">{auto.id}</a>
 <%--            <form action="<!--/hello/search.do--!>" method="get">--%>
 <%--                {auto.id}--%>
 <%--                <input type="submit" id="id" name="id" value="Show">--%>
