@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BodyTypeRepository extends JpaRepository<BodyType, Integer> {
+
+    BodyType findBodyTypeByType(String type);
 }

@@ -33,4 +33,11 @@ public class BodyType implements Serializable {
     @OneToMany(mappedBy = "bodyType")
     private List<AutoDetails> autoDetails;
 
+    @Override
+    public String toString() {
+        return "BodyType{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

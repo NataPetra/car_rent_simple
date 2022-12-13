@@ -24,9 +24,6 @@ public class Model implements Serializable {
     )
     private Integer id;
 
-    @Column(name = "brand_id")
-    private Integer brandId;
-
     @Column(name = "model_name")
     private String modelName;
 
@@ -38,7 +35,6 @@ public class Model implements Serializable {
 
     public Model(Integer id, Integer brandId, String modelName) {
         this.id = id;
-        this.brandId = brandId;
         this.modelName = modelName;
 
     }

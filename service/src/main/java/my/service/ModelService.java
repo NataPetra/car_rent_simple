@@ -27,5 +27,9 @@ public class ModelService {
         modelDao.deleteModel(id);
     }
 
+    @Transactional
+    public Model findByName (String name){
+        return modelDao.getByName(name);
+    }
 
 }

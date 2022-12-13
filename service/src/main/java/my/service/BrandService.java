@@ -1,6 +1,6 @@
 package my.service;
 
-import my.dao.BodyTypeDao;
+import my.dao.BrandDao;
 import my.entity.auto.BodyType;
 import my.entity.auto.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,29 +8,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class BodyTypeService {
+public class BrandService {
 
     @Autowired
-    private BodyTypeDao bodyTypeDao;
+    private BrandDao brandDao;
 
     @Transactional
-    public BodyType addBodyType (BodyType bodyType){
-        return bodyTypeDao.create(bodyType);
+    public Brand addBrand (Brand brand){
+        return brandDao.create(brand);
     }
 
     @Transactional
-    public BodyType findById (Integer id){
-        return bodyTypeDao.get(id);
+    public Brand findById (Integer id){
+        return brandDao.get(id);
     }
 
     @Transactional
     public void deleteById (Integer id){
-        bodyTypeDao.delete(id);
+        brandDao.delete(id);
     }
 
     @Transactional
-    public BodyType findByName (String name){
-        return bodyTypeDao.getByName(name);
+    public Brand findByName (String name){
+        return brandDao.getByName(name);
     }
 
 }

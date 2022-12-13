@@ -43,4 +43,13 @@ public class Auto implements Serializable {
     @OneToMany(mappedBy = "auto")
     private List<AutoOrder> autoOrders;
 
+    @Override
+    public String toString() {
+        return "Auto{" +
+                "id=" + id +
+                ", model=" + model.getId() +
+                ", colour='" + colour + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

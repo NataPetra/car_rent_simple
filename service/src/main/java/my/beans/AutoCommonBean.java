@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.math.BigDecimal;
 
@@ -29,4 +30,17 @@ public class AutoCommonBean {
 
     private String bodyType;
 
+    @Override
+    public String toString() {
+        return "AutoCommonBean{" +
+                "colour='" + colour + '\'' +
+                ", price='" + price + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", automaticTransmission='" + automaticTransmission + '\'' +
+                ", withDriver='" + withDriver + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                '}';
+    }
 }

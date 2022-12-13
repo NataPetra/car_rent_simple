@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class Brand implements Serializable {
 
     @Id
-    @Column(name = "car_brand_id")
+    @Column(name = "brand_id")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(
             name = "increment",
@@ -25,7 +25,7 @@ public class Brand implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "model_id")
     private Model model;
 
     @Column(name = "brand_name")
@@ -35,5 +35,14 @@ public class Brand implements Serializable {
         this.id = id;
         this.model = model;
         this.brandName = brandName;
+    }
+
+    @Override
+    public String toString() {
+        return "Brand{" +
+                "id=" + id +
+                ", model=" + model.getId() +
+                ", brandName='" + brandName + '\'' +
+                '}';
     }
 }

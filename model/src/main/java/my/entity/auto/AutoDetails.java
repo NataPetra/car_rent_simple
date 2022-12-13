@@ -10,7 +10,6 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 //@PrimaryKeyJoinColumn(name = "auto_id")
 @Table(name = "auto_details")
@@ -42,4 +41,15 @@ public class AutoDetails implements Serializable {
     @PrimaryKeyJoinColumn
     private Auto auto;
 
+    @Override
+    public String toString() {
+        return "AutoDetails{" +
+                "id=" + id +
+                ", bodyType=" + bodyType.getId() +
+                ", releaseYear=" + releaseYear +
+                ", automaticTransmission=" + automaticTransmission +
+                ", withDriver=" + withDriver +
+                ", auto=" + auto.getId() +
+                '}';
+    }
 }

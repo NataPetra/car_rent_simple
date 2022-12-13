@@ -1,12 +1,10 @@
 package my.service;
 
 import my.beans.AutoCommonBean;
-import my.dao.AutoDao;
-import my.dao.AutoDetailsDao;
-import my.dao.ModelDao;
-import my.entity.auto.Auto;
-import my.entity.auto.AutoDetails;
-import my.entity.auto.Model;
+import my.dao.*;
+import my.entity.auto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,47 +13,63 @@ import java.math.BigDecimal;
 @Service
 public class AddAutoService {
 
-    //добавить логгер
+    private static final Logger log = LoggerFactory.getLogger(AddAutoService.class);
 
     @Autowired
-    private AutoDao autoDao;
+    private AutoService autoService;
     @Autowired
-    private AutoDetailsDao autoDetailsDao;
+    private AutoDetailsService autoDetailsService;
     @Autowired
-    private ModelDao modelDao;
+    private ModelService modelService;
+    @Autowired
+    private BodyTypeService bodyTypeService;
+    @Autowired
+    private BrandService brandService;
 
     public void addCommonAuto (AutoCommonBean autoCommonBean){
-        //вывести бин
-        Auto auto = new Auto();
-        Model model = modelDao.getByName(autoCommonBean.getModelName());
-        AutoDetails autoDetails = new AutoDetails();
+        log.info("AutoCommonBean " + autoCommonBean);
 
-        if (model!=null){
-            auto.setModel(model);
-        } else {
+        Auto auto = new Auto();
+        Model model = modelService.findByName(autoCommonBean.getModelName().toLowerCase());
+        AutoDetails autoDetails = new AutoDetails();
+        BodyType bodyType = bodyTypeService.findByName(autoCommonBean.getBodyType().toLowerCase());
+        Brand brand = brandService.findByName(autoCommonBean.getBrandName().toLowerCase());
+
+        if (model == null) {
             model = new Model();
             model.setModelName(autoCommonBean.getModelName());
-            Model modelDB = modelDao.createModel(model);
-            auto.setModel(modelDB);
+            log.info("modelDB " + model);
+            model = modelService.addModel(model);
         }
 
-        //вывести по всем объектам перед соданием в базе
+        if (bodyType==null){
+            bodyType = new BodyType();
+            bodyType.setType(autoCommonBean.getBodyType());
+            log.info("bodyTypeDB " + bodyType);
+            bodyType = bodyTypeService.addBodyType(bodyType);
+        }
 
+        if (brand==null){
+            brand = new Brand();
+            brand.setBrandName(autoCommonBean.getBrandName());
+            brand.setModel(model);
+            log.info("brandDB " + brand);
+            brand = brandService.addBrand(brand);
+        }
+
+        auto.setModel(model);
         auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
         auto.setColour(autoCommonBean.getColour());
-
-        //вывести по всем объектам перед соданием в базе
-        Auto autoDB = autoDao.createAuto(auto);
+        log.info("autoDB " + auto);
+        Auto autoDB = autoService.addAuto(auto);
 
         autoDetails.setAuto(autoDB);
-        //посмотреть дефолт Bolean
         autoDetails.setAutomaticTransmission("yes".equalsIgnoreCase(autoCommonBean.getAutomaticTransmission()));
         autoDetails.setReleaseYear(autoCommonBean.getReleaseYear());
         autoDetails.setWithDriver("yes".equalsIgnoreCase(autoCommonBean.getWithDriver()));
-        //вывести по всем объектам перед соданием в базе
-        autoDetailsDao.createAutoDetails(autoDetails);
-
-        //вывести по всем объектам перед соданием в базе
+        autoDetails.setBodyType(bodyType);
+        log.info("autoDetailsDB " + auto);
+        autoDetailsService.addAutoDetails(autoDetails);
 
     }
 

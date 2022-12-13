@@ -25,4 +25,9 @@ public class BodyTypeDaoImpl implements BodyTypeDao{
     public void delete(Integer id) {
         bodyTypeRepository.deleteById(id);
     }
+
+    @Override
+    public BodyType getByName(String type) {
+        return bodyTypeRepository.findBodyTypeByType(type);
+    }
 }
