@@ -20,40 +20,40 @@ public class AutoServiceTest {
 
     @Autowired
     private AutoService autoService;
-
     @Autowired
     private ModelService modelService;
-
     @Autowired
     private AutoDetailsService autoDetailsService;
 
+    private Auto auto;
+    private Model bmv;
+
     @Before
     public void init() {
-        Model bmv = new Model(null, 1, "bmv");
+        bmv = new Model(null, "bmv");
         Brand x5 = new Brand(null, bmv, "X5");
 
-        autoService.addAuto(new Auto());
+        auto = autoService.addAuto(new Auto());
         modelService.addModel(bmv);
     }
 
     @Test
     public void crudRepositoryTest() {
-        System.out.println(autoService.existsById(1));
-        Auto auto = autoService.findById(1);
-        System.out.println(auto);
+        Integer autoId = auto.getId();
+        System.out.println(autoService.existsById(autoId));
+        Auto autoDB = autoService.findById(autoId);
 
-        Model model = modelService.findById(1);
+        Model modelDB = modelService.findById(bmv.getId());
 
-        auto.setModel(model);
+        auto.setModel(modelDB);
         auto.setColour("red");
         auto.setPrice(new BigDecimal(10000));
         autoService.addAuto(auto);
         System.out.println(auto);
 
-        autoService.deleteById(1);
-        modelService.deleteById(1);
+        autoService.deleteById(autoId);
+        modelService.deleteById(autoId);
         //autoDetailsService.deleteById(1);
-
     }
 
 }
