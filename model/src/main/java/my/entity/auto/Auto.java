@@ -31,6 +31,10 @@ public class Auto implements Serializable {
     @JoinColumn(name = "model_id")
     private Model model;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
     @Column(name = "colour")
     private String colour;
 
@@ -50,9 +54,12 @@ public class Auto implements Serializable {
     public String toString() {
         return "Auto{" +
                 "id=" + id +
-                ", model=" + model.getId() +
+                ", model=" + model +
+                ", brand=" + brand +
                 ", colour='" + colour + '\'' +
                 ", price=" + price +
+                ", autoDetails=" + autoDetails +
+                ", autoPicture=" + autoPicture +
                 '}';
     }
 }

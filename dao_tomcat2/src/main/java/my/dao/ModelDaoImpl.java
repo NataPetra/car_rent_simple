@@ -31,5 +31,10 @@ public class ModelDaoImpl implements ModelDao{
         modelRepository.deleteById(id);
     }
 
+    @Override
+    public String findModelName(Integer id) {
+        return modelRepository.findModelNameById(id);
+    }
+
 
 }

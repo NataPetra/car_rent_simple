@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,7 +29,7 @@
                     <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/list_of_cars.view">Show cars</a>
+                    <a class="nav-link" href="/car_rent/list_cars.view">Show cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/car_rent/login.view">Login</a>

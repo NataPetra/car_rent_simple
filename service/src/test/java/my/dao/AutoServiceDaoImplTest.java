@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.sql.Connection;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -48,8 +49,10 @@ public class AutoServiceDaoImplTest extends TestConfig{
 
         //When
         Auto auto = targetObject.findById(1);
+        List allAuto = targetObject.allAuto();
 
         //Then
+        assertEquals(2, allAuto.size());
         assertEquals("black", auto.getColour());
         assertEquals("17000.00", auto.getPrice().toString());
         assertEquals("volvo", auto.getModel().getModelName());

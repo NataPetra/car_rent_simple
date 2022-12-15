@@ -1,8 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
     <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
@@ -30,7 +33,7 @@
                         <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/car_rent/list_of_cars.view">Show cars</a>
+                        <a class="nav-link" href="/car_rent/list_cars.view">Show cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/car_rent/login.view">Login</a>
@@ -51,43 +54,62 @@
 <table class="table table-striped table-dark">
     <thead>
     <tr>
-        <th scope="col">Number</th>
-        <th scope="col">Model</th>
-        <th scope="col">Brand</th>
-        <th scope="col">Colour</th>
-        <th scope="col">Price</th>
+        <th>Number</th>
+        <th>Model</th>
+        <th>Brand</th>
+        <th>Colour</th>
+        <th>Price</th>
     </tr>
     </thead>
     <tbody>
+    <c:forEach items="${carsList}" var="car">
     <tr>
-
         <td>
-            <a class="nav-link" href="/car_rent/details_auto.view">{auto.id}</a>
-<%--            <form action="<!--/hello/search.do--!>" method="get">--%>
-<%--                {auto.id}--%>
-<%--                <input type="submit" id="id" name="id" value="Show">--%>
-<%--            </form>--%>
+            <a class="nav-link" href="/car_rent/{car.number}/details_auto.view">
+                <c:out value="${car.number}"/>
+            </a>
         </td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@fat</td>
+        <td><c:out value="${car.model}"/></td>
+        <td><c:out value="${car.brand}"/></td>
+        <td><c:out value="${car.colour}"/></td>
+        <td><c:out value="${car.price}"/></td>
     </tr>
+    </c:forEach>
     </tbody>
 </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+
+<%--    <table style="width:100%" class="table">--%>
+<%--        <tr>--%>
+<%--            <th>Name</th>--%>
+<%--            <th>Address</th>--%>
+<%--            <th>Department</th>--%>
+<%--            <th>Photo</th>--%>
+<%--        </tr>--%>
+<%--        <c:forEach items="${employees}" var="employee">--%>
+<%--            <tr>--%>
+<%--                <td><c:out value="${employee.firstName} ${employee.lastName}"/></td>--%>
+<%--                <td><c:out value="${employee.employeeDetail.city} ${employee.employeeDetail.street}"/></td>--%>
+<%--                <td><c:out value="${employee.department.departmentName}"/></td>--%>
+<%--                <td><image src="/hello/image/${employee.id}/photo.jpg" class="img-thumbnail"></td>--%>
+<%--            </tr>--%>
+<%--        </c:forEach>--%>
+<%--    </table>--%>
+
+
+
+<%--    <nav aria-label="Page navigation example">--%>
+<%--        <ul class="pagination justify-content-center">--%>
+<%--            <li class="page-item disabled">--%>
+<%--                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>--%>
+<%--            </li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
+<%--            <li class="page-item">--%>
+<%--                <a class="page-link" href="#">Next</a>--%>
+<%--            </li>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
 </div>
 </body>
 </html>

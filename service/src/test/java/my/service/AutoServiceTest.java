@@ -6,6 +6,7 @@ import my.entity.auto.AutoDetails;
 import my.entity.auto.Brand;
 import my.entity.auto.Model;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,20 +25,25 @@ public class AutoServiceTest {
     private ModelService modelService;
     @Autowired
     private AutoDetailsService autoDetailsService;
+    @Autowired
+    private BrandService brandService;
 
     private Auto auto;
     private Model bmv;
+    private Brand x5;
 
-    @Before
-    public void init() {
-        bmv = new Model(null, "bmv");
-        Brand x5 = new Brand(null, bmv, "X5");
-
-        auto = autoService.addAuto(new Auto());
-        modelService.addModel(bmv);
-    }
+//    @Before
+//    public void init() {
+//        bmv = new Model(null, "bmv");
+//        x5 = new Brand(null, bmv, "X5");
+//
+//        auto = autoService.addAuto(new Auto());
+//        modelService.addModel(bmv);
+//        brandService.addBrand(x5);
+//    }
 
     @Test
+    @Ignore
     public void crudRepositoryTest() {
         Integer autoId = auto.getId();
         System.out.println(autoService.existsById(autoId));

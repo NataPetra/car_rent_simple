@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,6 +29,9 @@ public class Brand implements Serializable {
     @JoinColumn(name = "model_id")
     private Model model;
 
+    @OneToMany(mappedBy = "brand")
+    private List<Auto> autos;
+
     @Column(name = "brand_name")
     private String brandName;
 
@@ -41,7 +45,7 @@ public class Brand implements Serializable {
     public String toString() {
         return "Brand{" +
                 "id=" + id +
-                ", model=" + model.getId() +
+                ", model=" + model +
                 ", brandName='" + brandName + '\'' +
                 '}';
     }

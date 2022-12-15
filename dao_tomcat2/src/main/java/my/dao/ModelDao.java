@@ -10,4 +10,5 @@ public interface ModelDao {
     Model getByName(String name);
     Model getModelId(Integer id);
     void deleteModel(Integer id);
+    String findModelName(Integer id);
 }

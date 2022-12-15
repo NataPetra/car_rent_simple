@@ -59,6 +59,7 @@ public class AddAutoService {
         }
 
         auto.setModel(model);
+        auto.setBrand(brand);
         auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
         auto.setColour(autoCommonBean.getColour().toLowerCase());
         log.info("autoDB " + auto);

@@ -1,15 +1,27 @@
 package my.controller;
 
+import my.service.ListOfAutoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 @Controller
 public class ShowCarController {
 
-    @GetMapping("/list_of_cars.view")
-    public String listOfCarPage(){
-        return "list_of_cars";
+    @Autowired
+    private ListOfAutoService listOfAutoService;
+
+    @GetMapping("/list_cars.view")
+    public ModelAndView listOfCarPage(){
+        System.out.println("Call list of cars");
+        return new ModelAndView(
+                "list_cars",
+                Map.of("carsList", listOfAutoService.showAutoBriefly())
+        );
     }
+
 
 }

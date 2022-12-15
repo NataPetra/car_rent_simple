@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class AutoService {
 
@@ -29,6 +31,11 @@ public class AutoService {
     @Transactional
     public void deleteById (Integer id){
         autoDao.deleteAuto(id);
+    }
+
+    @Transactional
+    public List allAuto(){
+        return autoDao.getAllAuto();
     }
 
 }
