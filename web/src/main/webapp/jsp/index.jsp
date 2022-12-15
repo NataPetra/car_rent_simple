@@ -22,7 +22,7 @@
 </header>
 
 <main>
-    <img src="../res/background.jpg" class="img-fluid" alt="Wild Landscape" />
+    <img src="/car_rent/res/background.jpg" class="img-fluid" alt="Wild Landscape" />
 </main>
 
 <!-- Footer -->
@@ -115,8 +115,6 @@
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
-
-
 
 
 

@@ -35,6 +35,11 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
         final ServletRegistration.Dynamic servletRegistration =
                 ctx.addServlet("dispatcherServlet", dispatcherServlet);
         servletRegistration.setLoadOnStartup(1);
-        servletRegistration.addMapping("/");
+//        servletRegistration.addMapping("/");
+        servletRegistration.addMapping("/index.html");
+        servletRegistration.addMapping("*.html");
+        servletRegistration.addMapping("*.action");
+        servletRegistration.addMapping("*.view");
+
     }
 }

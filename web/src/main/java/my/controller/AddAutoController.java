@@ -1,11 +1,14 @@
 package my.controller;
 
+import lombok.SneakyThrows;
 import my.beans.AutoCommonBean;
 import my.service.AddAutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class AddAutoController {
@@ -19,8 +22,10 @@ public class AddAutoController {
     }
 
     @PostMapping("/create_car.action")
-    public String addAutoComm(AutoCommonBean autoCommonBean){
-        addAutoComm.addCommonAuto(autoCommonBean);
+    @SneakyThrows
+    public String addAutoComm(@RequestParam("picture") MultipartFile file, AutoCommonBean autoCommonBean){
+        //System.out.println("Call addAuto: " + autoCommonBean);
+        addAutoComm.addCommonAuto(autoCommonBean, file.getBytes());
         return "redirect:/create_car.view";
 
     }

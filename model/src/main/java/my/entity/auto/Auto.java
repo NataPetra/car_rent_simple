@@ -43,6 +43,9 @@ public class Auto implements Serializable {
     @OneToMany(mappedBy = "auto")
     private List<AutoOrder> autoOrders;
 
+    @OneToOne(mappedBy = "auto", cascade = CascadeType.ALL)
+    private AutoPicture autoPicture;
+
     @Override
     public String toString() {
         return "Auto{" +

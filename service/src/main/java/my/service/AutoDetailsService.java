@@ -17,6 +17,7 @@ public class AutoDetailsService {
         return autoDetailsDao.createAutoDetails(auto);
     }
 
+    @Transactional
     public Boolean existsById(Integer id){
         return autoDetailsDao.isExistsById(id);
     }

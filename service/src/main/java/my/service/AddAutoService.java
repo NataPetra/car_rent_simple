@@ -1,7 +1,6 @@
 package my.service;
 
 import my.beans.AutoCommonBean;
-import my.dao.*;
 import my.entity.auto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +24,10 @@ public class AddAutoService {
     private BodyTypeService bodyTypeService;
     @Autowired
     private BrandService brandService;
+    @Autowired
+    private AutoPictureService autoPictureService;
 
-    public void addCommonAuto (AutoCommonBean autoCommonBean){
+    public void addCommonAuto (AutoCommonBean autoCommonBean, byte[] picture){
         log.info("AutoCommonBean " + autoCommonBean);
 
         Auto auto = new Auto();
@@ -37,21 +38,21 @@ public class AddAutoService {
 
         if (model == null) {
             model = new Model();
-            model.setModelName(autoCommonBean.getModelName());
+            model.setModelName(autoCommonBean.getModelName().toLowerCase());
             log.info("modelDB " + model);
             model = modelService.addModel(model);
         }
 
         if (bodyType==null){
             bodyType = new BodyType();
-            bodyType.setType(autoCommonBean.getBodyType());
+            bodyType.setType(autoCommonBean.getBodyType().toLowerCase());
             log.info("bodyTypeDB " + bodyType);
             bodyType = bodyTypeService.addBodyType(bodyType);
         }
 
         if (brand==null){
             brand = new Brand();
-            brand.setBrandName(autoCommonBean.getBrandName());
+            brand.setBrandName(autoCommonBean.getBrandName().toLowerCase());
             brand.setModel(model);
             log.info("brandDB " + brand);
             brand = brandService.addBrand(brand);
@@ -59,7 +60,7 @@ public class AddAutoService {
 
         auto.setModel(model);
         auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
-        auto.setColour(autoCommonBean.getColour());
+        auto.setColour(autoCommonBean.getColour().toLowerCase());
         log.info("autoDB " + auto);
         Auto autoDB = autoService.addAuto(auto);
 
@@ -68,9 +69,14 @@ public class AddAutoService {
         autoDetails.setReleaseYear(autoCommonBean.getReleaseYear());
         autoDetails.setWithDriver("yes".equalsIgnoreCase(autoCommonBean.getWithDriver()));
         autoDetails.setBodyType(bodyType);
-        log.info("autoDetailsDB " + auto);
+        log.info("autoDetailsDB " + autoDetails);
         autoDetailsService.addAutoDetails(autoDetails);
 
+        if(auto.getAutoPicture() == null) {
+            AutoPicture autoPicture = new AutoPicture();
+            autoPicture.setAuto(autoDB);
+            autoPicture.setPicture(picture);
+            autoPictureService.addAutoPicture(autoPicture);
+        }
     }
-
 }

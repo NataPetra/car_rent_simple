@@ -16,7 +16,7 @@
 
 <main>
 
-    <form method="post" action="/car_rent/create_car.action">
+    <form method="post" action="/car_rent/create_car.action" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="modelName">Model</label>
@@ -75,6 +75,15 @@
 <%--                <input type="text" class="form-control" id="inputDriver">--%>
             </div>
         </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="picture" class="form-label">Picture</label>
+                <input type="file" name="picture" class="form-control" id="picture">
+            </div>
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Add car</button>
     </form>
 
