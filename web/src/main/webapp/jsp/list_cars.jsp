@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -62,40 +62,21 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${carsList}" var="car">
+    <c:forEach items="${carsList}" var="singlCar">
     <tr>
         <td>
             <a class="nav-link" href="/car_rent/{car.number}/details_auto.view">
-                <c:out value="${car.number}"/>
+                <c:out value="${singlCar.number}"/>
             </a>
         </td>
-        <td><c:out value="${car.model}"/></td>
-        <td><c:out value="${car.brand}"/></td>
-        <td><c:out value="${car.colour}"/></td>
-        <td><c:out value="${car.price}"/></td>
+        <td><c:out value="${carsList[0].model}"/></td>
+        <td><c:out value="${singlCar.brand}"/></td>
+        <td><c:out value="${singlCar.colour}"/></td>
+        <td><c:out value="${singlCar.price}"/></td>
     </tr>
     </c:forEach>
     </tbody>
 </table>
-
-<%--    <table style="width:100%" class="table">--%>
-<%--        <tr>--%>
-<%--            <th>Name</th>--%>
-<%--            <th>Address</th>--%>
-<%--            <th>Department</th>--%>
-<%--            <th>Photo</th>--%>
-<%--        </tr>--%>
-<%--        <c:forEach items="${employees}" var="employee">--%>
-<%--            <tr>--%>
-<%--                <td><c:out value="${employee.firstName} ${employee.lastName}"/></td>--%>
-<%--                <td><c:out value="${employee.employeeDetail.city} ${employee.employeeDetail.street}"/></td>--%>
-<%--                <td><c:out value="${employee.department.departmentName}"/></td>--%>
-<%--                <td><image src="/hello/image/${employee.id}/photo.jpg" class="img-thumbnail"></td>--%>
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-<%--    </table>--%>
-
-
 
 <%--    <nav aria-label="Page navigation example">--%>
 <%--        <ul class="pagination justify-content-center">--%>
