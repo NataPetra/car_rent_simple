@@ -44,7 +44,7 @@ public class AutoDaoImpl implements AutoDao{
     }
 
     @Override
-    public List getAllAuto(int pageNumber, int pageSize) {
+    public List getAllAutoPage(int pageNumber, int pageSize) {
         return autoRepository.findAll(PageRequest.of(pageNumber, pageSize)).getContent();
     }
 

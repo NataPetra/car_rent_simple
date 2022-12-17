@@ -33,7 +33,7 @@
                         <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/car_rent/list_cars.view">Show cars</a>
+                        <a class="nav-link" href="/car_rent/list_cars/1.view">Show cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/car_rent/login.view">Login</a>
@@ -62,35 +62,35 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${carsList}" var="singlCar">
+    <c:forEach items="${carsList}" var="car">
     <tr>
         <td>
-            <a class="nav-link" href="/car_rent/{car.number}/details_auto.view">
-                <c:out value="${singlCar.number}"/>
+            <a class="nav-link" href="/car_rent/details_auto/${car.number}.view">
+                <c:out value="${car.number}"/>
             </a>
         </td>
-        <td><c:out value="${carsList[0].model}"/></td>
-        <td><c:out value="${singlCar.brand}"/></td>
-        <td><c:out value="${singlCar.colour}"/></td>
-        <td><c:out value="${singlCar.price}"/></td>
+        <td><c:out value="${car.model}"/></td>
+        <td><c:out value="${car.brand}"/></td>
+        <td><c:out value="${car.colour}"/></td>
+        <td><c:out value="${car.price}"/></td>
     </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<%--    <nav aria-label="Page navigation example">--%>
-<%--        <ul class="pagination justify-content-center">--%>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
 <%--            <li class="page-item disabled">--%>
 <%--                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>--%>
 <%--            </li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
-<%--            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
+            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/1.view">1</a></li>
+            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/2.view">2</a></li>
+<%--            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/3.view">3</a></li>--%>
 <%--            <li class="page-item">--%>
 <%--                <a class="page-link" href="#">Next</a>--%>
 <%--            </li>--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>

@@ -38,4 +38,9 @@ public class AutoService {
         return autoDao.getAllAuto();
     }
 
+    @Transactional
+    public List allAuto(int pageNumber, int pageSize){
+        return autoDao.getAllAutoPage(pageNumber, pageSize);
+    }
+
 }

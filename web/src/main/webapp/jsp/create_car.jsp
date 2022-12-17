@@ -40,15 +40,6 @@
             </div>
         </div>
 
-<%--        <div class="form-group">--%>
-<%--            <label for="inputColour">Colour</label>--%>
-<%--            <input type="text" class="form-control" id="inputColour">--%>
-<%--        </div>--%>
-<%--        <div class="form-group">--%>
-<%--            <label for="inputBodyType">Body Type</label>--%>
-<%--            <input type="text" class="form-control" id="inputBodyType">--%>
-<%--        </div>--%>
-
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="price">Price</label>
@@ -73,7 +64,6 @@
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
-<%--                <input type="text" class="form-control" id="inputDriver">--%>
             </div>
         </div>
 
@@ -83,7 +73,6 @@
                 <input type="file" name="picture" class="form-control" id="picture">
             </div>
         </div>
-
 
         <button type="submit" class="btn btn-primary">Add car</button>
     </form>

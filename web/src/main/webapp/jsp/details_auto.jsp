@@ -4,9 +4,6 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-<%--    <link href="../css/main.css" rel="stylesheet">--%>
 </head>
 <body>
 
@@ -29,7 +26,7 @@
                     <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/list_cars.view">Show cars</a>
+                    <a class="nav-link" href="/car_rent/list_cars/1.view">Show cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/car_rent/login.view">Login</a>
@@ -39,8 +36,9 @@
                 </li>
             </ul>
         </div>
-        if (
-        <a class="nav-link" href="/car_rent/update_car.view">
+        <c:set value="${autoDetailsBean}" var="car"/>
+<%--        if (--%>
+        <a class="nav-link" href="/car_rent/update_car/${car.id}.view">
             <button type="button" class="btn btn-outline-dark">Update car(for admin)</button>
         </a>
         <a class="nav-link" href="#">
@@ -54,9 +52,9 @@
 
 
 <div class="card mb-3">
-    <img src="..." class="card-img-top" alt="...">
+    <img src="/car_rent/image/${car.id}/picture.jpg" class="card-img-top">
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title"><c:out value="${car.id}) ${car.modelName} ${car.brandName}."/></h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>

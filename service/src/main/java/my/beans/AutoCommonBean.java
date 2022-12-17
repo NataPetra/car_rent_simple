@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class AutoCommonBean {
 
+    private Integer id;
+
     private String colour;
 
     private String price;
@@ -29,6 +31,8 @@ public class AutoCommonBean {
     private String brandName;
 
     private String bodyType;
+
+    private byte[] picture;
 
     @Override
     public String toString() {

@@ -40,6 +40,7 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
         servletRegistration.addMapping("*.html");
         servletRegistration.addMapping("*.action");
         servletRegistration.addMapping("*.view");
+        servletRegistration.addMapping("*.jpg");
 
     }
 }

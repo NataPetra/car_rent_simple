@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-<%--    <link href="/car_rent/css/main.css" rel="stylesheet">--%>
 </head>
 <body>
 
@@ -16,63 +13,60 @@
 </header>
 
 <main>
-
-    <form>
+    <c:set value="${autoCommonBean}" var="car"/>
+    <form method="post" action="/car_rent/update_car/${car.id}.action">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputModel">Model</label>
-                <input type="text" class="form-control" id="inputModel">
+                <label for="modelName">Model</label>
+                <input type="text" name="modelName" class="form-control" id="modelName" value="<c:out value="${car.modelName}"/>">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputBrand">Brand</label>
-                <input type="text" class="form-control" id="inputBrand">
+                <label for="brandName">Brand</label>
+                <input type="text" name="brandName" class="form-control" id="brandName" value="<c:out value="${car.brandName}"/>">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputColour">Colour</label>
-                <input type="text" class="form-control" id="inputColour">
+                <label for="colour">Colour</label>
+                <input type="text" name="colour" class="form-control" id="colour" value="<c:out value="${car.colour}"/>">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputBodyType">Body Type</label>
-                <input type="text" class="form-control" id="inputBodyType">
+                <label for="bodyType">Body Type</label>
+                <input type="text" name="bodyType" class="form-control" id="bodyType" value="<c:out value="${car.bodyType}"/>">
             </div>
         </div>
 
-        <%--        <div class="form-group">--%>
-        <%--            <label for="inputColour">Colour</label>--%>
-        <%--            <input type="text" class="form-control" id="inputColour">--%>
-        <%--        </div>--%>
-        <%--        <div class="form-group">--%>
-        <%--            <label for="inputBodyType">Body Type</label>--%>
-        <%--            <input type="text" class="form-control" id="inputBodyType">--%>
-        <%--        </div>--%>
-
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputPrice">Price</label>
-                <input type="text" class="form-control" id="inputPrice">
+            <div class="form-group col-md-4">
+                <label for="price">Price</label>
+                <input type="text" name="price" class="form-control" id="price" value="<c:out value="${car.price}"/>">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="releaseYear">Release year</label>
+                <input type="text" name="releaseYear" class="form-control" id="releaseYear" value="<c:out value="${car.releaseYear}"/>">
             </div>
             <div class="form-group col-md-2">
-                <label for="inputTransmission">Automatic Transmission</label>
-                <select id="inputTransmission" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
+                <label for="automaticTransmission">Automatic Transmission</label>
+                <input type="text" name="automaticTransmission" class="form-control" id="automaticTransmission" value="<c:out value="${car.automaticTransmission}"/>">
             </div>
             <div class="form-group col-md-2">
-                <label for="inputDriver">Driver</label>
-                <select id="inputDriver" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-                <%--                <input type="text" class="form-control" id="inputDriver">--%>
+                <label for="withDriver">Driver</label>
+                <input type="text" name="withDriver" class="form-control" id="withDriver" value="<c:out value="${car.withDriver}"/>">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Add car</button>
+
+        <button type="submit" class="btn btn-primary">Update car</button>
+    </form>
+
+    <form method="post" action="/car_rent/update_car_picture/${car.id}.action" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="picture" class="form-label">Picture</label>
+                        <input type="file" name="picture" class="form-control" id="picture">
+                    </div>
+                </div>
+        <button type="submit" class="btn btn-primary">Update car picture</button>
     </form>
 
 </main>

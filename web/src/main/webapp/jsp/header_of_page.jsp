@@ -18,7 +18,7 @@
                     <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/list_cars.view">Show cars</a>
+                    <a class="nav-link" href="/car_rent/list_cars/1.view">Show cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/car_rent/login.view">Login</a>

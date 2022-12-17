@@ -36,4 +36,24 @@ public class ListOfAutoService {
         return showAutoBeans;
     }
 
+    public List showAutoPage(int pageNumber, int pageSize){
+        List<Auto> auto = autoService.allAuto(pageNumber, pageSize);
+        List<ShowAutoBean> showAutoBeans = new ArrayList<>();
+        for (Auto value : auto) {
+            ShowAutoBean showAutoBean = new ShowAutoBean();
+            showAutoBean.setNumber(value.getId());
+            showAutoBean.setModel(value.getModel().getModelName());
+            showAutoBean.setBrand(value.getBrand().getBrandName());
+            showAutoBean.setColour(value.getColour());
+            showAutoBean.setPrice(value.getPrice().toString());
+            showAutoBeans.add(showAutoBean);
+            System.out.println("Add in showAutoBeans: " + showAutoBean);
+        }
+        for (ShowAutoBean autoBean:
+                showAutoBeans) {
+            System.out.println(autoBean);
+        }
+        return showAutoBeans;
+    }
+
 }

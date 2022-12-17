@@ -1,7 +1,11 @@
 package my.service;
 
+import my.beans.AutoDetailsBean;
+import my.dao.AutoDao;
 import my.dao.AutoDetailsDao;
+import my.entity.auto.Auto;
 import my.entity.auto.AutoDetails;
+import my.entity.auto.AutoPicture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +15,11 @@ public class AutoDetailsService {
 
     @Autowired
     private AutoDetailsDao autoDetailsDao;
+    @Autowired
+    private AutoDao autoDao;
+    @Autowired
+    private AutoPictureService autoPictureService;
+
 
     @Transactional
     public AutoDetails addAutoDetails (AutoDetails auto){
@@ -30,5 +39,24 @@ public class AutoDetailsService {
     @Transactional
     public void deleteById (Integer id){
         autoDetailsDao.deleteAutoDetails(id);
+    }
+
+    @Transactional
+    public AutoDetailsBean showAllInfAutoById (Integer id){
+        Auto auto = autoDao.getAuto(id);
+        AutoDetails autoDetails = autoDetailsDao.getAutoDetails(id);
+        AutoPicture autoPicture = autoPictureService.findById(id);
+        AutoDetailsBean autoDetailsBean = new AutoDetailsBean();
+        autoDetailsBean.setId(auto.getId());
+        autoDetailsBean.setModelName(auto.getModel().getModelName().toUpperCase());
+        autoDetailsBean.setBrandName(auto.getBrand().getBrandName().toUpperCase());
+        autoDetailsBean.setBodyType(autoDetails.getBodyType().getType());
+        autoDetailsBean.setAutomaticTransmission(autoDetails.getAutomaticTransmission());
+        autoDetailsBean.setColour(auto.getColour());
+        autoDetailsBean.setPrice(auto.getPrice().toString());
+        autoDetailsBean.setReleaseYear(autoDetails.getReleaseYear());
+        autoDetailsBean.setPicture(autoPicture.getPicture());
+
+        return autoDetailsBean;
     }
 }

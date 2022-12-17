@@ -1,5 +1,5 @@
 html {
-    background-image: url(../res/background.jpg);
+    background-image: url(../res/background.jpeg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -10,7 +10,7 @@ html {
 }
 
 .bg {
-    background-image: url(../res/background.jpg);
+    background-image: url(../res/background.jpeg);
 
     height: 100%;
 
