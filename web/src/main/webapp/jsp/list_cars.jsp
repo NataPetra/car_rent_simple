@@ -54,9 +54,7 @@
 <table class="table table-striped table-dark">
     <thead>
     <tr>
-        <th>Number</th>
-        <th>Model</th>
-        <th>Brand</th>
+        <th>Model and brand</th>
         <th>Colour</th>
         <th>Price</th>
     </tr>
@@ -66,11 +64,9 @@
     <tr>
         <td>
             <a class="nav-link" href="/car_rent/details_auto/${car.number}.view">
-                <c:out value="${car.number}"/>
+                <c:out value="${car.model} ${car.brand}"/>
             </a>
         </td>
-        <td><c:out value="${car.model}"/></td>
-        <td><c:out value="${car.brand}"/></td>
         <td><c:out value="${car.colour}"/></td>
         <td><c:out value="${car.price}"/></td>
     </tr>

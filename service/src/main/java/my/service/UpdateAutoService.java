@@ -1,8 +1,6 @@
 package my.service;
 
 import my.beans.AutoCommonBean;
-import my.dao.AutoDao;
-import my.dao.AutoDetailsDao;
 import my.entity.auto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +37,10 @@ public class UpdateAutoService {
         autoCommonBean.setModelName(auto.getModel().getModelName());
         autoCommonBean.setReleaseYear(auto.getAutoDetails().getReleaseYear());
         autoCommonBean.setWithDriver(auto.getAutoDetails().getWithDriver().toString());
-        autoCommonBean.setPicture(auto.getAutoPicture().getPicture());
+        if(auto.getAutoPicture()!=null){
+            AutoPicture autoPicture = autoPictureService.findById(id);
+            autoCommonBean.setPicture(autoPicture.getPicture());
+        }
         return autoCommonBean;
     }
 
@@ -98,9 +99,19 @@ public class UpdateAutoService {
     }
 
     public void updateAutoCommonWithPicture(byte[] picture, Integer id){
-        AutoPicture autoPicture = autoPictureService.findById(id);
-        autoPicture.setPicture(picture);
-        autoPictureService.addAutoPicture(autoPicture);
+        Auto auto = autoService.findById(id);
+        if(auto.getAutoPicture() == null) {
+            AutoPicture autoPicture = new AutoPicture();
+            autoPicture.setAuto(auto);
+            autoPicture.setPicture(picture);
+            autoPictureService.addAutoPicture(autoPicture);
+        } else {
+            AutoPicture autoPicture = autoPictureService.findById(id);
+            autoPicture.setAuto(auto);
+            autoPicture.setPicture(picture);
+            autoPictureService.addAutoPicture(autoPicture);
+        }
+
     }
 
 

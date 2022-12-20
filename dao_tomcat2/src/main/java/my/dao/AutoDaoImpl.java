@@ -57,5 +57,15 @@ public class AutoDaoImpl implements AutoDao{
     public long countAuto() {
         return autoRepository.count();
     }
+
+    @Override
+    public Auto findAutoByBrandName(String brand){
+        return autoRepository.findAutoByBrand_BrandName(brand);
+    }
+
+    @Override
+    public Auto findAutoByModelName(String model){
+        return autoRepository.findAutoByBrand_BrandName(model);
+    }
 }
 

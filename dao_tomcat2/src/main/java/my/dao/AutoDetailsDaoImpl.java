@@ -58,4 +58,9 @@ public class AutoDetailsDaoImpl implements AutoDetailsDao{
     public long countAutoDetails() {
         return autoDetailsRepository.count();
     }
+
+    @Override
+    public AutoDetails findByBodyType(String type){
+        return autoDetailsRepository.findAutoDetailsByBodyType_Type(type);
+    }
 }

@@ -3,7 +3,13 @@
 <html>
 <head>
     <title>Title</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -41,9 +47,35 @@
         <a class="nav-link" href="/car_rent/update_car/${car.id}.view">
             <button type="button" class="btn btn-outline-dark">Update car(for admin)</button>
         </a>
-        <a class="nav-link" href="#">
-            <button type="button" class="btn btn-outline-dark">Delete car(for admin)</button>
-        </a>
+<%--        <a class="nav-link" href="/car_rent/delete_car/${car.id}.view">--%>
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Delete car(for admin)</button>
+<%--        </a>--%>
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Modal body.. <c:out value="${car.modelName} ${car.brandName}"/>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <a class="nav-link" href="/car_rent/delete_confirm/${car.id}.action">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         <a class="nav-link" href="#">
             <button type="button" class="btn btn-success">Create order</button>
         </a>
@@ -59,5 +91,8 @@
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
 </div>
+
+
+
 </body>
 </html>

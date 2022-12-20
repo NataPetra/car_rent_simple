@@ -27,7 +27,10 @@ public class AddAutoService {
     @Autowired
     private AutoPictureService autoPictureService;
 
-    public void addCommonAuto (AutoCommonBean autoCommonBean, byte[] picture){
+    public void addCommonAuto (
+            AutoCommonBean autoCommonBean
+//            byte[]picture
+    ){
         log.info("AutoCommonBean " + autoCommonBean);
 
         Auto auto = new Auto();
@@ -73,11 +76,11 @@ public class AddAutoService {
         log.info("autoDetailsDB " + autoDetails);
         autoDetailsService.addAutoDetails(autoDetails);
 
-        if(auto.getAutoPicture() == null) {
-            AutoPicture autoPicture = new AutoPicture();
-            autoPicture.setAuto(autoDB);
-            autoPicture.setPicture(picture);
-            autoPictureService.addAutoPicture(autoPicture);
-        }
+//        if(auto.getAutoPicture() == null) {
+//            AutoPicture autoPicture = new AutoPicture();
+//            autoPicture.setAuto(autoDB);
+//            autoPicture.setPicture(picture);
+//            autoPictureService.addAutoPicture(autoPicture);
+//        }
     }
 }

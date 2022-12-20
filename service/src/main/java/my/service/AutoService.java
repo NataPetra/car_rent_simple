@@ -43,4 +43,14 @@ public class AutoService {
         return autoDao.getAllAutoPage(pageNumber, pageSize);
     }
 
+    @Transactional
+    public Auto findByBrand(String brand){
+        return autoDao.findAutoByBrandName(brand);
+    }
+
+    @Transactional
+    public Auto findByModel(String model){
+        return autoDao.findAutoByModelName(model);
+    }
+
 }

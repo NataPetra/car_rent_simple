@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AutoRepository extends JpaRepository<Auto, Integer> {
 
+    Auto findAutoByBrand_BrandName(String brand);
+    Auto findAutoByModel_ModelName(String model);
 
 }

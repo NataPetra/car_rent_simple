@@ -17,4 +17,6 @@ public interface AutoDao {
     List getAllAutoPage(int pageNumber, int pageSize);
     List getAllAuto();
     long countAuto();
+    Auto findAutoByBrandName(String brand);
+    Auto findAutoByModelName(String model);
 }

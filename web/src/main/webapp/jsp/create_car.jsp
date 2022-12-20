@@ -3,11 +3,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-<%--    <link href="../css/main.css" rel="stylesheet">--%>
 </head>
 <body>
 
@@ -17,7 +15,7 @@
 
 <main>
 
-    <form method="post" action="/car_rent/create_car.action" enctype="multipart/form-data">
+    <form method="post" action="${pageContext.request.contextPath}/create_car.action" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="modelName">Model</label>
@@ -67,12 +65,12 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="picture" class="form-label">Picture</label>
-                <input type="file" name="picture" class="form-control" id="picture">
-            </div>
-        </div>
+<%--        <div class="form-row">--%>
+<%--            <div class="form-group col-md-6">--%>
+<%--                <label for="picture" class="form-label">Picture</label>--%>
+<%--                <input type="file" name="picture" class="form-control" id="picture">--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
         <button type="submit" class="btn btn-primary">Add car</button>
     </form>

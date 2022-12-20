@@ -45,7 +45,7 @@ public class AutoDetailsService {
     public AutoDetailsBean showAllInfAutoById (Integer id){
         Auto auto = autoDao.getAuto(id);
         AutoDetails autoDetails = autoDetailsDao.getAutoDetails(id);
-        AutoPicture autoPicture = autoPictureService.findById(id);
+
         AutoDetailsBean autoDetailsBean = new AutoDetailsBean();
         autoDetailsBean.setId(auto.getId());
         autoDetailsBean.setModelName(auto.getModel().getModelName().toUpperCase());
@@ -55,8 +55,15 @@ public class AutoDetailsService {
         autoDetailsBean.setColour(auto.getColour());
         autoDetailsBean.setPrice(auto.getPrice().toString());
         autoDetailsBean.setReleaseYear(autoDetails.getReleaseYear());
-        autoDetailsBean.setPicture(autoPicture.getPicture());
+        if(auto.getAutoPicture()!=null){
+            AutoPicture autoPicture = autoPictureService.findById(id);
+            autoDetailsBean.setPicture(autoPicture.getPicture());
+        }
 
         return autoDetailsBean;
+    }
+
+    public AutoDetails findByType(String type){
+        return autoDetailsDao.findByBodyType(type);
     }
 }

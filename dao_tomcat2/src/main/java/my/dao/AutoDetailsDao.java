@@ -17,4 +17,5 @@ public interface AutoDetailsDao {
     List getAllAutoDetails(int pageNumber, int pageSize);
     List getAllAutoDetails();
     long countAutoDetails();
+    AutoDetails findByBodyType(String type);
 }
