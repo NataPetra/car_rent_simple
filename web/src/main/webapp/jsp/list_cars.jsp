@@ -54,9 +54,9 @@
 <table class="table table-striped table-dark">
     <thead>
     <tr>
-        <th>Model and brand</th>
+        <th>Model and brand of car</th>
         <th>Colour</th>
-        <th>Price</th>
+        <th>Price per day</th>
     </tr>
     </thead>
     <tbody>
@@ -81,6 +81,7 @@
 <%--            </li>--%>
             <li class="page-item"><a class="page-link" href="/car_rent/list_cars/1.view">1</a></li>
             <li class="page-item"><a class="page-link" href="/car_rent/list_cars/2.view">2</a></li>
+            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/3.view">3</a></li>
 <%--            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/3.view">3</a></li>--%>
 <%--            <li class="page-item">--%>
 <%--                <a class="page-link" href="#">Next</a>--%>

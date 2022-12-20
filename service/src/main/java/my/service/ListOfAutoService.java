@@ -22,8 +22,8 @@ public class ListOfAutoService {
         for (Auto value : auto) {
             ShowAutoBean showAutoBean = new ShowAutoBean();
             showAutoBean.setNumber(value.getId());
-            showAutoBean.setModel(value.getModel().getModelName());
-            showAutoBean.setBrand(value.getBrand().getBrandName());
+            showAutoBean.setModel(value.getModel().getModelName().toUpperCase());
+            showAutoBean.setBrand(value.getBrand().getBrandName().toUpperCase());
             showAutoBean.setColour(value.getColour());
             showAutoBean.setPrice(value.getPrice().toString());
             showAutoBeans.add(showAutoBean);
@@ -42,8 +42,8 @@ public class ListOfAutoService {
         for (Auto value : auto) {
             ShowAutoBean showAutoBean = new ShowAutoBean();
             showAutoBean.setNumber(value.getId());
-            showAutoBean.setModel(value.getModel().getModelName());
-            showAutoBean.setBrand(value.getBrand().getBrandName());
+            showAutoBean.setModel(value.getModel().getModelName().toUpperCase());
+            showAutoBean.setBrand(value.getBrand().getBrandName().toUpperCase());
             showAutoBean.setColour(value.getColour());
             showAutoBean.setPrice(value.getPrice().toString());
             showAutoBeans.add(showAutoBean);

@@ -14,10 +14,10 @@
 <c:set value="${autoBean}" var="car"/>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text"><c:out value="${car.modelName} ${car.brandName}"/> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">The car is removed!</h5>
+            <p class="card-text"><c:out value="Forget the car ${car.modelName} ${car.brandName} ${car.releaseYear} release, ${car.colour}."/></p>
             <a class="nav-link" href="/car_rent/list_cars/1.view">
-            <button type="button" class="btn btn-primary">Return list</button>
+            <button type="button" class="btn btn-success">Back to car list</button>
             </a>
         </div>
     </div>

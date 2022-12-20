@@ -26,6 +26,8 @@ public class DeleteAutoService {
         AutoCommonBean autoCommonBean = new AutoCommonBean();
         autoCommonBean.setModelName(auto.getModel().getModelName());
         autoCommonBean.setBrandName(auto.getBrand().getBrandName());
+        autoCommonBean.setColour(auto.getColour());
+        autoCommonBean.setReleaseYear(auto.getAutoDetails().getReleaseYear());
         return autoCommonBean;
     }
 

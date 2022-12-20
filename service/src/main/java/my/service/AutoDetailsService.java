@@ -51,7 +51,16 @@ public class AutoDetailsService {
         autoDetailsBean.setModelName(auto.getModel().getModelName().toUpperCase());
         autoDetailsBean.setBrandName(auto.getBrand().getBrandName().toUpperCase());
         autoDetailsBean.setBodyType(autoDetails.getBodyType().getType());
-        autoDetailsBean.setAutomaticTransmission(autoDetails.getAutomaticTransmission());
+        if (autoDetails.getAutomaticTransmission()){
+            autoDetailsBean.setAutomaticTransmission("");
+        } else {
+            autoDetailsBean.setAutomaticTransmission("no");
+        }
+        if (autoDetails.getWithDriver()){
+            autoDetailsBean.setDriver("with");
+        } else {
+            autoDetailsBean.setDriver("without");
+        }
         autoDetailsBean.setColour(auto.getColour());
         autoDetailsBean.setPrice(auto.getPrice().toString());
         autoDetailsBean.setReleaseYear(autoDetails.getReleaseYear());
@@ -59,7 +68,6 @@ public class AutoDetailsService {
             AutoPicture autoPicture = autoPictureService.findById(id);
             autoDetailsBean.setPicture(autoPicture.getPicture());
         }
-
         return autoDetailsBean;
     }
 

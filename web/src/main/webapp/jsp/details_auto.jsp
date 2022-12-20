@@ -56,19 +56,19 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Modal Heading</h4>
+                            <h4 class="modal-title">Are you confident in your decision?</h4>
                             <button type="button" class="close" data-dismiss="modal">×</button>
                         </div>
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            Modal body.. <c:out value="${car.modelName} ${car.brandName}"/>
+                            <c:out value="Are you sure you want to delete the car - ${car.modelName} ${car.brandName} ${car.releaseYear} release, ${car.colour}?"/>
                         </div>
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <a class="nav-link" href="/car_rent/delete_confirm/${car.id}.action">
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-danger">Delete anyway</button>
                             </a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
@@ -87,8 +87,8 @@
     <img src="/car_rent/image/${car.id}/picture.jpg" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title"><c:out value="${car.id}) ${car.modelName} ${car.brandName}."/></h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"><c:out value="This car was produced in ${car.releaseYear}, is presented in ${car.colour}, there is ${car.automaticTransmission} automatic transmission, the body is a ${car.bodyType}."/></p>
+        <p class="card-text"><small class="text-muted"><c:out value="This car can be rented ${car.driver} a driver. The price - ${car.price} U.S. dollar is for rent per day."/></small></p>
     </div>
 </div>
 

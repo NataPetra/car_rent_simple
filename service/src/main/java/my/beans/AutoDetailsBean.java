@@ -15,7 +15,8 @@ public class AutoDetailsBean {
     private String colour;
     private String price;
     private Integer releaseYear;
-    private Boolean automaticTransmission;
+    private String automaticTransmission;
+    private String driver;
     private String modelName;
     private String brandName;
     private String bodyType;
