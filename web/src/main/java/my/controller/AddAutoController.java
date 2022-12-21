@@ -21,21 +21,21 @@ public class AddAutoController {
         return "create_car";
     }
 
-    @PostMapping("/create_car.action")
-    @SneakyThrows
-    public String addAutoComm(AutoCommonBean autoCommonBean){
-        //System.out.println("Call addAuto: " + autoCommonBean);
-        addAutoComm.addCommonAuto(autoCommonBean);
-        return "redirect:/create_car.view";
-
-    }
-
 //    @PostMapping("/create_car.action")
 //    @SneakyThrows
-//    public String addAutoComm(@RequestParam("picture") MultipartFile file, AutoCommonBean autoCommonBean){
-//        addAutoComm.addCommonAuto(autoCommonBean, file.getBytes());
+//    public String addAutoComm(AutoCommonBean autoCommonBean){
+//        //System.out.println("Call addAuto: " + autoCommonBean);
+//        addAutoComm.addCommonAuto(autoCommonBean);
 //        return "redirect:/create_car.view";
 //
 //    }
+
+    @PostMapping("/create_car.action")
+    @SneakyThrows
+    public String addAutoComm(@RequestParam("picture1") MultipartFile file, AutoCommonBean autoCommonBean){
+        addAutoComm.addCommonAuto(autoCommonBean, file.getBytes());
+        return "redirect:/create_car.view";
+
+    }
 
 }

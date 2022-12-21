@@ -5,6 +5,8 @@ import my.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BrandDaoImpl implements BrandDao{
 
@@ -30,4 +32,21 @@ public class BrandDaoImpl implements BrandDao{
     public Brand getByName(String name) {
         return brandRepository.findBrandByBrandName(name);
     }
+
+    @Override
+    public List findByModelId(Integer id){
+        return brandRepository.findBrandsByModel_Id(id);
+    }
+
+    @Override
+    public List getAll() {
+        return brandRepository.findAll();
+    }
+
+    @Override
+    public long count() {
+        return brandRepository.count();
+    }
+
+
 }

@@ -5,6 +5,8 @@ import my.repository.ModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ModelDaoImpl implements ModelDao{
 
@@ -36,5 +38,14 @@ public class ModelDaoImpl implements ModelDao{
         return modelRepository.findModelNameById(id);
     }
 
+    @Override
+    public List getAll() {
+        return modelRepository.findAll();
+    }
+
+    @Override
+    public long count() {
+        return modelRepository.count();
+    }
 
 }

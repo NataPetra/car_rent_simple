@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class BrandService {
 
@@ -31,6 +33,22 @@ public class BrandService {
     @Transactional
     public Brand findByName (String name){
         return brandDao.getByName(name);
+    }
+
+    @Transactional
+    public Integer findByModelId (Integer id){
+        List listBrands = brandDao.findByModelId(id);
+        return listBrands.size();
+    }
+
+    @Transactional
+    public List findAllBrands(){
+        return brandDao.getAll();
+    }
+
+    @Transactional
+    public Long countOfBrands (){
+        return brandDao.count();
     }
 
 }

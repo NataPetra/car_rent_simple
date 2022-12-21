@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dataset>
     <model model_id="1" model_name="volvo" />
+    <model model_id="2" model_name="audi" />
     <brand brand_id="1" model_id="1" brand_name="x90"/>
     <brand brand_id="2" model_id="1" brand_name="x60"/>
+    <brand brand_id="3" model_id="2" brand_name="q7"/>
     <auto auto_id="1" model_id="1" brand_id="1"
           colour="black" price="17000.00" />
     <auto auto_id="2" model_id="1" brand_id="2"
           colour="gray" price="27000.00" />
+    <auto auto_id="3" model_id="2" brand_id="3"
+          colour="black" price="18000.00" />
 
 </dataset>

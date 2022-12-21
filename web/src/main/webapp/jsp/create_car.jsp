@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -65,12 +65,12 @@
             </div>
         </div>
 
-<%--        <div class="form-row">--%>
-<%--            <div class="form-group col-md-6">--%>
-<%--                <label for="picture" class="form-label">Picture</label>--%>
-<%--                <input type="file" name="picture" class="form-control" id="picture">--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="picture1" class="form-label">Picture</label>
+                <input type="file" name="picture1" class="form-control" id="picture1">
+            </div>
+        </div>
 
         <button type="submit" class="btn btn-primary">Add car</button>
     </form>

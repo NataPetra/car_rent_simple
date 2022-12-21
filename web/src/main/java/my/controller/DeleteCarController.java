@@ -32,7 +32,7 @@ public class DeleteCarController {
     @GetMapping("/delete_confirm/{car.id}.action")
     public ModelAndView deleteConfirmCarPage(@PathVariable("car.id") Integer id){
         AutoCommonBean autoCommonBean = deleteAutoService.saveInf(id);
-        autoService.deleteById(id);
+        deleteAutoService.deleteAllInf(id);
         return new ModelAndView("delete_confirm_car",
                 Map.of("autoBean", autoCommonBean));
     }

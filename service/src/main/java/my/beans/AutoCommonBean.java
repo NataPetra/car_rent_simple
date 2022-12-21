@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
-
-import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -15,23 +12,14 @@ import java.math.BigDecimal;
 public class AutoCommonBean {
 
     private Integer id;
-
     private String colour;
-
     private String price;
-
     private Integer releaseYear;
-
     private String automaticTransmission;
-
     private String withDriver;
-
     private String modelName;
-
     private String brandName;
-
     private String bodyType;
-
     private byte[] picture;
 
     @Override

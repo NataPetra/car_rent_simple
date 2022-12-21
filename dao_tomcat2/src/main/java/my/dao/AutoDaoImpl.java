@@ -65,7 +65,7 @@ public class AutoDaoImpl implements AutoDao{
 
     @Override
     public Auto findAutoByModelName(String model){
-        return autoRepository.findAutoByBrand_BrandName(model);
+        return autoRepository.findAutoByModel_ModelName(model);
     }
 }
 

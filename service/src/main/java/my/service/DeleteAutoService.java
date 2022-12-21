@@ -12,11 +12,7 @@ public class DeleteAutoService {
     @Autowired
     private AutoService autoService;
     @Autowired
-    private AutoDetailsService autoDetailsService;
-    @Autowired
     private ModelService modelService;
-    @Autowired
-    private BodyTypeService bodyTypeService;
     @Autowired
     private BrandService brandService;
 
@@ -33,21 +29,16 @@ public class DeleteAutoService {
 
     public void deleteAllInf(Integer id){
         Auto auto = autoService.findById(id);
-        String modelName = auto.getModel().getModelName();
         Integer idModel = auto.getModel().getId();
         String brandName = auto.getBrand().getBrandName();
         Integer idBrand = auto.getBrand().getId();
-        String type = auto.getAutoDetails().getBodyType().getType();
-        Integer idBody = auto.getAutoDetails().getBodyType().getId();
         autoService.deleteById(id);
         if(autoService.findByBrand(brandName)==null){
             brandService.deleteById(idBrand);
-        }
-        if(autoService.findByModel(modelName)==null){
-            modelService.deleteById(idModel);
-        }
-        if(autoDetailsService.findByType(type)==null){
-            bodyTypeService.deleteById(idBody);
+            Integer countBrands = brandService.findByModelId(idModel);
+            if(countBrands==0){
+                modelService.deleteById(idModel);
+            }
         }
     }
 

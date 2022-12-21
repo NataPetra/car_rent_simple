@@ -24,42 +24,49 @@ public class AutoServiceTest {
     @Autowired
     private ModelService modelService;
     @Autowired
-    private AutoDetailsService autoDetailsService;
-    @Autowired
     private BrandService brandService;
 
     private Auto auto;
     private Model bmv;
     private Brand x5;
 
-//    @Before
-//    public void init() {
-//        bmv = new Model(null, "bmv");
-//        x5 = new Brand(null, bmv, "X5");
-//
-//        auto = autoService.addAuto(new Auto());
-//        modelService.addModel(bmv);
-//        brandService.addBrand(x5);
-//    }
+    @Before
+    public void init() {
+        bmv = new Model();
+        bmv.setModelName("bmw");
+        Model addModel = modelService.addModel(bmv);
+        x5 = new Brand();
+        x5.setModel(addModel);
+        x5.setBrandName("x5");
+        Brand addBrand = brandService.addBrand(x5);
+
+        auto = new Auto();
+        auto.setBrand(addBrand);
+        auto.setModel(addModel);
+        auto.setColour("red");
+        auto = autoService.addAuto(auto);
+    }
 
     @Test
-    @Ignore
     public void crudRepositoryTest() {
         Integer autoId = auto.getId();
         System.out.println(autoService.existsById(autoId));
         Auto autoDB = autoService.findById(autoId);
+        System.out.println(autoDB);
 
-        Model modelDB = modelService.findById(bmv.getId());
+        Model modelDB = modelService.findById(autoDB.getModel().getId());
+        System.out.println(modelDB);
 
-        auto.setModel(modelDB);
-        auto.setColour("red");
-        auto.setPrice(new BigDecimal(10000));
-        autoService.addAuto(auto);
-        System.out.println(auto);
+        Brand brandDB = brandService.findById(autoDB.getBrand().getId());
+        System.out.println(brandDB);
+
+        autoDB.setPrice(new BigDecimal(10000));
+        autoService.addAuto(autoDB);
+        System.out.println(autoDB);
 
         autoService.deleteById(autoId);
-        modelService.deleteById(autoId);
-        //autoDetailsService.deleteById(1);
+        brandService.deleteById(brandDB.getId());
+        modelService.deleteById(modelDB.getId());
     }
 
 }

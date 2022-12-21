@@ -51,8 +51,6 @@ public class AutoDetailsServiceDaoImplTest extends TestConfig{
 
         //Then
         assertEquals("2015", autoDetails.getReleaseYear().toString());
-//        assertEquals("17000.00", auto.getPrice().toString());
-//        assertEquals("volvo", auto.getModel().getModelName());
 
         DatabaseOperation.DELETE.execute(iDatabaseConnection, dataSet);
 

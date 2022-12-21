@@ -2,7 +2,6 @@ package my.dao;
 
 import my.entity.auto.AutoDetails;
 import my.repository.AutoDetailsRepository;
-import my.repository.AutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,11 +29,6 @@ public class AutoDetailsDaoImpl implements AutoDetailsDao{
     }
 
     @Override
-    public AutoDetails editAutoDetails(AutoDetails auto) {
-        return null;
-    }
-
-    @Override
     public void deleteAutoDetails(AutoDetails auto) {
         autoDetailsRepository.delete(auto);
     }
@@ -42,16 +36,6 @@ public class AutoDetailsDaoImpl implements AutoDetailsDao{
     @Override
     public void deleteAutoDetails(Integer id) {
         autoDetailsRepository.deleteById(id);
-    }
-
-    @Override
-    public List getAllAutoDetails(int pageNumber, int pageSize) {
-        return null;
-    }
-
-    @Override
-    public List getAllAutoDetails() {
-        return null;
     }
 
     @Override

@@ -21,4 +21,19 @@ public class AutoDetailsBean {
     private String brandName;
     private String bodyType;
     private byte[] picture;
+
+    @Override
+    public String toString() {
+        return "AutoDetailsBean{" +
+                "id=" + id +
+                ", colour='" + colour + '\'' +
+                ", price='" + price + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", automaticTransmission='" + automaticTransmission + '\'' +
+                ", driver='" + driver + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                '}';
+    }
 }
