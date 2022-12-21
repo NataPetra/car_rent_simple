@@ -41,21 +41,21 @@ public class AddAutoService {
 
         if (model == null) {
             model = new Model();
-            model.setModelName(autoCommonBean.getModelName().toLowerCase());
+            model.setModelName(autoCommonBean.getModelName().toLowerCase().trim());
             log.info("modelDB " + model);
             model = modelService.addModel(model);
         }
 
         if (bodyType==null){
             bodyType = new BodyType();
-            bodyType.setType(autoCommonBean.getBodyType().toLowerCase());
+            bodyType.setType(autoCommonBean.getBodyType().toLowerCase().trim());
             log.info("bodyTypeDB " + bodyType);
             bodyType = bodyTypeService.addBodyType(bodyType);
         }
 
         if (brand==null){
             brand = new Brand();
-            brand.setBrandName(autoCommonBean.getBrandName().toLowerCase());
+            brand.setBrandName(autoCommonBean.getBrandName().toLowerCase().trim());
             brand.setModel(model);
             log.info("brandDB " + brand);
             brand = brandService.addBrand(brand);
@@ -64,7 +64,7 @@ public class AddAutoService {
         auto.setModel(model);
         auto.setBrand(brand);
         auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
-        auto.setColour(autoCommonBean.getColour().toLowerCase());
+        auto.setColour(autoCommonBean.getColour().toLowerCase().trim());
         log.info("autoDB " + auto);
         Auto autoDB = autoService.addAuto(auto);
 

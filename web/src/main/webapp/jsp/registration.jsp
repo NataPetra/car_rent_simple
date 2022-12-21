@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
     <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-    <link href="/car_rent/css/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -86,7 +86,7 @@
                                     <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/car_rent/login.view"
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="${pageContext.request.contextPath}/login.view"
                                                                                                         class="fw-bold text-body"><u>Login here</u></a></p>
 
                             </form>

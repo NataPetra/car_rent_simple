@@ -15,16 +15,16 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/list_cars/1.view">Show cars</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/login.view">Login</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/car_rent/registration.view">Registration</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
                 </li>
             </ul>
         </div>

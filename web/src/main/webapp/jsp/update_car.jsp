@@ -14,7 +14,7 @@
 
 <main>
     <c:set value="${autoCommonBean}" var="car"/>
-    <form method="post" action="/car_rent/update_car/${car.id}.action">
+    <form method="post" action="${pageContext.request.contextPath}/update_car/${car.id}.action">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="modelName">Model</label>

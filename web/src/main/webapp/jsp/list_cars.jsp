@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
     <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-    <link href="/car_rent/css/main.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -30,20 +30,20 @@
             <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="/car_rent/index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/car_rent/list_cars/1.view">Show cars</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/car_rent/login.view">Login</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/car_rent/registration.view">Registration</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
                     </li>
                 </ul>
             </div>
-            <a class="nav-link" href="/car_rent/create_car.view">
+            <a class="nav-link" href="${pageContext.request.contextPath}/create_car.view">
             <button type="button" class="btn btn-outline-dark">Add car(for admin)</button>
             </a>
         </div>
@@ -79,10 +79,10 @@
 <%--            <li class="page-item disabled">--%>
 <%--                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>--%>
 <%--            </li>--%>
-            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/1.view">1</a></li>
-            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/2.view">2</a></li>
-            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/3.view">3</a></li>
-<%--            <li class="page-item"><a class="page-link" href="/car_rent/list_cars/3.view">3</a></li>--%>
+            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/1.view">1</a></li>
+            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/2.view">2</a></li>
+            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/3.view">3</a></li>
+            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/4.view">4</a></li>
 <%--            <li class="page-item">--%>
 <%--                <a class="page-link" href="#">Next</a>--%>
 <%--            </li>--%>

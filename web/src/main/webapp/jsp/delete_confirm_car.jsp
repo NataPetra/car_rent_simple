@@ -16,7 +16,7 @@
         <div class="card-body">
             <h5 class="card-title">The car is removed!</h5>
             <p class="card-text"><c:out value="Forget the car ${car.modelName} ${car.brandName} ${car.releaseYear} release, ${car.colour}."/></p>
-            <a class="nav-link" href="/car_rent/list_cars/1.view">
+            <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">
             <button type="button" class="btn btn-success">Back to car list</button>
             </a>
         </div>
