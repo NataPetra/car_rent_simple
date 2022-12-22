@@ -2,7 +2,7 @@ package my.controller;
 
 import lombok.SneakyThrows;
 import my.beans.AutoCommonBean;
-import my.service.UpdateAutoService;
+import my.service.auto_services.UpdateAutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +31,8 @@ public class UpdateCarController {
     public String updateAutoComm(@PathVariable("car.id") Integer id,
                                  AutoCommonBean autoCommonBean){
         System.out.println("Call update Auto controller");
-            updateAutoService.updateAutoCommon(autoCommonBean, id);
-
-        //addAutoComm.addCommonAuto(autoCommonBean, file.getBytes());
+        updateAutoService.updateAutoCommon(autoCommonBean, id);
         return "redirect:/list_cars.view";
-
     }
 
     @PostMapping("/update_car_picture/{car.id}.action")

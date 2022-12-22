@@ -1,4 +1,4 @@
-package my.service;
+package my.service.auto_services;
 
 import my.beans.AutoDetailsBean;
 import my.dao.AutoDao;

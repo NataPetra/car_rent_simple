@@ -1,4 +1,4 @@
-package my.service;
+package my.service.auto_services;
 
 import my.beans.AutoCommonBean;
 import my.entity.auto.Auto;
@@ -27,6 +27,7 @@ public class DeleteAutoService {
         return autoCommonBean;
     }
 
+    @Transactional
     public void deleteAllInf(Integer id){
         Auto auto = autoService.findById(id);
         Integer idModel = auto.getModel().getId();

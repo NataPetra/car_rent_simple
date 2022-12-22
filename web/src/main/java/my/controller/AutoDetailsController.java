@@ -1,9 +1,7 @@
 package my.controller;
 
-import my.beans.AutoDetailsBean;
-import my.entity.auto.AutoPicture;
-import my.service.AutoDetailsService;
-import my.service.AutoPictureService;
+import my.service.auto_services.AutoDetailsService;
+import my.service.auto_services.AutoPictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

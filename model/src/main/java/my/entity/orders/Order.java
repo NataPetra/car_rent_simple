@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -33,5 +34,14 @@ public class Order {
 
     @Column
     private String comments;
+
+    @Column
+    private LocalDate dateStart;
+
+    @Column
+    private LocalDate dateFinish;
+
+    @Column
+    private Integer amountOfDays;
 
 }

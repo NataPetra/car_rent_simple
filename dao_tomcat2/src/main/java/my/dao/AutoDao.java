@@ -19,4 +19,5 @@ public interface AutoDao {
     long countAuto();
     Auto findAutoByBrandName(String brand);
     Auto findAutoByModelName(String model);
+    Auto findByModelBrandColourYear(String model, String brand, Integer year, String colour);
 }

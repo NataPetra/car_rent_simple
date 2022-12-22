@@ -67,5 +67,10 @@ public class AutoDaoImpl implements AutoDao{
     public Auto findAutoByModelName(String model){
         return autoRepository.findAutoByModel_ModelName(model);
     }
+
+    @Override
+    public Auto findByModelBrandColourYear(String model, String brand, Integer year, String colour) {
+        return autoRepository.findAutoByModel_ModelNameAndBrand_BrandNameAndAutoDetails_ReleaseYearAndColour(model, brand, year, colour);
+    }
 }
 

@@ -1,4 +1,4 @@
-package my.service;
+package my.service.auto_services;
 
 import my.dao.AutoDao;
 import my.entity.auto.Auto;
@@ -19,6 +19,7 @@ public class AutoService {
         return autoDao.createAuto(auto);
     }
 
+    @Transactional
     public Boolean existsById(Integer id){
         return autoDao.isExistsById(id);
     }
@@ -53,4 +54,8 @@ public class AutoService {
         return autoDao.findAutoByModelName(model);
     }
 
+    @Transactional
+    public Auto findByModelBrandYearColour(String model, String brand, Integer year, String colour){
+        return autoDao.findByModelBrandColourYear(model, brand, year, colour);
+    }
 }

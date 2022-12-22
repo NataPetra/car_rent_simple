@@ -6,6 +6,7 @@ import my.entity.users.User;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -15,7 +16,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "user_order")
-public class UserOrder {
+public class UserOrder implements Serializable {
 
     @Id
     @Column(name = "user_order_id")

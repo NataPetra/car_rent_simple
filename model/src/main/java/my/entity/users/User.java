@@ -29,14 +29,6 @@ public class User implements Serializable {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserDetails userDetails;
 
-//    @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "user_role",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id")
-//    )
-//    private Set<Role> roles;
-
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;

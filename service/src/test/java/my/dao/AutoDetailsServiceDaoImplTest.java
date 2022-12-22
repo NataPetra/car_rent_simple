@@ -3,7 +3,7 @@ package my.dao;
 import lombok.SneakyThrows;
 import my.config.TestConfig;
 import my.entity.auto.AutoDetails;
-import my.service.AutoDetailsService;
+import my.service.auto_services.AutoDetailsService;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;

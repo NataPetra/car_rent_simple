@@ -27,9 +27,6 @@ public class Role implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<Permission> permissions;
 
-//    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-//    private Set<User> users;
-
     @OneToMany(mappedBy = "role")
     private List<User> users;
 

@@ -1,4 +1,4 @@
-package my.service;
+package my.service.auto_services;
 
 import my.beans.AutoCommonBean;
 import my.entity.auto.*;

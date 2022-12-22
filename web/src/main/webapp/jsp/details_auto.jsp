@@ -67,7 +67,7 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <a class="nav-link" href="/car_rent/delete_confirm/${car.id}.action">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/delete_confirm/${car.id}.action">
                                 <button type="button" class="btn btn-danger">Delete anyway</button>
                             </a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="${pageContext.request.contextPath}/order/${car.id}.view">
             <button type="button" class="btn btn-success">Create order</button>
         </a>
     </div>

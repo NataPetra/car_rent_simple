@@ -3,7 +3,7 @@ package my.dao;
 import lombok.SneakyThrows;
 import my.config.TestConfig;
 import my.entity.users.User;
-import my.service.UserService;
+import my.service.user_services.UserService;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;

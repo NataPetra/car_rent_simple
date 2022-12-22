@@ -2,11 +2,12 @@ package my.service;
 
 import my.config.RootConfig;
 import my.entity.auto.Auto;
-import my.entity.auto.AutoDetails;
 import my.entity.auto.Brand;
 import my.entity.auto.Model;
+import my.service.auto_services.AutoService;
+import my.service.auto_services.BrandService;
+import my.service.auto_services.ModelService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

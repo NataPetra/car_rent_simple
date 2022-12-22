@@ -1,4 +1,4 @@
-package my.service;
+package my.service.auto_services;
 
 import my.beans.AutoCommonBean;
 import my.entity.auto.*;
@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -27,6 +28,7 @@ public class AddAutoService {
     @Autowired
     private AutoPictureService autoPictureService;
 
+    @Transactional
     public void addCommonAuto (
             AutoCommonBean autoCommonBean,
             byte[]picture

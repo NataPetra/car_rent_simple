@@ -1,10 +1,9 @@
 package my.controller;
 
 import my.beans.AutoCommonBean;
-import my.entity.auto.Auto;
-import my.service.AutoService;
-import my.service.DeleteAutoService;
-import my.service.UpdateAutoService;
+import my.service.auto_services.AutoService;
+import my.service.auto_services.DeleteAutoService;
+import my.service.auto_services.UpdateAutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

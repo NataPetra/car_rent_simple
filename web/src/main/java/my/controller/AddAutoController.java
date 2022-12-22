@@ -2,7 +2,7 @@ package my.controller;
 
 import lombok.SneakyThrows;
 import my.beans.AutoCommonBean;
-import my.service.AddAutoService;
+import my.service.auto_services.AddAutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
