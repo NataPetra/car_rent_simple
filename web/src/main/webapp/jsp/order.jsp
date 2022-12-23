@@ -67,7 +67,16 @@
         <button type="submit" class="btn btn-primary">Create order</button>
     </form>
 
-
+    <table style="width:100%" class="table">
+        <tr>
+            <th>If you select the dates below, your order will not be processed</th>
+        </tr>
+        <c:forEach items="${listOfDates}" var="dates">
+            <tr>
+                <td>This car is already booked <c:out value="${dates}"/></td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </main>
 

@@ -23,7 +23,8 @@ public class OrderController {
     @GetMapping("/order/{car.id}.view")
     public ModelAndView orderPage(@PathVariable("car.id") Integer id){
         return new ModelAndView("order",
-                Map.of("autoCommonBean", addOrderService.getAutoCommonBeanForOrder(id)));
+                Map.of("autoCommonBean", addOrderService.getAutoCommonBeanForOrder(id),
+                        "listOfDates", addOrderService.listOfDatesForMessage(id)));
     }
 
     @PostMapping("/order/{car.id}.action")

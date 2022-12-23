@@ -3,7 +3,6 @@ package my.service.order_services;
 import my.beans.AutoCommonBean;
 import my.beans.OrderCommonBean;
 import my.entity.auto.Auto;
-import my.entity.auto.AutoPicture;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
 import my.entity.orders.UserOrder;
@@ -14,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AddOrderService {
@@ -68,6 +69,18 @@ public class AddOrderService {
         order.setDateStart(s);
         order.setDateFinish(f);
         orderService.addOrder(order);
+    }
 
+    public List<String> listOfDatesForMessage(Integer id){
+        Auto auto = autoService.findById(id);
+        AutoOrder autoOrder = autoOrderService.findByAuto(auto);
+        List<Order> ordersByAuto = orderService.findByAutoOrder(autoOrder);
+        List<String> dates = new ArrayList<>();
+        if(ordersByAuto!=null){
+            for (Order value: ordersByAuto) {
+                dates.add("from " + value.getDateStart().toString() + " to " + value.getDateFinish().toString());
+            }
+        }
+        return dates;
     }
 }

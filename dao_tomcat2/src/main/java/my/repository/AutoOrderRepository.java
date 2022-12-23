@@ -5,6 +5,8 @@ import my.entity.orders.AutoOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AutoOrderRepository extends JpaRepository<AutoOrder, Integer> {
 
@@ -13,4 +15,6 @@ public interface AutoOrderRepository extends JpaRepository<AutoOrder, Integer> {
             String brand,
             Integer year,
             String colour);
+
+    AutoOrder findAutoOrderByAuto (Auto auto);
 }

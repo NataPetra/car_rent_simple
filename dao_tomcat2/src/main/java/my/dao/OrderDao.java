@@ -1,5 +1,6 @@
 package my.dao;
 
+import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +17,6 @@ public interface OrderDao {
     void delete(Integer id);
     List getAll();
     long count();
+    List findByAutoOrder(AutoOrder autoOrder);
 
 }

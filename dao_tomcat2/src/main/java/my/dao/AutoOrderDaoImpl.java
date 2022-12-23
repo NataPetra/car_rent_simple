@@ -1,5 +1,6 @@
 package my.dao;
 
+import my.entity.auto.Auto;
 import my.entity.orders.AutoOrder;
 import my.repository.AutoOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,10 @@ public class AutoOrderDaoImpl implements AutoOrderDao{
     public AutoOrder findByModelBrandColourYear(String model, String brand, Integer year, String colour) {
         return autoOrderRepository.findAutoOrderByAuto_Model_ModelNameAndAuto_Brand_BrandNameAndAuto_AutoDetails_ReleaseYearAndAuto_Colour(model, brand, year, colour);
     }
+
+    @Override
+    public AutoOrder findByAuto(Auto auto) {
+        return autoOrderRepository.findAutoOrderByAuto(auto);
+    }
+
 }

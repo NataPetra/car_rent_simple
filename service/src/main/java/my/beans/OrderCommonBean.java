@@ -19,8 +19,6 @@ public class OrderCommonBean {
     private Integer releaseYear;
     private String modelName;
     private String brandName;
-//    private LocalDate dateStart;
-//    private LocalDate dateFinish;
     private Integer amountOfDays;
     private String comments;
 

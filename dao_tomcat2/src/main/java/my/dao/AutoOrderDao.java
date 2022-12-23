@@ -1,5 +1,6 @@
 package my.dao;
 
+import my.entity.auto.Auto;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.UserOrder;
 import org.springframework.stereotype.Repository;
@@ -17,4 +18,5 @@ public interface AutoOrderDao {
     List getAll();
     long count();
     AutoOrder findByModelBrandColourYear(String model, String brand, Integer year, String colour);
+    AutoOrder findByAuto (Auto auto);
 }
