@@ -15,7 +15,7 @@ public class AddUserService {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailService userDetailsService;
     @Autowired
     private RoleService roleService;
 

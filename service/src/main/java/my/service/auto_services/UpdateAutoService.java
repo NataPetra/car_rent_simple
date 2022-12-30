@@ -2,6 +2,7 @@ package my.service.auto_services;
 
 import my.beans.AutoCommonBean;
 import my.entity.auto.*;
+import my.service.CustomMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +40,7 @@ public class UpdateAutoService {
         autoCommonBean.setWithDriver(auto.getAutoDetails().getWithDriver().toString());
         if(auto.getAutoPicture()!=null){
             AutoPicture autoPicture = autoPictureService.findById(id);
-            autoCommonBean.setPicture(autoPicture.getPicture());
+            autoCommonBean.setPictureImg(new CustomMultipartFile(autoPicture.getPicture(), "pictureImd"));
         }
         return autoCommonBean;
     }

@@ -58,4 +58,9 @@ public class AutoService {
     public Auto findByModelBrandYearColour(String model, String brand, Integer year, String colour){
         return autoDao.findByModelBrandColourYear(model, brand, year, colour);
     }
+
+    @Transactional
+    public long countAuto(){
+        return autoDao.countAuto();
+    }
 }

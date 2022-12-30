@@ -1,3 +1,4 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -35,21 +36,27 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+                    <security:authorize access="isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                    </security:authorize>
+                    <security:authorize access="!isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+                    </security:authorize>
                 </li>
                 <li class="nav-item">
+                    <security:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
+                    </security:authorize>
                 </li>
             </ul>
         </div>
         <c:set value="${autoDetailsBean}" var="car"/>
-<%--        if (--%>
+        <security:authorize access="hasRole('ROLE_ADMIN')">
         <a class="nav-link" href="/car_rent/update_car/${car.id}.view">
             <button type="button" class="btn btn-outline-dark">Update car(for admin)</button>
         </a>
-<%--        <a class="nav-link" href="/car_rent/delete_car/${car.id}.view">--%>
+
             <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Delete car(for admin)</button>
-<%--        </a>--%>
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
@@ -76,9 +83,12 @@
                     </div>
                 </div>
             </div>
+        </security:authorize>
+        <security:authorize access="hasAnyRole('ROLE_SIMPLE_USER', 'ROLE_ADMIN')">
         <a class="nav-link" href="${pageContext.request.contextPath}/order/${car.id}.view">
             <button type="button" class="btn btn-success">Create order</button>
         </a>
+        </security:authorize>
     </div>
 </nav>
 

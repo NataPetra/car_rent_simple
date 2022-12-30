@@ -1,3 +1,4 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
@@ -21,10 +22,19 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+
+                    <security:authorize access="isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                    </security:authorize>
+                    <security:authorize access="!isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+                    </security:authorize>
+
                 </li>
                 <li class="nav-item">
+                    <security:authorize access="!isAuthenticated()">
                     <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
+                    </security:authorize>
                 </li>
             </ul>
         </div>

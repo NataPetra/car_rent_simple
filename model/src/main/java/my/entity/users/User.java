@@ -36,4 +36,12 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<UserOrder> userOrders;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

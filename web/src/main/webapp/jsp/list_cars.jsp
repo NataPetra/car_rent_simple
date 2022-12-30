@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,16 +37,25 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+                        <security:authorize access="isAuthenticated()">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                        </security:authorize>
+                        <security:authorize access="!isAuthenticated()">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/login.view">Login</a>
+                        </security:authorize>
                     </li>
                     <li class="nav-item">
+                        <security:authorize access="!isAuthenticated()">
                         <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
+                        </security:authorize>
                     </li>
                 </ul>
             </div>
+            <security:authorize access="hasRole('ROLE_ADMIN')">
             <a class="nav-link" href="${pageContext.request.contextPath}/create_car.view">
-            <button type="button" class="btn btn-outline-dark">Add car(for admin)</button>
+            <button type="button" class="btn btn-outline-dark">Add car</button>
             </a>
+            </security:authorize>
         </div>
     </nav>
 </header>
@@ -76,16 +86,9 @@
 
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-<%--            <li class="page-item disabled">--%>
-<%--                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>--%>
-<%--            </li>--%>
-            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/1.view">1</a></li>
-            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/2.view">2</a></li>
-            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/3.view">3</a></li>
-            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/4.view">4</a></li>
-<%--            <li class="page-item">--%>
-<%--                <a class="page-link" href="#">Next</a>--%>
-<%--            </li>--%>
+    <c:forEach items="${pages}" var="pages">
+            <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/${pages}.view">${pages}</a></li>
+    </c:forEach>
         </ul>
     </nav>
 </div>

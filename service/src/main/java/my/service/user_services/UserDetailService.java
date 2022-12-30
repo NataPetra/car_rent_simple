@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class UserDetailsService {
+public class UserDetailService {
 
     @Autowired
     private UserDetailsDao userDetailsDao;

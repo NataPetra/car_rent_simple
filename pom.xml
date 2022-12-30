@@ -24,6 +24,7 @@
         <spring.version>5.3.23</spring.version>
         <hibernate.version>5.6.12.Final</hibernate.version>
         <slf4j.version>1.7.36</slf4j.version>
+        <spring.security.version>5.7.5</spring.security.version>
     </properties>
 
     <profiles>
@@ -49,6 +50,13 @@
 
     <dependencyManagement>
         <dependencies>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-framework-bom</artifactId>-->
+<!--                <version>5.3.24</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -102,6 +110,23 @@
                 <artifactId>spring-data-jpa</artifactId>
                 <version>2.4.1</version>
             </dependency>
+            <!-- Spring security-->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>${spring.security.version}</version>
+            </dependency>
+
             <!-- JDBC Driver-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -118,6 +143,11 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
                 <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.2.0.Final</version>
             </dependency>
             <!--<dependency>
                 <groupId>org.hibernate</groupId>

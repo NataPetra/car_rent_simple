@@ -57,4 +57,9 @@ public class UserDaoImpl implements UserDao{
     public long count() {
         return 0;
     }
+
+    @Override
+    public List<User> findByName(String email) {
+        return userRepository.findAllByEmail(email);
+    }
 }
