@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS model
+            (
+                model_id   INT          NOT NULL
+                    PRIMARY KEY,
+                model_name VARCHAR(255) NULL
+            );
+
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('1', 'bmw');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('2', 'porsche');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('3', 'mercedes');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('4', 'maserati');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('5', 'ferrari');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('6', 'nissan');
+            INSERT INTO `car_rent_DB`.`model` (`model_id`, `model_name`) VALUES ('7', 'audi');
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS brand
+            (
+                brand_id   INT          NOT NULL
+                    PRIMARY KEY,
+                brand_name VARCHAR(255) NULL,
+                model_id   INT          NULL,
+                CONSTRAINT FKq8ko0ll8p7tvp6pdpsgyh674j
+                    FOREIGN KEY (model_id) REFERENCES model (model_id)
+            );
+
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('1', 'x5', '1');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('2', 'x6', '1');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('3', 'cayenne', '2');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('4', '911 carrera', '2');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('5', 'maybach', '3');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('6', 'grecale', '4');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('7', '430', '5');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('8', '488 spider', '5');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('9', 'terrano', '6');
+            INSERT INTO `car_rent_DB`.`brand` (`brand_id`, `brand_name`, `model_id`) VALUES ('10', 'a8', '7');
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS auto
+            (
+                auto_id  INT            NOT NULL
+                    PRIMARY KEY,
+                colour   VARCHAR(255)   NULL,
+                price    DECIMAL(19, 2) NULL,
+                brand_id INT            NULL,
+                model_id INT            NULL,
+                CONSTRAINT FK9wnt3odvo603yal8no66gbctv
+                    FOREIGN KEY (model_id) REFERENCES model (model_id),
+                CONSTRAINT FKj58goo1w1gj95sr2eknqm35dj
+                    FOREIGN KEY (brand_id) REFERENCES brand (brand_id)
+            );
+
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('1', 'white', '740.00', '3', '2');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('2', 'yellow', '690.00', '4', '2');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('3', 'beige-burgundy', '1200.00', '5', '3');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('4', 'silver', '960.00', '6', '4');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('5', 'red', '1650.00', '7', '5');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('6', 'red', '390.00', '1', '1');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('7', 'grey', '300.00', '9', '6');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('8', 'blue', '890.00', '8', '5');
+            INSERT INTO `car_rent_DB`.`auto` (`auto_id`, `colour`, `price`, `brand_id`, `model_id`) VALUES ('9', 'white', '400.00', '10', '7');
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS body_type
+            (
+                body_type_id INT          NOT NULL
+                    PRIMARY KEY,
+                b_type         VARCHAR(255) NULL
+            );
+
+            INSERT INTO `car_rent_DB`.`body_type` (`body_type_id`, `b_type`) VALUES ('1', 'crossover');
+            INSERT INTO `car_rent_DB`.`body_type` (`body_type_id`, `b_type`) VALUES ('2', 'coupe');
+            INSERT INTO `car_rent_DB`.`body_type` (`body_type_id`, `b_type`) VALUES ('3', 'sedan');
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS auto_details
+            (
+                auto_details_id        INT NOT NULL
+                    PRIMARY KEY,
+                automatic_transmission BIT NULL,
+                release_year            INT NULL,
+                with_driver            BIT NULL,
+                body_type_id           INT NULL,
+                CONSTRAINT FKbx72bew4d9t8qlen43owcrdmx
+                    FOREIGN KEY (body_type_id) REFERENCES body_type (body_type_id)
+            );
+
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (1, true, 2020, false, 1);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (2, true, 2019, false, 2);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (3, true, 2019, false, 2);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (4, true, 2022, true, 1);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (5, true, 2022, true, 3);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (6, false, 2021, false, 1);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (7, true, 2020, false, 1);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (8, false, 2021, false, 1);
+            INSERT INTO `car_rent_DB`.`auto_details` (`auto_details_id`, `automatic_transmission`, `release_year`, `with_driver`, `body_type_id`)
+            VALUES (9, true, 2020, false, 3);
+        </sql>
+    </changeSet>
+
+    <changeSet id="6" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS auto_picture
+            (
+                auto_picture_id INT  NOT NULL
+                    PRIMARY KEY,
+                auto_picture    BLOB NOT NULL
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="7" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS role
+            (
+                role_id     INT          NOT NULL
+                    PRIMARY KEY,
+                description VARCHAR(255) NULL,
+                roleName    VARCHAR(255) NULL
+            );
+
+            INSERT INTO `car_rent_DB`.`role` (`role_id`, `description`, `roleName`) VALUES ('1', 'hjm', 'ADMIN');
+            INSERT INTO `car_rent_DB`.`role` (`role_id`, `description`, `roleName`) VALUES ('2', 'cd', 'SIMPLE_USER');
+        </sql>
+    </changeSet>
+
+    <changeSet id="8" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS `user`
+            (
+                user_id  INT          NOT NULL
+                    PRIMARY KEY,
+                email    VARCHAR(255) NULL,
+                password VARCHAR(255) NULL,
+                role_id  INT          NULL,
+                CONSTRAINT FKn82ha3ccdebhokx3a8fgdqeyy
+                    FOREIGN KEY (role_id) REFERENCES role (role_id)
+            );
+
+            INSERT INTO `car_rent_DB`.`user` (`user_id`, `email`, `password`, `role_id`) VALUES ('1', 'nika@mail.ru', '{noop}123', '1');
+            INSERT INTO `car_rent_DB`.`user` (`user_id`, `email`, `password`, `role_id`) VALUES ('2', 'mary@mail.ru', '{noop}123', '2');
+        </sql>
+    </changeSet>
+
+    <changeSet id="9" author="NataPetra">
+        <sql>
+            CREATE TABLE IF NOT EXISTS user_details
+            (
+                user_id      INT          NOT NULL
+                    PRIMARY KEY,
+                birth_day    VARCHAR(255) NULL,
+                first_name   VARCHAR(255) NULL,
+                last_name    VARCHAR(255) NULL,
+                phone_number VARCHAR(255) NULL
+            );
+
+            INSERT INTO `car_rent_DB`.`user_details` (`user_id`, `birth_day`, `first_name`, `last_name`, `phone_number`) VALUES ('1', '1992-07-17', 'Nata', 'Perta', '+375(44)7204206');
+            INSERT INTO `car_rent_DB`.`user_details` (`user_id`, `birth_day`, `first_name`, `last_name`, `phone_number`) VALUES ('2', '1967-06-29', 'Mary', 'Petra', '+375(29)1494717');
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>

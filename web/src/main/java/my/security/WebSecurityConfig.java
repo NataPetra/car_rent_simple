@@ -23,22 +23,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/index.html").permitAll()
                 .antMatchers("/login*").permitAll()
-//                .anyRequest()
-//                .authenticated()
-                //.antMatchers("/add*").hasRole("ADMIN")
+                .antMatchers("/create_car*").hasRole("ADMIN")
+                .antMatchers("/delete_car*").hasRole("ADMIN")
+                .antMatchers("/update_car*").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login.view")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/index.html", true)
-//                .failureUrl("/login.html?error=true")
+                .failureUrl("/registration.view")
 //                .failureHandler(authenticationFailureHandler())
                 .and()
                 .logout()
-//                .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID")
-//                .logoutSuccessHandler(logoutSuccessHandler())
-        ;//можно сюда свою форму добавить
+                .deleteCookies("JSESSIONID");
     }
 
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth,

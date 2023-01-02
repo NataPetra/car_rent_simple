@@ -10,6 +10,7 @@ import my.entity.users.User;
 import my.service.auto_services.AutoService;
 import my.service.user_services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -54,8 +55,9 @@ public class AddOrderService {
             autoOrder.setAuto(auto);
             autoOrder = autoOrderService.addAutoOrder(autoOrder);
         }
-        User user = userService.findById(1);
-        UserOrder userOrder = userOrderService.findByEmail(user.getEmail());
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findAllByEmail(email).stream().findFirst().get();
+        UserOrder userOrder = userOrderService.findByEmail(email);
         if(userOrder==null){
             userOrder = new UserOrder();
             userOrder.setUser(user);

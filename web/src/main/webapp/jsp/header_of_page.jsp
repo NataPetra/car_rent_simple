@@ -36,6 +36,17 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
                     </security:authorize>
                 </li>
+
+                <li class="nav-item">
+                    <security:authorize access="isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/personal_page.view">Personal account</a>
+                    </security:authorize>
+                </li>
+
+<%--                <security:authorize access="isAuthenticated()">--%>
+<%--                    &nbsp;<security:authentication property='name'/>&nbsp;--%>
+<%--                </security:authorize>--%>
+
             </ul>
         </div>
     </div>

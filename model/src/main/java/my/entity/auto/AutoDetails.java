@@ -28,7 +28,7 @@ public class AutoDetails implements Serializable {
     @JoinColumn(name = "body_type_id")
     private BodyType bodyType;
 
-    @Column(name = "releaseYear")
+    @Column(name = "release_year")
     private Integer releaseYear;
 
     @Column(name = "automatic_transmission")

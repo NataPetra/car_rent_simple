@@ -27,7 +27,7 @@ public class BodyType implements Serializable {
     )
     private Integer id;
 
-    @Column(name = "type")
+    @Column(name = "b_type")
     private String type;
 
     @OneToMany(mappedBy = "bodyType")

@@ -73,7 +73,7 @@
     <c:forEach items="${carsList}" var="car">
     <tr>
         <td>
-            <a class="nav-link" href="/car_rent/details_auto/${car.number}.view">
+            <a class="nav-link" href="${pageContext.request.contextPath}/details_auto/${car.number}.view">
                 <c:out value="${car.model} ${car.brand}"/>
             </a>
         </td>

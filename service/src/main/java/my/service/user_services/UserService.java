@@ -1,5 +1,6 @@
 package my.service.user_services;
 
+import my.beans.UserCommonBean;
 import my.dao.UserDao;
 import my.entity.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class UserService  { //implements UserDetailsService
     @Transactional
     public List<User> findAllByEmail (String email){
         return userDao.findByName(email);
+    }
+
+    @Transactional
+    public UserCommonBean addUserForPersonalPage(String email){
+        User appUser = findAllByEmail(email).get(0);
+        return null;
     }
 
 //    @Override
