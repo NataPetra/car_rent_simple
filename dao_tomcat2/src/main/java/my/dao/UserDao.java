@@ -15,7 +15,7 @@ public interface UserDao {
     void delete(User user);
     void delete(Integer id);
     List getAll(int pageNumber, int pageSize);
-    List getAll();
+    List<User> getAll();
     long count();
     List<User> findByName(String email);
 

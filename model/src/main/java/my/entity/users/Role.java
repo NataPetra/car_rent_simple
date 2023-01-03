@@ -20,6 +20,7 @@ public class Role implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer roleId;
 
+    @Column(name = "role_name")
     private String roleName;
 
     private String description;

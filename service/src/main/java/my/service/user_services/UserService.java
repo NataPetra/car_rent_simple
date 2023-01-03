@@ -46,6 +46,11 @@ public class UserService  { //implements UserDetailsService
     }
 
     @Transactional
+    public List<User> findAllUsers (){
+        return userDao.getAll();
+    }
+
+    @Transactional
     public UserCommonBean addUserForPersonalPage(String email){
         User appUser = findAllByEmail(email).get(0);
         return null;

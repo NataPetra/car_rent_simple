@@ -49,6 +49,11 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
                         </security:authorize>
                     </li>
+                    <li class="nav-item">
+                        <security:authorize access="isAuthenticated()">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/personal_page.view">Personal account</a>
+                        </security:authorize>
+                    </li>
                 </ul>
             </div>
             <security:authorize access="hasRole('ROLE_ADMIN')">

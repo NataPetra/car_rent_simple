@@ -33,4 +33,8 @@ public class UserOrderService {
     public UserOrder findByEmail(String email){
         return userOrderDao.findByEmail(email);
     }
+
+    public UserOrder findUserOrderByUserId(Integer id){
+        return userOrderDao.findUserId(id);
+    }
 }

@@ -48,15 +48,20 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/registration.view">Registration</a>
                     </security:authorize>
                 </li>
+                <li class="nav-item">
+                    <security:authorize access="isAuthenticated()">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/personal_page.view">Personal account</a>
+                    </security:authorize>
+                </li>
             </ul>
         </div>
         <c:set value="${autoDetailsBean}" var="car"/>
         <security:authorize access="hasRole('ROLE_ADMIN')">
         <a class="nav-link" href="/car_rent/update_car/${car.id}.view">
-            <button type="button" class="btn btn-outline-dark">Update car(for admin)</button>
+            <button type="button" class="btn btn-outline-dark">Update car</button>
         </a>
 
-            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Delete car(for admin)</button>
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal">Delete car</button>
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">

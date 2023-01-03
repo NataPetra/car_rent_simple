@@ -3,6 +3,7 @@ package my.service.order_services;
 import my.dao.OrderDao;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
+import my.entity.orders.UserOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,8 +33,12 @@ public class OrderService {
         return orderDao.isExistsById(id);
     }
 
-    public List findByAutoOrder (AutoOrder autoOrder) {
+    public List<Order> findByAutoOrder (AutoOrder autoOrder) {
         return orderDao.findByAutoOrder(autoOrder);
+    }
+
+    public List<Order> findByUserOrder (UserOrder userOrder) {
+        return orderDao.findByUserOrder(userOrder);
     }
 
 }

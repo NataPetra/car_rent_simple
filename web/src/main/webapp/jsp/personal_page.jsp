@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="${pageContext.request.contextPath}/css/personal_page.css" rel="stylesheet">
 </head>
 <body>
 
@@ -19,11 +20,17 @@
     <h1>
         <c:out value="Welcome ${user.userDetails.firstName} ${user.userDetails.lastName}"/>
     </h1>
-    <p>
-        <a class="nav-link" href="${pageContext.request.contextPath}/edit_personal_info/${user.userId}.view">
-            Here you can edit your information.
-        </a>
-    </p>
+    <ol class="rectangle">
+        <li><a href="${pageContext.request.contextPath}/edit_personal_info/${user.userId}.view">Here you can edit your information.</a></li>
+        <li><a href="${pageContext.request.contextPath}/order_list_old/${user.userId}.view">Your previous orders</a></li>
+        <li><a href="#">Элемент списка</a></li>
+        <li><a href="#">Элемент списка</a></li>
+        <li><a href="#">Элемент списка</a></li>
+    </ol>
+<%--        <a class="nav-link" href="${pageContext.request.contextPath}/edit_personal_info/${user.userId}.view">--%>
+<%--            Here you can edit your information.--%>
+<%--        </a>--%>
+
 </main>
 
 </body>

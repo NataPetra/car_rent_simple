@@ -49,13 +49,13 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public List getAll() {
-        return null;
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     @Override
     public long count() {
-        return 0;
+        return userRepository.count();
     }
 
     @Override

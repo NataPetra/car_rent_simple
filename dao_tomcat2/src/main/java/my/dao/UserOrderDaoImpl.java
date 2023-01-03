@@ -52,4 +52,9 @@ public class UserOrderDaoImpl implements UserOrderDao{
     public UserOrder findByEmail(String email) {
         return userOrderRepository.findUserOrderByUser_Email(email);
     }
+
+    @Override
+    public UserOrder findUserId(Integer id) {
+        return userOrderRepository.findUserOrderByUser_UserId(id);
+    }
 }

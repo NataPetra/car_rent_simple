@@ -2,6 +2,7 @@ package my.dao;
 
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
+import my.entity.orders.UserOrder;
 import my.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -55,7 +56,12 @@ public class OrderDaoImpl implements OrderDao{
     }
 
     @Override
-    public List findByAutoOrder(AutoOrder autoOrder) {
+    public List<Order> findByAutoOrder(AutoOrder autoOrder) {
         return orderRepository.findAllByAutoOrder(autoOrder);
+    }
+
+    @Override
+    public List<Order> findByUserOrder(UserOrder userOrder) {
+        return orderRepository.findAllByUserOrder(userOrder);
     }
 }

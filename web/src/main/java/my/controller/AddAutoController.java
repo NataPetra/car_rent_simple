@@ -34,7 +34,7 @@ public class AddAutoController {
             return "create_car";
         }
         addAutoComm.addCommonAuto(autoCommonBean, file.getBytes());
-        return "redirect:/create_car.view";
+        return "redirect:/list_cars.view";
     }
 
 }

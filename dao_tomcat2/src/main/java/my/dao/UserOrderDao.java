@@ -17,4 +17,5 @@ public interface UserOrderDao {
     List getAll();
     long count();
     UserOrder findByEmail(String email);
+    UserOrder findUserId(Integer id);
 }

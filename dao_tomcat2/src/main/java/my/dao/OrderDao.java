@@ -2,6 +2,7 @@ package my.dao;
 
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
+import my.entity.orders.UserOrder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public interface OrderDao {
     void delete(Integer id);
     List getAll();
     long count();
-    List findByAutoOrder(AutoOrder autoOrder);
+    List<Order> findByAutoOrder(AutoOrder autoOrder);
+    List<Order> findByUserOrder(UserOrder userOrder);
 
 }

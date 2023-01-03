@@ -22,6 +22,6 @@ public class AddUserController {
     public String addUserCommon(UserCommonBean userCommonBean){
         //System.out.println("Call addUser: " + userCommonBean);
         addUserService.addUserForm(userCommonBean);
-        return "redirect:/index.html";
+        return "redirect:/login.view";
     }
 }
