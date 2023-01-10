@@ -15,6 +15,7 @@ public class AutoService {
     private AutoDao autoDao;
 
     @Transactional
+    //TODO: add propogation
     public Auto addAuto (Auto auto){
         return autoDao.createAuto(auto);
     }
@@ -35,7 +36,7 @@ public class AutoService {
     }
 
     @Transactional
-    public List allAuto(){
+    public List <Auto> allAuto(){
         return autoDao.getAllAuto();
     }
 
@@ -62,5 +63,10 @@ public class AutoService {
     @Transactional
     public long countAuto(){
         return autoDao.countAuto();
+    }
+
+    @Transactional
+    public List<Auto> findAllByModelName(String model){
+        return autoDao.findAutosByModel_ModelName(model);
     }
 }

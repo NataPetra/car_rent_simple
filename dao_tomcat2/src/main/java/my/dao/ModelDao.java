@@ -15,4 +15,5 @@ public interface ModelDao {
     String findModelName(Integer id);
     List getAll();
     long count();
+    List<String> findAllModelNames();
 }

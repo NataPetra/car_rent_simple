@@ -17,19 +17,14 @@
 
 <main>
     <c:set value="${appUser}" var="user"/>
-    <h1>
+    <h2>
         <c:out value="Welcome ${user.userDetails.firstName} ${user.userDetails.lastName}"/>
-    </h1>
+    </h2>
     <ol class="rectangle">
         <li><a href="${pageContext.request.contextPath}/edit_personal_info/${user.userId}.view">Here you can edit your information.</a></li>
         <li><a href="${pageContext.request.contextPath}/order_list_old/${user.userId}.view">Your previous orders</a></li>
-        <li><a href="#">Элемент списка</a></li>
-        <li><a href="#">Элемент списка</a></li>
-        <li><a href="#">Элемент списка</a></li>
+        <li><a href="${pageContext.request.contextPath}/order_list_new/${user.userId}.view">Future Orders</a></li>
     </ol>
-<%--        <a class="nav-link" href="${pageContext.request.contextPath}/edit_personal_info/${user.userId}.view">--%>
-<%--            Here you can edit your information.--%>
-<%--        </a>--%>
 
 </main>
 

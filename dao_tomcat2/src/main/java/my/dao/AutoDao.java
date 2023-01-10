@@ -15,9 +15,10 @@ public interface AutoDao {
     void deleteAuto(Auto auto);
     void deleteAuto(Integer id);
     List getAllAutoPage(int pageNumber, int pageSize);
-    List getAllAuto();
+    List <Auto> getAllAuto();
     long countAuto();
     Auto findAutoByBrandName(String brand);
     Auto findAutoByModelName(String model);
     Auto findByModelBrandColourYear(String model, String brand, Integer year, String colour);
+    List<Auto> findAutosByModel_ModelName(String model);
 }

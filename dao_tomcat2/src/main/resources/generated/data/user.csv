@@ -1,0 +1,3 @@
+"user_id","email","password","role_id"
+"1","nika@mail.ru","{noop}123","1"
+"2","mary@mail.ru","{noop}123","2"

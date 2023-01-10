@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -18,9 +19,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/index.html">Home</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/list_cars/1.view">Show cars</a>
                 </li>
+
                 <li class="nav-item">
 
                     <security:authorize access="isAuthenticated()">

@@ -44,4 +44,9 @@ public class ModelService {
         return modelDao.count();
     }
 
+    @Transactional
+    public List<String> findAllNames(){
+        return modelDao.findAllModelNames();
+    }
+
 }

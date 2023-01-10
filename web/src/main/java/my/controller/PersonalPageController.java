@@ -2,7 +2,6 @@ package my.controller;
 
 import my.beans.UserCommonBean;
 import my.service.order_services.OrderListService;
-import my.service.order_services.OrderService;
 import my.service.user_services.UpdateUserService;
 import my.service.user_services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +47,13 @@ public class PersonalPageController {
     @GetMapping("/order_list_old/{user.userId}.view")
     public ModelAndView orderListOldPage(@PathVariable("user.userId") Integer id){
         return new ModelAndView("order_list",
-                Map.of("ordersOld", orderListService.listOfOrders(id, true)));
+                Map.of("orders", orderListService.listOfOrders(id, true)));
+    }
+
+    @GetMapping("/order_list_new/{user.userId}.view")
+    public ModelAndView orderListNewPage(@PathVariable("user.userId") Integer id){
+        return new ModelAndView("order_list",
+                Map.of("orders", orderListService.listOfOrders(id, false)));
     }
 
 }

@@ -65,24 +65,38 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.liquibase</groupId>-->
-<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
-<!--                <version>3.10.3</version>-->
-<!--                <executions>-->
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.10.3</version>
+                <executions>
+                    <execution>
+                        <id>Update DB</id>
+                        <configuration>
+                            <propertyFile>src/main/resources/car_rent_DB.jdbc.properties</propertyFile>
+                            <changeLogFile>src/main/resources/changelog-master.xml</changeLogFile>
+                        </configuration>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+
 <!--                    <execution>-->
-<!--                        <id>Update DB</id>-->
+<!--                        <id>Generate ChangeLog</id>-->
 <!--                        <configuration>-->
 <!--                            <propertyFile>src/main/resources/car_rent_DB.jdbc.properties</propertyFile>-->
-<!--                            <changeLogFile>src/main/resources/changelog-master.xml</changeLogFile>-->
+<!--                            <outputChangeLogFile>generatedChangeLog/GeneratedChangeLog.xml</outputChangeLogFile>-->
+<!--                            <dataDir>generatedChangeLog/data</dataDir>-->
 <!--                        </configuration>-->
 <!--                        <goals>-->
-<!--                            <goal>update</goal>-->
+<!--                            <goal>generateChangeLog</goal>-->
 <!--                        </goals>-->
 <!--                        <phase>process-resources</phase>-->
 <!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

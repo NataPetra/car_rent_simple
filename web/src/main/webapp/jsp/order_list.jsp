@@ -14,17 +14,17 @@
 </header>
 
 <main>
-    <c:if test="${ordersOld!=null}">
+    <c:if test="${orders!=null}">
     <dl class="holiday">
-        <c:forEach items="${ordersOld}" var="order">
+        <c:forEach items="${orders}" var="order">
         <dt> <c:out value="${order.dateStart} - ${order.dateFinish}"/></dt>
         <dd><c:out value="You rented ${order.modelName} ${order.brandName}, ${order.releaseYear}."/></dd>
         </c:forEach>
     </dl>
     </c:if>
-    <h3>
+    <h6>
         No more orders
-    </h3>
+    </h6>
 
 </main>
 

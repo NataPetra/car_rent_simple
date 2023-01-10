@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 
 @Repository
 public interface ModelRepository extends JpaRepository<Model, Integer> {
@@ -16,5 +17,8 @@ public interface ModelRepository extends JpaRepository<Model, Integer> {
 
     @Query(value = "SELECT model_name FROM model m WHERE m.model_id=:id", nativeQuery = true)
     String findModelNameById(@Param("id") Integer id);
+
+    @Query(value = "SELECT model_name FROM model", nativeQuery = true)
+    List<String> findAllModelNames();
 
 }

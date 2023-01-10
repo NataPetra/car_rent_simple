@@ -48,4 +48,9 @@ public class ModelDaoImpl implements ModelDao{
         return modelRepository.count();
     }
 
+    @Override
+    public List<String> findAllModelNames() {
+        return modelRepository.findAllModelNames();
+    }
+
 }

@@ -49,7 +49,7 @@ public class AutoDaoImpl implements AutoDao{
     }
 
     @Override
-    public List getAllAuto() {
+    public List<Auto> getAllAuto() {
         return autoRepository.findAll();
     }
 
@@ -71,6 +71,11 @@ public class AutoDaoImpl implements AutoDao{
     @Override
     public Auto findByModelBrandColourYear(String model, String brand, Integer year, String colour) {
         return autoRepository.findAutoByModel_ModelNameAndBrand_BrandNameAndAutoDetails_ReleaseYearAndColour(model, brand, year, colour);
+    }
+
+    @Override
+    public List<Auto> findAutosByModel_ModelName(String model) {
+        return autoRepository.findAutosByModel_ModelName(model);
     }
 }
 

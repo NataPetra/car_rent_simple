@@ -18,26 +18,20 @@ public class ListOfAutoService {
 
     public List<ShowAutoBean> showAutoBriefly(){
         List<Auto> auto = autoService.allAuto();
-        List<ShowAutoBean> showAutoBeans = new ArrayList<>();
-        for (Auto value : auto) {
-            ShowAutoBean showAutoBean = new ShowAutoBean();
-            showAutoBean.setNumber(value.getId());
-            showAutoBean.setModel(value.getModel().getModelName().toUpperCase());
-            showAutoBean.setBrand(value.getBrand().getBrandName().toUpperCase());
-            showAutoBean.setColour(value.getColour());
-            showAutoBean.setPrice(value.getPrice().toString());
-            showAutoBeans.add(showAutoBean);
-            System.out.println("Add in showAutoBeans: " + showAutoBean);
-        }
-        for (ShowAutoBean autoBean:
-             showAutoBeans) {
-            System.out.println(autoBean);
-        }
-        return showAutoBeans;
+        return getShowAutoBeans(auto);
+    }
+
+    public List<ShowAutoBean> showAutoBriefly(String model){
+        List<Auto> auto = autoService.findAllByModelName(model);
+        return getShowAutoBeans(auto);
     }
 
     public List showAutoPage(int pageNumber, int pageSize){
         List<Auto> auto = autoService.allAuto(pageNumber, pageSize);
+        return getShowAutoBeans(auto);
+    }
+
+    private List<ShowAutoBean> getShowAutoBeans(List<Auto> auto) {
         List<ShowAutoBean> showAutoBeans = new ArrayList<>();
         for (Auto value : auto) {
             ShowAutoBean showAutoBean = new ShowAutoBean();

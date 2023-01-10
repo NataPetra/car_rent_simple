@@ -24,3 +24,7 @@ dd {
     border: 1px solid #BECFC7;
     border-left: none;
 }
+
+H6 {
+    text-align: center
+}

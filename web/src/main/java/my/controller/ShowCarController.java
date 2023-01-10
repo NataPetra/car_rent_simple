@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class ShowCarController {
@@ -22,9 +24,14 @@ public class ShowCarController {
     private AutoService autoService;
 
     @GetMapping("/list_cars.view")
-    public ModelAndView listOfCar() {
+    public ModelAndView listOfCar(@RequestParam("model") Optional<String> model) {
         System.out.println("Call list of cars");
-        List<ShowAutoBean> autoBeans = listOfAutoService.showAutoBriefly();
+        List<ShowAutoBean> autoBeans;
+        if(model.isPresent()){
+            autoBeans = listOfAutoService.showAutoBriefly(model.get());
+        } else {
+            autoBeans = listOfAutoService.showAutoBriefly();
+        }
         return new ModelAndView(
                 "list_cars",
                 Map.of("carsList", autoBeans)
