@@ -46,7 +46,7 @@ public class RootConfig {
             @Value("${driver}") String driverClassName,
             @Value("root") String userName,
             @Value("${password}") String password
-    ){
+    ) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(url);
@@ -64,7 +64,7 @@ public class RootConfig {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 

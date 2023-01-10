@@ -45,8 +45,28 @@ public class Brand implements Serializable {
     public String toString() {
         return "Brand{" +
                 "id=" + id +
-                ", model=" + model +
+                ", model=" + model.getModelName() +
                 ", brandName='" + brandName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Brand brand = (Brand) o;
+
+        if (id != null ? !id.equals(brand.id) : brand.id != null) return false;
+        if (model != null ? !model.equals(brand.model) : brand.model != null) return false;
+        return brandName != null ? brandName.equals(brand.brandName) : brand.brandName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (brandName != null ? brandName.hashCode() : 0);
+        return result;
     }
 }

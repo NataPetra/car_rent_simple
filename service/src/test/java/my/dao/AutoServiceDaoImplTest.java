@@ -25,7 +25,7 @@ import static org.junit.Assert.assertNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfig.class)
-public class AutoServiceDaoImplTest extends TestConfig{
+public class AutoServiceDaoImplTest extends TestConfig {
 
     @Autowired
     AutoService targetObject;
@@ -56,7 +56,7 @@ public class AutoServiceDaoImplTest extends TestConfig{
 
         //When
         Auto auto = targetObject.findById(1);
-        List allAuto = targetObject.allAuto();
+        List<Auto> allAuto = targetObject.allAuto();
 
         //Then
         assertEquals(3, allAuto.size());
@@ -71,7 +71,7 @@ public class AutoServiceDaoImplTest extends TestConfig{
 
     @Test
     @SneakyThrows
-    public void delete(){
+    public void delete() {
         //Given
         Connection conn = testMysqlJdbcDataSource.getConnection();
         IDataSet dataSet = new FlatXmlDataSetBuilder()
@@ -87,15 +87,15 @@ public class AutoServiceDaoImplTest extends TestConfig{
         targetObject.deleteById(3);
         Auto byBrand = targetObject.findByBrand(brandName);
         Auto byModel = targetObject.findByModel(modelName);
-        if(byBrand==null){
+        if (byBrand == null) {
             brandService.deleteById(idBrand);
             Integer counBrands = brandService.findByModelId(idModel);
-            if(counBrands==0){
+            if (counBrands == 0) {
                 modelService.deleteById(idModel);
                 //modelService.deleteById(1);
             }
         }
-        List allAuto = targetObject.allAuto();
+        List<Auto> allAuto = targetObject.allAuto();
         Brand nullBrand = brandService.findByName(brandName);
 
         //Then

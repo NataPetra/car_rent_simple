@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserOrderRepository extends JpaRepository<UserOrder, Integer> {
 
     UserOrder findUserOrderByUser_Email(String email);
+
     UserOrder findUserOrderByUser_UserId(Integer id);
 }

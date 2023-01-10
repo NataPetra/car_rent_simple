@@ -1,7 +1,6 @@
 package my.service.auto_services;
 
 import my.dao.AutoPictureDao;
-import my.entity.auto.AutoDetails;
 import my.entity.auto.AutoPicture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -4,8 +4,6 @@ import my.entity.users.User;
 import my.service.user_services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,7 +24,7 @@ public class AuthenticationService implements UserDetailsService {
             System.out.println("Start loadUserByUsername");
             List<User> appUsers = userService.findAllByEmail(username);
             System.out.println("Count of user " + appUsers.size());
-            if(appUsers.size() != 1){
+            if (appUsers.size() != 1) {
                 throw new UsernameNotFoundException("User not found: " + username);
             }
 
@@ -34,22 +32,13 @@ public class AuthenticationService implements UserDetailsService {
             System.out.println("Find user " + appUser);
 
             return new UserPrincipal(appUser);
-//            return new org.springframework.security.core.userdetails.User(
-//                    appUser.getEmail(),
-//                    appUser.getPassword(),
-//                    true,
-//                    true,
-//                    true,
-//                    true,
-//                    List.of(new SimpleGrantedAuthority("ROLE_" + appUser.getRole()))
-//            );
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new UsernameNotFoundException("User not found: " + username, e);
         }
 
     }
 
-        private class UserPrincipal implements UserDetails {
+    private class UserPrincipal implements UserDetails {
 
         private User user;
 

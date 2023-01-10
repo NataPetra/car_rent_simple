@@ -20,17 +20,17 @@ public class OrderListService {
     private UserOrderService userOrderService;
 
     @Transactional
-    public List<OrderListBean> listOfOrders(Integer id, Boolean isPrevious){
+    public List<OrderListBean> listOfOrders(Integer id, Boolean isPrevious) {
         UserOrder userOrder = userOrderService.findUserOrderByUserId(id);
         List<Order> orders = orderService.findByUserOrder(userOrder);
         LocalDate now = LocalDate.now();
         System.out.println(now);
         List<OrderListBean> ordersOld = new ArrayList<>();
         List<OrderListBean> ordersNew = new ArrayList<>();
-        if (orders!=null){
-            for (Order value: orders) {
+        if (orders != null) {
+            for (Order value : orders) {
                 System.out.println(value.getDateFinish().isBefore(now));
-                if (value.getDateFinish().isBefore(now)){
+                if (value.getDateFinish().isBefore(now)) {
                     ordersOld.add(createOrderListBean(value));
                 } else {
                     ordersNew.add(createOrderListBean(value));
@@ -38,10 +38,10 @@ public class OrderListService {
             }
         }
         System.out.println(ordersNew.size() + " " + ordersOld.size());
-        return isPrevious? ordersOld : ordersNew;
+        return isPrevious ? ordersOld : ordersNew;
     }
 
-    private OrderListBean createOrderListBean(Order value){
+    private OrderListBean createOrderListBean(Order value) {
         OrderListBean listBean = new OrderListBean();
         listBean.setBrandName(value.getAutoOrder().getAuto().getBrand().getBrandName().toUpperCase());
         listBean.setModelName(value.getAutoOrder().getAuto().getModel().getModelName().toUpperCase());

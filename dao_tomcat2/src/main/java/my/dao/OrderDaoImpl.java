@@ -46,7 +46,7 @@ public class OrderDaoImpl implements OrderDao{
     }
 
     @Override
-    public List getAll() {
+    public List<Order> getAll() {
         return orderRepository.findAll();
     }
 

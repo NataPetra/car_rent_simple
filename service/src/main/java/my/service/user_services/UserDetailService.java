@@ -13,19 +13,19 @@ public class UserDetailService {
     @Autowired
     private UserDetailsDao userDetailsDao;
 
-    public UserDetails addUserDetails (UserDetails userDetails){
+    public UserDetails addUserDetails(UserDetails userDetails) {
         return userDetailsDao.create(userDetails);
     }
 
-    public UserDetails findById (Integer id){
+    public UserDetails findById(Integer id) {
         return userDetailsDao.get(id);
     }
 
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         userDetailsDao.delete(id);
     }
 
-    public Boolean existsById (Integer id){
+    public Boolean existsById(Integer id) {
         return userDetailsDao.isExistsById(id);
     }
 }

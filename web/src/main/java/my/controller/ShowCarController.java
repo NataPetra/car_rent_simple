@@ -24,7 +24,7 @@ public class ShowCarController {
     private AutoService autoService;
 
     @GetMapping("/list_cars.view")
-    public ModelAndView listOfCar(@RequestParam("model") Optional<String> model) {
+    public ModelAndView listOfCarPage(@RequestParam("model") Optional<String> model) {
         System.out.println("Call list of cars");
         List<ShowAutoBean> autoBeans;
         if(model.isPresent()){
@@ -39,7 +39,7 @@ public class ShowCarController {
     }
 
     @GetMapping("/list_cars/{pageId}.view")
-    public ModelAndView listOfCarPage(@PathVariable int pageId) {
+    public ModelAndView listOfCarPageWithPagination(@PathVariable int pageId) {
         System.out.println("Call list of cars");
         int total = 5;
         long countAuto = autoService.countAuto();
@@ -58,6 +58,5 @@ public class ShowCarController {
                         "pages", pages)
         );
     }
-
 
 }

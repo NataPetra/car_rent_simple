@@ -11,7 +11,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@PrimaryKeyJoinColumn(name = "auto_id")
 @Table(name = "auto_details")
 public class AutoDetails implements Serializable {
 
@@ -45,11 +44,35 @@ public class AutoDetails implements Serializable {
     public String toString() {
         return "AutoDetails{" +
                 "id=" + id +
-                ", bodyType=" + bodyType.getId() +
+                ", bodyType=" + bodyType.getType() +
                 ", releaseYear=" + releaseYear +
                 ", automaticTransmission=" + automaticTransmission +
                 ", withDriver=" + withDriver +
-                ", auto=" + auto.getId() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AutoDetails that = (AutoDetails) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (bodyType != null ? !bodyType.equals(that.bodyType) : that.bodyType != null) return false;
+        if (releaseYear != null ? !releaseYear.equals(that.releaseYear) : that.releaseYear != null) return false;
+        if (automaticTransmission != null ? !automaticTransmission.equals(that.automaticTransmission) : that.automaticTransmission != null)
+            return false;
+        return withDriver != null ? withDriver.equals(that.withDriver) : that.withDriver == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (bodyType != null ? bodyType.hashCode() : 0);
+        result = 31 * result + (releaseYear != null ? releaseYear.hashCode() : 0);
+        result = 31 * result + (automaticTransmission != null ? automaticTransmission.hashCode() : 0);
+        result = 31 * result + (withDriver != null ? withDriver.hashCode() : 0);
+        return result;
     }
 }

@@ -37,4 +37,30 @@ public class Model implements Serializable {
         this.id = id;
         this.modelName = modelName;
     }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", modelName='" + modelName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Model model = (Model) o;
+
+        if (id != null ? !id.equals(model.id) : model.id != null) return false;
+        return modelName != null ? modelName.equals(model.modelName) : model.modelName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (modelName != null ? modelName.hashCode() : 0);
+        return result;
+    }
 }

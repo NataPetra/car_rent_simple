@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfig.class)
-public class AutoDetailsServiceDaoImplTest extends TestConfig{
+public class AutoDetailsServiceDaoImplTest extends TestConfig {
 
     @Autowired
     AutoDetailsService targetObject;
@@ -56,6 +56,5 @@ public class AutoDetailsServiceDaoImplTest extends TestConfig{
 
         conn.close();
     }
-
 
 }

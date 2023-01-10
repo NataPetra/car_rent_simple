@@ -9,10 +9,16 @@ import java.util.List;
 public interface UserDetailsDao {
 
     UserDetails create(UserDetails userDetails);
+
     UserDetails get(Integer id);
-    Boolean isExistsById (Integer id);
+
+    Boolean isExistsById(Integer id);
+
     void delete(UserDetails userDetails);
+
     void delete(Integer id);
-    List getAll();
+
+    List<UserDetails> getAll();
+
     long count();
 }

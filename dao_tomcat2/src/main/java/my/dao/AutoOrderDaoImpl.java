@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class AutoOrderDaoImpl implements AutoOrderDao{
+public class AutoOrderDaoImpl implements AutoOrderDao {
 
     @Autowired
     private AutoOrderRepository autoOrderRepository;
@@ -40,7 +40,7 @@ public class AutoOrderDaoImpl implements AutoOrderDao{
     }
 
     @Override
-    public List getAll() {
+    public List<AutoOrder> getAll() {
         return autoOrderRepository.findAll();
     }
 

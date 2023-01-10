@@ -40,4 +40,22 @@ public class BodyType implements Serializable {
                 ", type='" + type + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BodyType bodyType = (BodyType) o;
+
+        if (id != null ? !id.equals(bodyType.id) : bodyType.id != null) return false;
+        return type != null ? type.equals(bodyType.type) : bodyType.type == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        return result;
+    }
 }

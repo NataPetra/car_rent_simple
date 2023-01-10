@@ -1,7 +1,6 @@
 package my.entity.orders;
 
 import lombok.*;
-import my.entity.auto.Auto;
 import my.entity.users.User;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,7 +12,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "user_order")
 public class UserOrder implements Serializable {
@@ -34,4 +32,29 @@ public class UserOrder implements Serializable {
     @OneToMany(mappedBy = "userOrder")
     private List<Order> orders;
 
+    @Override
+    public String toString() {
+        return "UserOrder{" +
+                "id=" + id +
+                ", user=" + user +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserOrder userOrder = (UserOrder) o;
+
+        if (id != null ? !id.equals(userOrder.id) : userOrder.id != null) return false;
+        return user != null ? user.equals(userOrder.user) : userOrder.user == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        return result;
+    }
 }

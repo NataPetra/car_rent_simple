@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BrandDaoImpl implements BrandDao{
+public class BrandDaoImpl implements BrandDao {
 
     @Autowired
     private BrandRepository brandRepository;
@@ -34,12 +34,12 @@ public class BrandDaoImpl implements BrandDao{
     }
 
     @Override
-    public List findByModelId(Integer id){
+    public List<Brand> findByModelId(Integer id) {
         return brandRepository.findBrandsByModel_Id(id);
     }
 
     @Override
-    public List getAll() {
+    public List<Brand> getAll() {
         return brandRepository.findAll();
     }
 

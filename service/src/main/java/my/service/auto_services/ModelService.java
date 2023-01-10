@@ -15,37 +15,37 @@ public class ModelService {
     private ModelDao modelDao;
 
     @Transactional
-    public Model addModel (Model model){
+    public Model addModel(Model model) {
         return modelDao.createModel(model);
     }
 
     @Transactional
-    public Model findById (Integer id){
+    public Model findById(Integer id) {
         return modelDao.getModelId(id);
     }
 
     @Transactional
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         modelDao.deleteModel(id);
     }
 
     @Transactional
-    public Model findByName (String name){
+    public Model findByName(String name) {
         return modelDao.getByName(name);
     }
 
     @Transactional
-    public List findAllModels(){
+    public List findAllModels() {
         return modelDao.getAll();
     }
 
     @Transactional
-    public Long countOfModels (){
+    public Long countOfModels() {
         return modelDao.count();
     }
 
     @Transactional
-    public List<String> findAllNames(){
+    public List<String> findAllNames() {
         return modelDao.findAllModelNames();
     }
 

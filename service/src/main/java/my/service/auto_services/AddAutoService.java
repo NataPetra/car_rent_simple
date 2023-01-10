@@ -29,10 +29,10 @@ public class AddAutoService {
     private AutoPictureService autoPictureService;
 
     @Transactional
-    public void addCommonAuto (
+    public void addCommonAuto(
             AutoCommonBean autoCommonBean,
-            byte[]picture
-    ){
+            byte[] picture
+    ) {
         log.info("AutoCommonBean " + autoCommonBean);
 
         Auto auto = new Auto();
@@ -48,14 +48,14 @@ public class AddAutoService {
             model = modelService.addModel(model);
         }
 
-        if (bodyType==null){
+        if (bodyType == null) {
             bodyType = new BodyType();
             bodyType.setType(autoCommonBean.getBodyType().toLowerCase().trim());
             log.info("bodyTypeDB " + bodyType);
             bodyType = bodyTypeService.addBodyType(bodyType);
         }
 
-        if (brand==null){
+        if (brand == null) {
             brand = new Brand();
             brand.setBrandName(autoCommonBean.getBrandName().toLowerCase().trim());
             brand.setModel(model);
@@ -78,7 +78,7 @@ public class AddAutoService {
         log.info("autoDetailsDB " + autoDetails);
         autoDetailsService.addAutoDetails(autoDetails);
 
-        if(auto.getAutoPicture() == null) {
+        if (auto.getAutoPicture() == null) {
             AutoPicture autoPicture = new AutoPicture();
             autoPicture.setAuto(autoDB);
             autoPicture.setPicture(picture);

@@ -17,7 +17,7 @@ public class DeleteAutoService {
     private BrandService brandService;
 
     @Transactional
-    public AutoCommonBean saveInf(Integer id){
+    public AutoCommonBean saveInf(Integer id) {
         Auto auto = autoService.findById(id);
         AutoCommonBean autoCommonBean = new AutoCommonBean();
         autoCommonBean.setModelName(auto.getModel().getModelName());
@@ -28,16 +28,16 @@ public class DeleteAutoService {
     }
 
     @Transactional
-    public void deleteAllInf(Integer id){
+    public void deleteAllInf(Integer id) {
         Auto auto = autoService.findById(id);
         Integer idModel = auto.getModel().getId();
         String brandName = auto.getBrand().getBrandName();
         Integer idBrand = auto.getBrand().getId();
         autoService.deleteById(id);
-        if(autoService.findByBrand(brandName)==null){
+        if (autoService.findByBrand(brandName) == null) {
             brandService.deleteById(idBrand);
             Integer countBrands = brandService.findByModelId(idModel);
-            if(countBrands==0){
+            if (countBrands == 0) {
                 modelService.deleteById(idModel);
             }
         }

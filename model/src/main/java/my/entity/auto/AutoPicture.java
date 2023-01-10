@@ -5,11 +5,12 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 @Getter
 @Setter
-@Table(name="auto_picture")
+@Table(name = "auto_picture")
 public class AutoPicture {
 
     @Id
@@ -29,4 +30,23 @@ public class AutoPicture {
     @Lob
     private byte[] picture;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AutoPicture that = (AutoPicture) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (auto != null ? !auto.equals(that.auto) : that.auto != null) return false;
+        return Arrays.equals(picture, that.picture);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (auto != null ? auto.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(picture);
+        return result;
+    }
 }

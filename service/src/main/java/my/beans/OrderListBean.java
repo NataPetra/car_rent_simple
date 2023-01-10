@@ -19,4 +19,16 @@ public class OrderListBean {
     private String brandName;
     private LocalDate dateStart;
     private LocalDate dateFinish;
+
+    @Override
+    public String toString() {
+        return "OrderListBean{" +
+                "id=" + id +
+                ", releaseYear=" + releaseYear +
+                ", modelName='" + modelName + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", dateStart=" + dateStart +
+                ", dateFinish=" + dateFinish +
+                '}';
+    }
 }

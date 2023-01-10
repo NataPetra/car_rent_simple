@@ -19,11 +19,10 @@ public class AutoDetailsController {
     private AutoPictureService autoPictureService;
 
     @GetMapping("/details_auto/{car.number}.view")
-    public ModelAndView showAutoDetails(@PathVariable("car.number") Integer id){
+    public ModelAndView showAutoDetails(@PathVariable("car.number") Integer id) {
         return new ModelAndView("details_auto",
                 Map.of("autoDetailsBean", autoDetailsService.showAllInfAutoById(id)));
     }
-
 
     @ResponseBody
     @GetMapping("/image/{car.id}/picture.jpg")

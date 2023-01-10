@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 public interface AutoPictureDao {
 
     AutoPicture create(AutoPicture autoPicture);
+
     AutoPicture get(Integer id);
+
     void delete(Integer id);
 }

@@ -23,13 +23,13 @@ public class DeleteCarController {
     private DeleteAutoService deleteAutoService;
 
     @GetMapping("/delete_car/{car.id}.view")
-    public ModelAndView deleteCarPage(@PathVariable("car.id") Integer id){
+    public ModelAndView deleteCarPage(@PathVariable("car.id") Integer id) {
         return new ModelAndView("delete_car",
                 Map.of("autoCommonBean", updateAutoService.getAutoCommonBeanById(id)));
     }
 
     @GetMapping("/delete_confirm/{car.id}.action")
-    public ModelAndView deleteConfirmCarPage(@PathVariable("car.id") Integer id){
+    public ModelAndView deleteConfirmCarPage(@PathVariable("car.id") Integer id) {
         AutoCommonBean autoCommonBean = deleteAutoService.saveInf(id);
         deleteAutoService.deleteAllInf(id);
         return new ModelAndView("delete_confirm_car",

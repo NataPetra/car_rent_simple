@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -81,25 +80,6 @@
 
         <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add car</button>
 
-<%--        <div class="modal fade" id="myModal">--%>
-<%--            <div class="modal-dialog modal-sm">--%>
-<%--                <div class="modal-content">--%>
-<%--                    <!-- Modal Header -->--%>
-<%--                    <div class="modal-header">--%>
-<%--                        <h4 class="modal-title">Success!</h4>--%>
-<%--                        <button type="button" class="close" data-dismiss="modal">×</button>--%>
-<%--                    </div>--%>
-<%--                    <!-- Modal body -->--%>
-<%--                    <div class="modal-body">This car has been successfully added to the database.</div>--%>
-<%--                    <!-- Modal footer -->--%>
-<%--                    <div class="modal-footer">--%>
-<%--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--    </form>--%>
 </form:form>
 
 </main>

@@ -11,12 +11,20 @@ import java.util.List;
 public interface AutoOrderDao {
 
     AutoOrder create(AutoOrder autoOrder);
+
     AutoOrder get(Integer id);
-    Boolean isExistsById (Integer id);
+
+    Boolean isExistsById(Integer id);
+
     void delete(AutoOrder autoOrder);
+
     void delete(Integer id);
-    List getAll();
+
+    List<AutoOrder> getAll();
+
     long count();
+
     AutoOrder findByModelBrandColourYear(String model, String brand, Integer year, String colour);
-    AutoOrder findByAuto (Auto auto);
+
+    AutoOrder findByAuto(Auto auto);
 }

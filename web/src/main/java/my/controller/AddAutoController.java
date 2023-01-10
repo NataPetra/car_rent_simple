@@ -29,7 +29,7 @@ public class AddAutoController {
     public String addAutoComm(
             @Valid @ModelAttribute("autoCommon") AutoCommonBean autoCommonBean,
             BindingResult bindingResult,
-            @RequestParam("pictureImg") MultipartFile file){
+            @RequestParam("pictureImg") MultipartFile file) {
         if (bindingResult.hasErrors()) {
             return "create_car";
         }

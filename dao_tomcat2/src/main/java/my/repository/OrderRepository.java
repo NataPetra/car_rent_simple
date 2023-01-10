@@ -12,5 +12,6 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List findAllByAutoOrder(AutoOrder autoOrder);
+
     List findAllByUserOrder(UserOrder userOrder);
 }

@@ -21,7 +21,7 @@ public class OrderController {
     private AddOrderService addOrderService;
 
     @GetMapping("/order/{car.id}.view")
-    public ModelAndView orderPage(@PathVariable("car.id") Integer id){
+    public ModelAndView orderPage(@PathVariable("car.id") Integer id) {
         return new ModelAndView("order",
                 Map.of("autoCommonBean", addOrderService.getAutoCommonBeanForOrder(id),
                         "listOfDates", addOrderService.listOfDatesForMessage(id)));
@@ -29,12 +29,11 @@ public class OrderController {
 
     @PostMapping("/order/{car.id}.action")
     public String addOrderCommon(@PathVariable("car.id") Integer id,
-                                 @RequestParam("sdate") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate sdate,
-                                 @RequestParam("fdate") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate fdate,
-                                 OrderCommonBean orderCommonBean){
+                                 @RequestParam("sdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate sdate,
+                                 @RequestParam("fdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fdate,
+                                 OrderCommonBean orderCommonBean) {
         addOrderService.addOrder(id, orderCommonBean, sdate, fdate);
         return "redirect:/details_auto/{car.id}.view";
-
     }
 
 }

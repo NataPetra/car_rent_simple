@@ -22,27 +22,27 @@ public class AutoDetailsService {
 
 
     @Transactional
-    public AutoDetails addAutoDetails (AutoDetails auto){
+    public AutoDetails addAutoDetails(AutoDetails auto) {
         return autoDetailsDao.createAutoDetails(auto);
     }
 
     @Transactional
-    public Boolean existsById(Integer id){
+    public Boolean existsById(Integer id) {
         return autoDetailsDao.isExistsById(id);
     }
 
     @Transactional
-    public AutoDetails findById (Integer id){
+    public AutoDetails findById(Integer id) {
         return autoDetailsDao.getAutoDetails(id);
     }
 
     @Transactional
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         autoDetailsDao.deleteAutoDetails(id);
     }
 
     @Transactional
-    public AutoDetailsBean showAllInfAutoById (Integer id){
+    public AutoDetailsBean showAllInfAutoById(Integer id) {
         Auto auto = autoDao.getAuto(id);
         AutoDetails autoDetails = autoDetailsDao.getAutoDetails(id);
 
@@ -51,12 +51,12 @@ public class AutoDetailsService {
         autoDetailsBean.setModelName(auto.getModel().getModelName().toUpperCase());
         autoDetailsBean.setBrandName(auto.getBrand().getBrandName().toUpperCase());
         autoDetailsBean.setBodyType(autoDetails.getBodyType().getType());
-        if (autoDetails.getAutomaticTransmission()){
+        if (autoDetails.getAutomaticTransmission()) {
             autoDetailsBean.setAutomaticTransmission("");
         } else {
             autoDetailsBean.setAutomaticTransmission("no");
         }
-        if (autoDetails.getWithDriver()){
+        if (autoDetails.getWithDriver()) {
             autoDetailsBean.setDriver("with");
         } else {
             autoDetailsBean.setDriver("without");
@@ -64,14 +64,14 @@ public class AutoDetailsService {
         autoDetailsBean.setColour(auto.getColour());
         autoDetailsBean.setPrice(auto.getPrice().toString());
         autoDetailsBean.setReleaseYear(autoDetails.getReleaseYear());
-        if(auto.getAutoPicture()!=null){
+        if (auto.getAutoPicture() != null) {
             AutoPicture autoPicture = autoPictureService.findById(id);
             autoDetailsBean.setPicture(autoPicture.getPicture());
         }
         return autoDetailsBean;
     }
 
-    public AutoDetails findByType(String type){
+    public AutoDetails findByType(String type) {
         return autoDetailsDao.findByBodyType(type);
     }
 }

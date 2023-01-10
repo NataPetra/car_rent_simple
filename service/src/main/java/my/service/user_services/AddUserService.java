@@ -21,12 +21,12 @@ public class AddUserService {
     @Autowired
     private RoleService roleService;
 
-    public void addUserForm(UserCommonBean userCommonBean){
+    public void addUserForm(UserCommonBean userCommonBean) {
         Role roleSimpleUser = roleService.findById(2);
         List<User> allUsers = userService.findAllUsers();
         User lastUser = allUsers.get(allUsers.size() - 1);
         User user = new User();
-        user.setUserId(lastUser.getUserId()+1);
+        user.setUserId(lastUser.getUserId() + 1);
         user.setEmail(userCommonBean.getEmail());
         user.setPassword("{noop}" + userCommonBean.getPassword());
         user.setRole(roleSimpleUser);

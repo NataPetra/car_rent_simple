@@ -13,22 +13,22 @@ public class RoleService {
     private RoleDao roleDao;
 
     @Transactional
-    public Role addRole (Role role){
+    public Role addRole(Role role) {
         return roleDao.create(role);
     }
 
     @Transactional
-    public Role findById (Integer id){
+    public Role findById(Integer id) {
         return roleDao.get(id);
     }
 
     @Transactional
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         roleDao.delete(id);
     }
 
     @Transactional
-    public Boolean existsById (Integer id){
+    public Boolean existsById(Integer id) {
         return roleDao.isExistsById(id);
     }
 }

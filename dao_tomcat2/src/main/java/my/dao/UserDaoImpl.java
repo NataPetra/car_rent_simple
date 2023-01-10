@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     @Autowired
     private UserRepository userRepository;
@@ -29,23 +29,11 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public User edit(User user) {
-        return null;
-    }
-
-    @Override
-    public void delete(User user) {
-
-    }
+    public void delete(User user) { userRepository.delete(user);}
 
     @Override
     public void delete(Integer id) {
         userRepository.deleteById(id);
-    }
-
-    @Override
-    public List getAll(int pageNumber, int pageSize) {
-        return null;
     }
 
     @Override

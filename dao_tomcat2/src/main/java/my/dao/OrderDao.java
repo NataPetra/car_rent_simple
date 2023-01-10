@@ -11,14 +11,23 @@ import java.util.List;
 public interface OrderDao {
 
     Order create(Order order);
+
     Order get(Integer id);
-    Boolean isExistsById (Integer id);
+
+    Boolean isExistsById(Integer id);
+
     Order edit(Order order);
+
     void delete(Order order);
+
     void delete(Integer id);
-    List getAll();
+
+    List<Order> getAll();
+
     long count();
+
     List<Order> findByAutoOrder(AutoOrder autoOrder);
+
     List<Order> findByUserOrder(UserOrder userOrder);
 
 }

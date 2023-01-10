@@ -26,7 +26,7 @@ public class UpdateAutoService {
     @Autowired
     private AutoPictureService autoPictureService;
 
-    public AutoCommonBean getAutoCommonBeanById(Integer id){
+    public AutoCommonBean getAutoCommonBeanById(Integer id) {
         Auto auto = autoService.findById(id);
         AutoCommonBean autoCommonBean = new AutoCommonBean();
         autoCommonBean.setId(auto.getId());
@@ -38,28 +38,28 @@ public class UpdateAutoService {
         autoCommonBean.setModelName(auto.getModel().getModelName());
         autoCommonBean.setReleaseYear(auto.getAutoDetails().getReleaseYear());
         autoCommonBean.setWithDriver(auto.getAutoDetails().getWithDriver().toString());
-        if(auto.getAutoPicture()!=null){
+        if (auto.getAutoPicture() != null) {
             AutoPicture autoPicture = autoPictureService.findById(id);
             autoCommonBean.setPictureImg(new CustomMultipartFile(autoPicture.getPicture(), "pictureImd"));
         }
         return autoCommonBean;
     }
 
-    public void updateAutoCommon(AutoCommonBean autoCommonBean, Integer id){
+    public void updateAutoCommon(AutoCommonBean autoCommonBean, Integer id) {
         Auto auto = autoService.findById(id);
         AutoDetails autoDetails = autoDetailsService.findById(id);
         Model model = modelService.findByName(autoCommonBean.getModelName().toLowerCase());
-        if(!auto.getModel().getModelName().equalsIgnoreCase(autoCommonBean.getModelName())){
-            if(model==null){
+        if (!auto.getModel().getModelName().equalsIgnoreCase(autoCommonBean.getModelName())) {
+            if (model == null) {
                 model = new Model();
                 model.setModelName(autoCommonBean.getModelName().toLowerCase());
                 model = modelService.addModel(model);
             }
             auto.setModel(model);
         }
-        if(!auto.getBrand().getBrandName().equalsIgnoreCase(autoCommonBean.getBrandName())){
+        if (!auto.getBrand().getBrandName().equalsIgnoreCase(autoCommonBean.getBrandName())) {
             Brand brand = brandService.findByName(autoCommonBean.getBrandName().toLowerCase());
-            if(brand==null){
+            if (brand == null) {
                 brand = new Brand();
                 brand.setBrandName(autoCommonBean.getBrandName().toLowerCase());
                 brand.setModel(model);
@@ -67,31 +67,31 @@ public class UpdateAutoService {
             }
             auto.setBrand(brand);
         }
-        if(!auto.getColour().equalsIgnoreCase(autoCommonBean.getColour())){
+        if (!auto.getColour().equalsIgnoreCase(autoCommonBean.getColour())) {
             auto.setColour(autoCommonBean.getColour());
         }
-        if(!autoDetails.getBodyType().getType().equalsIgnoreCase(autoCommonBean.getBodyType())){
+        if (!autoDetails.getBodyType().getType().equalsIgnoreCase(autoCommonBean.getBodyType())) {
             BodyType bodyType = bodyTypeService.findByName(autoCommonBean.getBodyType().toLowerCase());
-            if(bodyType==null){
+            if (bodyType == null) {
                 bodyType = new BodyType();
                 bodyType.setType(autoCommonBean.getBodyType().toLowerCase());
                 bodyType = bodyTypeService.addBodyType(bodyType);
             }
             autoDetails.setBodyType(bodyType);
         }
-        if(!auto.getPrice().toString().equals(autoCommonBean.getPrice())){
+        if (!auto.getPrice().toString().equals(autoCommonBean.getPrice())) {
             auto.setPrice(new BigDecimal(autoCommonBean.getPrice()));
         }
-        if(!autoDetails.getReleaseYear().equals(autoCommonBean.getReleaseYear())){
+        if (!autoDetails.getReleaseYear().equals(autoCommonBean.getReleaseYear())) {
             autoDetails.setReleaseYear(autoCommonBean.getReleaseYear());
         }
-        if(autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("true") || autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("false")){
-            if(!autoDetails.getAutomaticTransmission().equals(Boolean.parseBoolean(autoCommonBean.getAutomaticTransmission()))){
+        if (autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("true") || autoCommonBean.getAutomaticTransmission().equalsIgnoreCase("false")) {
+            if (!autoDetails.getAutomaticTransmission().equals(Boolean.parseBoolean(autoCommonBean.getAutomaticTransmission()))) {
                 autoDetails.setAutomaticTransmission(Boolean.parseBoolean(autoCommonBean.getAutomaticTransmission()));
             }
         }
-        if(autoCommonBean.getWithDriver().equalsIgnoreCase("true") || autoCommonBean.getWithDriver().equalsIgnoreCase("false")){
-            if(!autoDetails.getWithDriver().equals(Boolean.parseBoolean(autoCommonBean.getWithDriver()))){
+        if (autoCommonBean.getWithDriver().equalsIgnoreCase("true") || autoCommonBean.getWithDriver().equalsIgnoreCase("false")) {
+            if (!autoDetails.getWithDriver().equals(Boolean.parseBoolean(autoCommonBean.getWithDriver()))) {
                 autoDetails.setWithDriver((Boolean.parseBoolean(autoCommonBean.getWithDriver())));
             }
         }
@@ -99,9 +99,9 @@ public class UpdateAutoService {
         autoDetailsService.addAutoDetails(autoDetails);
     }
 
-    public void updateAutoCommonWithPicture(byte[] picture, Integer id){
+    public void updateAutoCommonWithPicture(byte[] picture, Integer id) {
         Auto auto = autoService.findById(id);
-        if(auto.getAutoPicture() == null) {
+        if (auto.getAutoPicture() == null) {
             AutoPicture autoPicture = new AutoPicture();
             autoPicture.setAuto(auto);
             autoPicture.setPicture(picture);

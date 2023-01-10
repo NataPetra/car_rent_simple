@@ -17,11 +17,6 @@ public class WebConfiguration {
         return new InternalResourceViewResolver("/jsp/", ".jsp");
     }
 
-//    @Bean
-//    public InternalResourceViewResolver internalResourceViewResolver2(){
-//        return new InternalResourceViewResolver("/css/", ".css");
-//    }
-
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();

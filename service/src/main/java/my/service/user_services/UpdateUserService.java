@@ -16,7 +16,7 @@ public class UpdateUserService {
     private UserDetailService userDetailService;
 
     @Transactional
-    public UserCommonBean createUserCommonBean(Integer id){
+    public UserCommonBean createUserCommonBean(Integer id) {
         User user = userService.findById(id);
         UserCommonBean userCommonBean = new UserCommonBean();
         userCommonBean.setUserId(user.getUserId());
@@ -31,26 +31,26 @@ public class UpdateUserService {
     }
 
     @Transactional
-    public void updatePersonalInfo(UserCommonBean userCommonBean, Integer id){
+    public void updatePersonalInfo(UserCommonBean userCommonBean, Integer id) {
         User user = userService.findById(id);
         UserDetails userDetails = userDetailService.findById(id);
-        if(user != null){
-            if(!user.getEmail().equals(userCommonBean.getEmail())){
+        if (user != null) {
+            if (!user.getEmail().equals(userCommonBean.getEmail())) {
                 user.setEmail(userCommonBean.getEmail());
             }
-            if(!user.getPassword().equals(userCommonBean.getPassword())){
+            if (!user.getPassword().equals(userCommonBean.getPassword())) {
                 user.setPassword(userCommonBean.getPassword());
             }
             if (!user.getUserDetails().getFirstName().equalsIgnoreCase(userCommonBean.getFirstName())) {
                 userDetails.setFirstName(userCommonBean.getFirstName());
             }
-            if (!userDetails.getLastName().equalsIgnoreCase(userCommonBean.getLastName())){
+            if (!userDetails.getLastName().equalsIgnoreCase(userCommonBean.getLastName())) {
                 userDetails.setLastName(userCommonBean.getLastName());
             }
-            if (!userDetails.getBirthDay().equalsIgnoreCase(userCommonBean.getBirthDay())){
+            if (!userDetails.getBirthDay().equalsIgnoreCase(userCommonBean.getBirthDay())) {
                 userDetails.setBirthDay(userCommonBean.getBirthDay());
             }
-            if (!userDetails.getPhoneNumber().equalsIgnoreCase(userCommonBean.getPhoneNumber())){
+            if (!userDetails.getPhoneNumber().equalsIgnoreCase(userCommonBean.getPhoneNumber())) {
                 userDetails.setPhoneNumber(userCommonBean.getPhoneNumber());
             }
             userService.addUser(user);

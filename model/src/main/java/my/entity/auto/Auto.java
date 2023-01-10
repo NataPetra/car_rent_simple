@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "auto")
-//@Inheritance(strategy = InheritanceType.JOINED)
 public class Auto implements Serializable {
 
     @Id
@@ -54,12 +53,34 @@ public class Auto implements Serializable {
     public String toString() {
         return "Auto{" +
                 "id=" + id +
-                ", model=" + model +
-                ", brand=" + brand +
+                ", model=" + model.getModelName() +
+                ", brand=" + brand.getBrandName() +
                 ", colour='" + colour + '\'' +
                 ", price=" + price +
-                ", autoDetails=" + autoDetails +
-                ", autoPicture=" + autoPicture +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Auto auto = (Auto) o;
+
+        if (id != null ? !id.equals(auto.id) : auto.id != null) return false;
+        if (model != null ? !model.equals(auto.model) : auto.model != null) return false;
+        if (brand != null ? !brand.equals(auto.brand) : auto.brand != null) return false;
+        if (colour != null ? !colour.equals(auto.colour) : auto.colour != null) return false;
+        return price != null ? price.equals(auto.price) : auto.price == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (brand != null ? brand.hashCode() : 0);
+        result = 31 * result + (colour != null ? colour.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        return result;
     }
 }

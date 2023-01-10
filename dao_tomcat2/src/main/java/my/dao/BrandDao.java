@@ -9,10 +9,16 @@ import java.util.List;
 public interface BrandDao {
 
     Brand create(Brand brand);
+
     Brand get(Integer id);
+
     void delete(Integer id);
+
     Brand getByName(String name);
-    List findByModelId(Integer id);
-    List getAll();
+
+    List<Brand> findByModelId(Integer id);
+
+    List<Brand> getAll();
+
     long count();
 }

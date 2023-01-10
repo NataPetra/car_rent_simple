@@ -9,11 +9,18 @@ import java.util.List;
 public interface ModelDao {
 
     Model createModel(Model model);
+
     Model getByName(String name);
+
     Model getModelId(Integer id);
+
     void deleteModel(Integer id);
+
     String findModelName(Integer id);
-    List getAll();
+
+    List<Model> getAll();
+
     long count();
+
     List<String> findAllModelNames();
 }

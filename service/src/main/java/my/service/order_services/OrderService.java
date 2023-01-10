@@ -17,27 +17,27 @@ public class OrderService {
     @Autowired
     private OrderDao orderDao;
 
-    public Order addOrder (Order order){
+    public Order addOrder(Order order) {
         return orderDao.create(order);
     }
 
-    public Order findById (Integer id){
+    public Order findById(Integer id) {
         return orderDao.get(id);
     }
 
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         orderDao.delete(id);
     }
 
-    public Boolean existsById (Integer id){
+    public Boolean existsById(Integer id) {
         return orderDao.isExistsById(id);
     }
 
-    public List<Order> findByAutoOrder (AutoOrder autoOrder) {
+    public List<Order> findByAutoOrder(AutoOrder autoOrder) {
         return orderDao.findByAutoOrder(autoOrder);
     }
 
-    public List<Order> findByUserOrder (UserOrder userOrder) {
+    public List<Order> findByUserOrder(UserOrder userOrder) {
         return orderDao.findByUserOrder(userOrder);
     }
 

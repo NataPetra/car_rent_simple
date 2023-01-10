@@ -31,7 +31,7 @@ public class AddOrderService {
     @Autowired
     private AutoService autoService;
 
-    public AutoCommonBean getAutoCommonBeanForOrder(Integer id){
+    public AutoCommonBean getAutoCommonBeanForOrder(Integer id) {
         Auto auto = autoService.findById(id);
         AutoCommonBean autoCommonBean = new AutoCommonBean();
         autoCommonBean.setId(auto.getId());
@@ -43,14 +43,14 @@ public class AddOrderService {
         return autoCommonBean;
     }
 
-    public void addOrder(Integer id, OrderCommonBean orderCommonBean, LocalDate s, LocalDate f){
+    public void addOrder(Integer id, OrderCommonBean orderCommonBean, LocalDate s, LocalDate f) {
         Auto auto = autoService.findById(id);
         AutoOrder autoOrder = autoOrderService.findByModelBrandYearColour(
                 auto.getModel().getModelName(),
                 auto.getBrand().getBrandName(),
                 auto.getAutoDetails().getReleaseYear(),
                 auto.getColour());
-        if(autoOrder==null){
+        if (autoOrder == null) {
             autoOrder = new AutoOrder();
             autoOrder.setAuto(auto);
             autoOrder = autoOrderService.addAutoOrder(autoOrder);
@@ -58,7 +58,7 @@ public class AddOrderService {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findAllByEmail(email).stream().findFirst().get();
         UserOrder userOrder = userOrderService.findByEmail(email);
-        if(userOrder==null){
+        if (userOrder == null) {
             userOrder = new UserOrder();
             userOrder.setUser(user);
             userOrder = userOrderService.addUserOrder(userOrder);
@@ -73,13 +73,13 @@ public class AddOrderService {
         orderService.addOrder(order);
     }
 
-    public List<String> listOfDatesForMessage(Integer id){
+    public List<String> listOfDatesForMessage(Integer id) {
         Auto auto = autoService.findById(id);
         AutoOrder autoOrder = autoOrderService.findByAuto(auto);
         List<Order> ordersByAuto = orderService.findByAutoOrder(autoOrder);
         List<String> dates = new ArrayList<>();
-        if(ordersByAuto!=null){
-            for (Order value: ordersByAuto) {
+        if (ordersByAuto != null) {
+            for (Order value : ordersByAuto) {
                 dates.add("from " + value.getDateStart().toString() + " to " + value.getDateFinish().toString());
             }
         }

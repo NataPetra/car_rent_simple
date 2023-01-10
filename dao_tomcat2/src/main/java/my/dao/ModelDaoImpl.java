@@ -39,7 +39,7 @@ public class ModelDaoImpl implements ModelDao{
     }
 
     @Override
-    public List getAll() {
+    public List<Model> getAll() {
         return modelRepository.findAll();
     }
 

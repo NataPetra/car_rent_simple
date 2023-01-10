@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfig.class)
-public class UserServiceDaoImplTest extends TestConfig{
+public class UserServiceDaoImplTest extends TestConfig {
 
     @Autowired
     UserService targetObject;

@@ -9,16 +9,26 @@ import java.util.List;
 public interface AutoDao {
 
     Auto createAuto(Auto auto);
+
     Auto getAuto(Integer id);
-    Boolean isExistsById (Integer id);
-    Auto editAuto(Auto auto);
+
+    Boolean isExistsById(Integer id);
+
     void deleteAuto(Auto auto);
+
     void deleteAuto(Integer id);
-    List getAllAutoPage(int pageNumber, int pageSize);
-    List <Auto> getAllAuto();
+
+    List<Auto> getAllAutoPage(int pageNumber, int pageSize);
+
+    List<Auto> getAllAuto();
+
     long countAuto();
+
     Auto findAutoByBrandName(String brand);
+
     Auto findAutoByModelName(String model);
+
     Auto findByModelBrandColourYear(String model, String brand, Integer year, String colour);
+
     List<Auto> findAutosByModel_ModelName(String model);
 }

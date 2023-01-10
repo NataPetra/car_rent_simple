@@ -15,7 +15,7 @@ public class IndexController {
     private ModelService modelService;
 
     @GetMapping({"/", "/index.html"})
-    public ModelAndView homePage(){
+    public ModelAndView homePage() {
         System.out.println("Call home page");
         return new ModelAndView("index",
                 Map.of("models", modelService.findAllNames()));

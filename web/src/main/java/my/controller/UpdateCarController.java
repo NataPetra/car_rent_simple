@@ -21,7 +21,7 @@ public class UpdateCarController {
     private UpdateAutoService updateAutoService;
 
     @GetMapping("/update_car/{car.id}.view")
-    public ModelAndView updateCarPage(@PathVariable("car.id") Integer id){
+    public ModelAndView updateCarPage(@PathVariable("car.id") Integer id) {
         return new ModelAndView("update_car",
                 Map.of("autoCommonBean", updateAutoService.getAutoCommonBeanById(id)));
     }
@@ -29,7 +29,7 @@ public class UpdateCarController {
     @PostMapping("/update_car/{car.id}.action")
     @SneakyThrows
     public String updateAutoComm(@PathVariable("car.id") Integer id,
-                                 AutoCommonBean autoCommonBean){
+                                 AutoCommonBean autoCommonBean) {
         System.out.println("Call update Auto controller");
         updateAutoService.updateAutoCommon(autoCommonBean, id);
         return "redirect:/list_cars.view";
@@ -37,7 +37,7 @@ public class UpdateCarController {
 
     @PostMapping("/update_car_picture/{car.id}.action")
     @SneakyThrows
-    public String updateAutoPicture(@RequestParam("picture") MultipartFile file, @PathVariable("car.id") Integer id){
+    public String updateAutoPicture(@RequestParam("picture") MultipartFile file, @PathVariable("car.id") Integer id) {
         System.out.println("Call update Picture controller");
         updateAutoService.updateAutoCommonWithPicture(file.getBytes(), id);
         return "redirect:/list_cars.view";

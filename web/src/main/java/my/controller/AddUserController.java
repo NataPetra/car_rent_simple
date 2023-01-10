@@ -19,8 +19,7 @@ public class AddUserController {
     }
 
     @PostMapping("/registration.action")
-    public String addUserCommon(UserCommonBean userCommonBean){
-        //System.out.println("Call addUser: " + userCommonBean);
+    public String addUserCommon(UserCommonBean userCommonBean) {
         addUserService.addUserForm(userCommonBean);
         return "redirect:/login.view";
     }

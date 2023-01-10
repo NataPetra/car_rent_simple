@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class RoleDaoImpl implements RoleDao{
+public class RoleDaoImpl implements RoleDao {
 
     @Autowired
     private RoleRepository roleRepository;
@@ -40,7 +40,7 @@ public class RoleDaoImpl implements RoleDao{
     }
 
     @Override
-    public List getAll() {
+    public List<Role> getAll() {
         return roleRepository.findAll();
     }
 

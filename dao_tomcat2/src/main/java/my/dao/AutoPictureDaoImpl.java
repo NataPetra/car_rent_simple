@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AutoPictureDaoImpl implements AutoPictureDao{
+public class AutoPictureDaoImpl implements AutoPictureDao {
 
     @Autowired
     private AutoPictureRepository autoPictureRepository;

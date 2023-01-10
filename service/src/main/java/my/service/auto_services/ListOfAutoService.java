@@ -16,17 +16,17 @@ public class ListOfAutoService {
     @Autowired
     private AutoService autoService;
 
-    public List<ShowAutoBean> showAutoBriefly(){
+    public List<ShowAutoBean> showAutoBriefly() {
         List<Auto> auto = autoService.allAuto();
         return getShowAutoBeans(auto);
     }
 
-    public List<ShowAutoBean> showAutoBriefly(String model){
+    public List<ShowAutoBean> showAutoBriefly(String model) {
         List<Auto> auto = autoService.findAllByModelName(model);
         return getShowAutoBeans(auto);
     }
 
-    public List showAutoPage(int pageNumber, int pageSize){
+    public List showAutoPage(int pageNumber, int pageSize) {
         List<Auto> auto = autoService.allAuto(pageNumber, pageSize);
         return getShowAutoBeans(auto);
     }
@@ -43,7 +43,7 @@ public class ListOfAutoService {
             showAutoBeans.add(showAutoBean);
             System.out.println("Add in showAutoBeans: " + showAutoBean);
         }
-        for (ShowAutoBean autoBean:
+        for (ShowAutoBean autoBean :
                 showAutoBeans) {
             System.out.println(autoBean);
         }

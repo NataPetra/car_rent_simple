@@ -1,7 +1,6 @@
 package my.service.auto_services;
 
 import my.dao.BrandDao;
-import my.entity.auto.BodyType;
 import my.entity.auto.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,38 +15,38 @@ public class BrandService {
     private BrandDao brandDao;
 
     @Transactional
-    public Brand addBrand (Brand brand){
+    public Brand addBrand(Brand brand) {
         return brandDao.create(brand);
     }
 
     @Transactional
-    public Brand findById (Integer id){
+    public Brand findById(Integer id) {
         return brandDao.get(id);
     }
 
     @Transactional
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         brandDao.delete(id);
     }
 
     @Transactional
-    public Brand findByName (String name){
+    public Brand findByName(String name) {
         return brandDao.getByName(name);
     }
 
     @Transactional
-    public Integer findByModelId (Integer id){
+    public Integer findByModelId(Integer id) {
         List listBrands = brandDao.findByModelId(id);
         return listBrands.size();
     }
 
     @Transactional
-    public List findAllBrands(){
+    public List<Brand> findAllBrands() {
         return brandDao.getAll();
     }
 
     @Transactional
-    public Long countOfBrands (){
+    public Long countOfBrands() {
         return brandDao.count();
     }
 

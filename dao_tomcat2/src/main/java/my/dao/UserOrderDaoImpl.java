@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserOrderDaoImpl implements UserOrderDao{
+public class UserOrderDaoImpl implements UserOrderDao {
 
     @Autowired
     private UserOrderRepository userOrderRepository;
@@ -39,7 +39,7 @@ public class UserOrderDaoImpl implements UserOrderDao{
     }
 
     @Override
-    public List getAll() {
+    public List<UserOrder> getAll() {
         return userOrderRepository.findAll();
     }
 

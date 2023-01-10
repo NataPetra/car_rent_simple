@@ -9,14 +9,19 @@ import java.util.List;
 public interface UserDao {
 
     User create(User user);
+
     User get(Integer id);
-    Boolean isExistsById (Integer id);
-    User edit(User user);
+
+    Boolean isExistsById(Integer id);
+
     void delete(User user);
+
     void delete(Integer id);
-    List getAll(int pageNumber, int pageSize);
+
     List<User> getAll();
+
     long count();
+
     List<User> findByName(String email);
 
 }

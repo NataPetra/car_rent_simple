@@ -7,7 +7,10 @@ import org.springframework.stereotype.Repository;
 public interface BodyTypeDao {
 
     BodyType create(BodyType bodyType);
+
     BodyType get(Integer id);
+
     void delete(Integer id);
+
     BodyType getByName(String name);
 }

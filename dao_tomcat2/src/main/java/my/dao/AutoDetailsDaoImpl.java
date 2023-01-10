@@ -5,10 +5,8 @@ import my.repository.AutoDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public class AutoDetailsDaoImpl implements AutoDetailsDao{
+public class AutoDetailsDaoImpl implements AutoDetailsDao {
 
     @Autowired
     private AutoDetailsRepository autoDetailsRepository;
@@ -44,7 +42,7 @@ public class AutoDetailsDaoImpl implements AutoDetailsDao{
     }
 
     @Override
-    public AutoDetails findByBodyType(String type){
+    public AutoDetails findByBodyType(String type) {
         return autoDetailsRepository.findAutoDetailsByBodyType_Type(type);
     }
 }

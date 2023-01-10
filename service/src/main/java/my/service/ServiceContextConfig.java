@@ -11,7 +11,7 @@ import java.net.http.HttpClient;
 public class ServiceContextConfig {
 
     @Bean(name = "simpleHttpClient")
-    public HttpClient httpClient1(){
+    public HttpClient httpClient1() {
         return HttpClient.newHttpClient();
     }
 }

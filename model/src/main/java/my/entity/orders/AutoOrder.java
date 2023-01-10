@@ -2,7 +2,6 @@ package my.entity.orders;
 
 import lombok.*;
 import my.entity.auto.Auto;
-import my.entity.auto.Model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,7 +12,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "auto_order")
 public class AutoOrder implements Serializable {
@@ -34,4 +32,29 @@ public class AutoOrder implements Serializable {
     @OneToMany(mappedBy = "autoOrder")
     private List<Order> orders;
 
+    @Override
+    public String toString() {
+        return "AutoOrder{" +
+                "id=" + id +
+                ", auto=" + auto +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AutoOrder autoOrder = (AutoOrder) o;
+
+        if (id != null ? !id.equals(autoOrder.id) : autoOrder.id != null) return false;
+        return auto != null ? auto.equals(autoOrder.auto) : autoOrder.auto == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (auto != null ? auto.hashCode() : 0);
+        return result;
+    }
 }

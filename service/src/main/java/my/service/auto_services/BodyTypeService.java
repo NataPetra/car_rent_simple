@@ -2,7 +2,6 @@ package my.service.auto_services;
 
 import my.dao.BodyTypeDao;
 import my.entity.auto.BodyType;
-import my.entity.auto.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,22 +13,22 @@ public class BodyTypeService {
     private BodyTypeDao bodyTypeDao;
 
     @Transactional
-    public BodyType addBodyType (BodyType bodyType){
+    public BodyType addBodyType(BodyType bodyType) {
         return bodyTypeDao.create(bodyType);
     }
 
     @Transactional
-    public BodyType findById (Integer id){
+    public BodyType findById(Integer id) {
         return bodyTypeDao.get(id);
     }
 
     @Transactional
-    public void deleteById (Integer id){
+    public void deleteById(Integer id) {
         bodyTypeDao.delete(id);
     }
 
     @Transactional
-    public BodyType findByName (String name){
+    public BodyType findByName(String name) {
         return bodyTypeDao.getByName(name);
     }
 
