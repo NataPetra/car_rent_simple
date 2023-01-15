@@ -50,5 +50,4 @@ public class UserService {
         User appUser = findAllByEmail(email).get(0);
         return null;
     }
-
 }

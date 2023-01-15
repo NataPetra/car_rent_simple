@@ -48,4 +48,9 @@ public class RoleDaoImpl implements RoleDao {
     public long count() {
         return roleRepository.count();
     }
+
+    @Override
+    public Role findRoleByName(String name) {
+        return roleRepository.findRoleByRoleName(name);
+    }
 }

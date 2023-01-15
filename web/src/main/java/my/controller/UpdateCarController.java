@@ -25,6 +25,12 @@ public class UpdateCarController {
         return new ModelAndView("update_car",
                 Map.of("autoCommonBean", updateAutoService.getAutoCommonBeanById(id)));
     }
+//    RestTemplate restTemplate = new RestTemplate();
+//    ResponseEntity<AutoCommonBean> autoCommonBean = restTemplate.getForEntity(
+//            "http://localhost:8080/car_rent/update_car/{car.id}.view",
+//            AutoCommonBean.class);
+//        return new ModelAndView("update_car",
+//                                Map.of("autoCommonBean", autoCommonBean));
 
     @PostMapping("/update_car/{car.id}.action")
     @SneakyThrows

@@ -2,6 +2,7 @@ package my.servlet;
 
 import my.config.RootConfig;
 import my.controller.WebConfiguration;
+import my.rest.RestConfig;
 import my.service.ServiceContextConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
                 new AnnotationConfigWebApplicationContext();
         context.register(WebConfiguration.class);
         context.register(RootConfig.class);
+        context.register(RestConfig.class);
         context.register(ServiceContextConfig.class);
 
         DispatcherServlet dispatcherServlet =
@@ -36,6 +38,7 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
                 ctx.addServlet("dispatcherServlet", dispatcherServlet);
         servletRegistration.setLoadOnStartup(1);
         servletRegistration.addMapping("/index.html");
+        servletRegistration.addMapping("/report");
         servletRegistration.addMapping("*.html");
         servletRegistration.addMapping("*.action");
         servletRegistration.addMapping("*.view");

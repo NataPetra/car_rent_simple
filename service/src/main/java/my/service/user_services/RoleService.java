@@ -31,4 +31,9 @@ public class RoleService {
     public Boolean existsById(Integer id) {
         return roleDao.isExistsById(id);
     }
+
+    @Transactional
+    public Role findByName(String name){
+        return roleDao.findRoleByName(name);
+    }
 }

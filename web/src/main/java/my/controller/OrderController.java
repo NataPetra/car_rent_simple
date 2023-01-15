@@ -1,15 +1,18 @@
 package my.controller;
 
+import my.beans.AutoCommonBean;
 import my.beans.OrderCommonBean;
+import my.beans.OrderPDFBean;
 import my.service.order_services.AddOrderService;
+import my.service.order_services.OrderReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -20,6 +23,9 @@ public class OrderController {
     @Autowired
     private AddOrderService addOrderService;
 
+    @Autowired
+    private OrderReportService orderReportService;
+
     @GetMapping("/order/{car.id}.view")
     public ModelAndView orderPage(@PathVariable("car.id") Integer id) {
         return new ModelAndView("order",
@@ -29,11 +35,20 @@ public class OrderController {
 
     @PostMapping("/order/{car.id}.action")
     public String addOrderCommon(@PathVariable("car.id") Integer id,
-                                 @RequestParam("sdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate sdate,
-                                 @RequestParam("fdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fdate,
-                                 OrderCommonBean orderCommonBean) {
-        addOrderService.addOrder(id, orderCommonBean, sdate, fdate);
-        return "redirect:/details_auto/{car.id}.view";
+                                       @RequestParam("sdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate sdate,
+                                       @RequestParam("fdate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fdate,
+                                       OrderCommonBean orderCommonBean,
+                                       RedirectAttributes redirectAttributes) {
+        Integer orderId = addOrderService.addOrder(id, orderCommonBean, sdate, fdate);
+        redirectAttributes.addFlashAttribute("orderId", orderId);
+        return "redirect:/report";
     }
 
+    @GetMapping("/report")
+    public String handleForexRequest(@ModelAttribute("orderId") Integer id,
+                                     Model model) {
+        System.out.println(id);
+        model.addAttribute("report", orderReportService.createPDFOrderFile(id));
+        return "reportView";
+    }
 }

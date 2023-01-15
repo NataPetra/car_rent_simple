@@ -21,4 +21,6 @@ public interface RoleDao {
     List<Role> getAll();
 
     long count();
+
+    Role findRoleByName(String name);
 }

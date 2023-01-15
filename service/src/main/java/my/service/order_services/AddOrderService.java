@@ -43,7 +43,7 @@ public class AddOrderService {
         return autoCommonBean;
     }
 
-    public void addOrder(Integer id, OrderCommonBean orderCommonBean, LocalDate s, LocalDate f) {
+    public Integer addOrder(Integer id, OrderCommonBean orderCommonBean, LocalDate s, LocalDate f) {
         Auto auto = autoService.findById(id);
         AutoOrder autoOrder = autoOrderService.findByModelBrandYearColour(
                 auto.getModel().getModelName(),
@@ -70,7 +70,8 @@ public class AddOrderService {
         order.setAmountOfDays(orderCommonBean.getAmountOfDays());
         order.setDateStart(s);
         order.setDateFinish(f);
-        orderService.addOrder(order);
+        Order orderDB = orderService.addOrder(order);
+        return orderDB.getOrder_id();
     }
 
     public List<String> listOfDatesForMessage(Integer id) {
