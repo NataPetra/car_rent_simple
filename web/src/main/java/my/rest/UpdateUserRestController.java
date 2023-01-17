@@ -14,7 +14,7 @@ public class UpdateUserRestController {
     @Autowired
     public AdminUserService adminUserService;
 
-    @GetMapping("/car_rent/admin_update_user/{id}.view")
+    @GetMapping("/admin_update_user/{id}.view")
     public UserCommonBean updateUserRole(@PathVariable("{user.userId}") Integer id){
         return adminUserService.showUserById(id);
     }

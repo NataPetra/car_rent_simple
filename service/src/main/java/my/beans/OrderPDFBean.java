@@ -15,13 +15,11 @@ import java.time.LocalDateTime;
 public class OrderPDFBean {
 
     private Integer id;
-    private String price;
-    private String colour;
+    private Double price;
     private Integer releaseYear;
     private String modelName;
     private String brandName;
     private Integer amountOfDays;
-    private String comments;
     private LocalDate dateStart;
     private LocalDate dateFinish;
     private String firstName;
@@ -38,12 +36,10 @@ public class OrderPDFBean {
         return "OrderPDFBean{" +
                 "id=" + id +
                 ", price='" + price + '\'' +
-                ", colour='" + colour + '\'' +
                 ", releaseYear=" + releaseYear +
                 ", modelName='" + modelName + '\'' +
                 ", brandName='" + brandName + '\'' +
                 ", amountOfDays=" + amountOfDays +
-                ", comments='" + comments + '\'' +
                 ", dateStart=" + dateStart +
                 ", dateFinish=" + dateFinish +
                 ", firstName='" + firstName + '\'' +

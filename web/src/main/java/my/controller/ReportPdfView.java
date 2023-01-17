@@ -45,14 +45,22 @@ public class ReportPdfView extends AbstractView {
             pdfDocument.add(date);
 
             //content
-            String textContent = "Dear Customer " + report.getFirstName() + " " + report.getLastName() + " you booked " + report.getModelName() + " " + report.getBrandName();
+            String textContent = "Dear Customer " +
+                    report.getFirstName() + " " +
+                    report.getLastName() + " you booked " +
+                    report.getModelName() + " " + report.getBrandName() +
+                    ", " + report.getReleaseYear() + ", for " +
+                    report.getAmountOfDays() + " day(s) from " +
+                    report.getDateStart() + " to " +
+                    report.getDateFinish() + " . The total cost of the order is US$ " +
+                    report.getPrice() + ".";
             Paragraph content = new Paragraph(textContent);
             pdfDocument.add(content);
 
             pdfDocument.close();
         }catch (Exception e){
-            System.out.println("Exeption message " + e.getMessage());
-            System.out.println("Exeption " + e);
+            System.out.println("Exception message " + e.getMessage());
+            System.out.println("Exception " + e);
             throw e;
         }
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/car_rent/update_car")
+//@RequestMapping("/update_car")
 public class AutoBeanRestController {
 
     @Autowired

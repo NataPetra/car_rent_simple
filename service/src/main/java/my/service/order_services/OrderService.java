@@ -1,6 +1,7 @@
 package my.service.order_services;
 
 import my.dao.OrderDao;
+import my.entity.auto.Auto;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
 import my.entity.orders.UserOrder;
@@ -39,6 +40,26 @@ public class OrderService {
 
     public List<Order> findByUserOrder(UserOrder userOrder) {
         return orderDao.findByUserOrder(userOrder);
+    }
+
+    public List<Order> findByAuto(Auto auto) {
+        return orderDao.findByAuto(auto);
+    }
+
+    public List<Order> findAll(){
+        return orderDao.getAll();
+    }
+
+    public List<Order> findInOrderDate(){
+        return orderDao.findInOrderDate();
+    }
+
+    public long countOrders(){
+        return orderDao.count();
+    }
+
+    public List<Order> getAllOrderPage(int pageNumber, int pageSize){
+        return orderDao.getAllOrderPage(pageNumber, pageSize);
     }
 
 }

@@ -13,7 +13,7 @@
         <module>model</module>
         <module>service</module>
         <module>dao_tomcat2</module>
-<!--        <module>dao_tomcat_final</module>-->
+<!--        <module>web_spring</module>-->
     </modules>
 
     <properties>
@@ -38,12 +38,13 @@
             </modules>
         </profile>
         <profile>
-            <id>all</id>
+            <id>boot</id>
             <modules>
-                <!--<module>dao</module>-->
+                <module>dao</module>
                 <module>model</module>
-                <module>web</module>
+                <module>web_spring</module>
                 <module>service</module>
+                <module>web_spring_boot</module>
             </modules>
         </profile>
     </profiles>

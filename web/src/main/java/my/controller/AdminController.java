@@ -4,6 +4,8 @@ import lombok.SneakyThrows;
 import my.beans.AutoCommonBean;
 import my.beans.RoleBean;
 import my.beans.UserCommonBean;
+import my.service.order_services.AdminOrderService;
+import my.service.order_services.OrderService;
 import my.service.user_services.AdminUserService;
 import my.service.user_services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -26,6 +30,10 @@ public class AdminController {
     private UserService userService;
     @Autowired
     private AdminUserService adminUserService;
+    @Autowired
+    private AdminOrderService adminOrderService;
+    @Autowired
+    private OrderService orderService;
 
     @Secured({"ROLE_ADMIN"})
     @GetMapping("/admin.view")
@@ -61,6 +69,33 @@ public class AdminController {
                                  RoleBean roleBean) {
         adminUserService.changeRole(id, roleBean);
         return "redirect:/admin_list_of_users.view";
+    }
+
+    @Secured({"ROLE_ADMIN"})
+    @GetMapping("/admin_list_of_orders.view")
+    public ModelAndView showListOfOrdersSortByDate() {
+        return new ModelAndView("admin_list_of_orders",
+                Map.of("listOrders", adminOrderService.getOrderFilterByDate()));
+    }
+
+    @GetMapping("/admin_list_of_orders/{pageId}.view")
+    public ModelAndView listOfCarPageWithPagination(@PathVariable int pageId) {
+        int total = 10;
+        long countOrders = orderService.countOrders();
+        List list = orderService.getAllOrderPage(pageId - 1, total);
+        long amountOfPages = countOrders / total;
+        if (countOrders % total != 0) {
+            amountOfPages++;
+        }
+        List<Integer> pages = new ArrayList<>();
+        for (int i = 1; i <= amountOfPages; i++) {
+            pages.add(i);
+        }
+        return new ModelAndView(
+                "admin_list_of_orders",
+                Map.of("listOrders", list,
+                        "pages", pages)
+        );
     }
 
 }

@@ -1,10 +1,12 @@
 package my.dao;
 
+import my.entity.auto.Auto;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
 import my.entity.orders.UserOrder;
 import my.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,7 +29,7 @@ public class OrderDaoImpl implements OrderDao{
 
     @Override
     public Boolean isExistsById(Integer id) {
-        return null;
+        return orderRepository.existsById(id);
     }
 
     @Override
@@ -63,5 +65,20 @@ public class OrderDaoImpl implements OrderDao{
     @Override
     public List<Order> findByUserOrder(UserOrder userOrder) {
         return orderRepository.findAllByUserOrder(userOrder);
+    }
+
+    @Override
+    public List<Order> findByAuto(Auto auto) {
+        return orderRepository.findOrdersByAutoOrder_Auto(auto);
+    }
+
+    @Override
+    public List<Order> findInOrderDate() {
+        return orderRepository.findOrdersInOrderByDate();
+    }
+
+    @Override
+    public List<Order> getAllOrderPage(int pageNumber, int pageSize) {
+        return orderRepository.findAll(PageRequest.of(pageNumber, pageSize)).getContent();
     }
 }

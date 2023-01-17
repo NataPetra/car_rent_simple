@@ -23,8 +23,13 @@ public class OrderReportService {
         orderPDFBean.setDate(LocalDateTime.now());
         orderPDFBean.setFirstName(order.getUserOrder().getUser().getUserDetails().getFirstName().toUpperCase());
         orderPDFBean.setLastName(order.getUserOrder().getUser().getUserDetails().getLastName().toUpperCase());
-        orderPDFBean.setBrandName(order.getAutoOrder().getAuto().getBrand().getBrandName());
-        orderPDFBean.setModelName(order.getAutoOrder().getAuto().getModel().getModelName());
+        orderPDFBean.setBrandName(order.getAutoOrder().getAuto().getBrand().getBrandName().toUpperCase());
+        orderPDFBean.setModelName(order.getAutoOrder().getAuto().getModel().getModelName().toUpperCase());
+        orderPDFBean.setReleaseYear(order.getAutoOrder().getAuto().getAutoDetails().getReleaseYear());
+        orderPDFBean.setAmountOfDays(order.getAmountOfDays());
+        orderPDFBean.setDateStart(order.getDateStart());
+        orderPDFBean.setDateFinish(order.getDateFinish());
+        orderPDFBean.setPrice(order.getAutoOrder().getAuto().getPrice().doubleValue()*order.getAmountOfDays());
         return orderPDFBean;
     }
 }

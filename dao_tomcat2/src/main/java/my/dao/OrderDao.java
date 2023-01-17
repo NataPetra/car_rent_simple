@@ -1,5 +1,6 @@
 package my.dao;
 
+import my.entity.auto.Auto;
 import my.entity.orders.AutoOrder;
 import my.entity.orders.Order;
 import my.entity.orders.UserOrder;
@@ -29,5 +30,11 @@ public interface OrderDao {
     List<Order> findByAutoOrder(AutoOrder autoOrder);
 
     List<Order> findByUserOrder(UserOrder userOrder);
+
+    List<Order> findByAuto(Auto auto);
+
+    List<Order> findInOrderDate();
+
+    List<Order> getAllOrderPage(int pageNumber, int pageSize);
 
 }

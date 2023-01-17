@@ -1,14 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
-                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro
-                   http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd
-                   http://www.liquibase.org/xml/ns/dbchangelog
-                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
-    <changeSet author="HP (generated)" id="1672918989520-1">
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet author="HP (generated)" id="1673937937859-1">
         <createTable tableName="auto">
             <column name="auto_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -19,7 +11,7 @@
             <column name="model_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-2">
+    <changeSet author="HP (generated)" id="1673937937859-2">
         <createTable tableName="auto_details">
             <column name="auto_details_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -30,7 +22,7 @@
             <column name="body_type_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-3">
+    <changeSet author="HP (generated)" id="1673937937859-3">
         <createTable tableName="auto_order">
             <column name="auto_order_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -38,7 +30,7 @@
             <column name="auto_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-4">
+    <changeSet author="HP (generated)" id="1673937937859-4">
         <createTable tableName="auto_picture">
             <column name="auto_picture_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -48,7 +40,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-5">
+    <changeSet author="HP (generated)" id="1673937937859-5">
         <createTable tableName="body_type">
             <column name="body_type_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -56,7 +48,7 @@
             <column name="b_type" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-6">
+    <changeSet author="HP (generated)" id="1673937937859-6">
         <createTable tableName="brand">
             <column name="brand_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -65,12 +57,12 @@
             <column name="model_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-7">
+    <changeSet author="HP (generated)" id="1673937937859-7">
         <createTable tableName="hibernate_sequence">
             <column name="next_val" type="BIGINT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-8">
+    <changeSet author="HP (generated)" id="1673937937859-8">
         <createTable tableName="model">
             <column name="model_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -78,7 +70,7 @@
             <column name="model_name" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-9">
+    <changeSet author="HP (generated)" id="1673937937859-9">
         <createTable tableName="order_car">
             <column name="order_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -91,7 +83,7 @@
             <column name="user_order_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-10">
+    <changeSet author="HP (generated)" id="1673937937859-10">
         <createTable tableName="permission">
             <column name="permission_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -100,7 +92,7 @@
             <column name="role_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-11">
+    <changeSet author="HP (generated)" id="1673937937859-11">
         <createTable tableName="role">
             <column name="role_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -109,7 +101,7 @@
             <column name="role_name" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-12">
+    <changeSet author="HP (generated)" id="1673937937859-12">
         <createTable tableName="user">
             <column name="user_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -119,7 +111,7 @@
             <column name="role_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-13">
+    <changeSet author="HP (generated)" id="1673937937859-13">
         <createTable tableName="user_details">
             <column name="user_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -130,7 +122,7 @@
             <column name="phone_number" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-14">
+    <changeSet author="HP (generated)" id="1673937937859-14">
         <createTable tableName="user_order">
             <column name="user_order_id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -138,7 +130,7 @@
             <column name="user_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-15">
+    <changeSet author="HP (generated)" id="1673937937859-15">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/auto.csv" quotchar="&quot;" separator="," tableName="auto">
             <column header="auto_id" name="auto_id" type="NUMERIC"/>
             <column header="colour" name="colour" type="STRING"/>
@@ -147,7 +139,7 @@
             <column header="model_id" name="model_id" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-16">
+    <changeSet author="HP (generated)" id="1673937937859-16">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/auto_details.csv" quotchar="&quot;" separator="," tableName="auto_details">
             <column header="auto_details_id" name="auto_details_id" type="NUMERIC"/>
             <column header="automatic_transmission" name="automatic_transmission" type="BOOLEAN"/>
@@ -156,44 +148,61 @@
             <column header="body_type_id" name="body_type_id" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-17">
+    <changeSet author="HP (generated)" id="1673937937859-17">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/auto_order.csv" quotchar="&quot;" separator="," tableName="auto_order">
+            <column header="auto_order_id" name="auto_order_id" type="NUMERIC"/>
+            <column header="auto_id" name="auto_id" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1673937937859-18">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/auto_picture.csv" quotchar="&quot;" separator="," tableName="auto_picture">
             <column header="auto_picture_id" name="auto_picture_id" type="NUMERIC"/>
             <column header="auto_picture" name="auto_picture" type="BLOB"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-18">
+    <changeSet author="HP (generated)" id="1673937937859-19">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/body_type.csv" quotchar="&quot;" separator="," tableName="body_type">
             <column header="body_type_id" name="body_type_id" type="NUMERIC"/>
             <column header="b_type" name="b_type" type="STRING"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-19">
+    <changeSet author="HP (generated)" id="1673937937859-20">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/brand.csv" quotchar="&quot;" separator="," tableName="brand">
             <column header="brand_id" name="brand_id" type="NUMERIC"/>
             <column header="brand_name" name="brand_name" type="STRING"/>
             <column header="model_id" name="model_id" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-20">
+    <changeSet author="HP (generated)" id="1673937937859-21">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/hibernate_sequence.csv" quotchar="&quot;" separator="," tableName="hibernate_sequence">
             <column header="next_val" name="next_val" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-21">
+    <changeSet author="HP (generated)" id="1673937937859-22">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/model.csv" quotchar="&quot;" separator="," tableName="model">
             <column header="model_id" name="model_id" type="NUMERIC"/>
             <column header="model_name" name="model_name" type="STRING"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-22">
+    <changeSet author="HP (generated)" id="1673937937859-23">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/order_car.csv" quotchar="&quot;" separator="," tableName="order_car">
+            <column header="order_id" name="order_id" type="NUMERIC"/>
+            <column header="amountOfDays" name="amountOfDays" type="NUMERIC"/>
+            <column header="comments" name="comments" type="STRING"/>
+            <column header="dateFinish" name="dateFinish" type="DATE"/>
+            <column header="dateStart" name="dateStart" type="DATE"/>
+            <column header="auto_order_id" name="auto_order_id" type="NUMERIC"/>
+            <column header="user_order_id" name="user_order_id" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1673937937859-24">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/role.csv" quotchar="&quot;" separator="," tableName="role">
             <column header="role_id" name="role_id" type="NUMERIC"/>
             <column header="description" name="description" type="STRING"/>
             <column header="role_name" name="role_name" type="STRING"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-23">
+    <changeSet author="HP (generated)" id="1673937937859-25">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/user.csv" quotchar="&quot;" separator="," tableName="user">
             <column header="user_id" name="user_id" type="NUMERIC"/>
             <column header="email" name="email" type="STRING"/>
@@ -201,7 +210,7 @@
             <column header="role_id" name="role_id" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-24">
+    <changeSet author="HP (generated)" id="1673937937859-26">
         <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/user_details.csv" quotchar="&quot;" separator="," tableName="user_details">
             <column header="user_id" name="user_id" type="NUMERIC"/>
             <column header="birth_day" name="birth_day" type="STRING"/>
@@ -210,84 +219,90 @@
             <column header="phone_number" name="phone_number" type="STRING"/>
         </loadData>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-25">
+    <changeSet author="HP (generated)" id="1673937937859-27">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" file="generated/data/user_order.csv" quotchar="&quot;" separator="," tableName="user_order">
+            <column header="user_order_id" name="user_order_id" type="NUMERIC"/>
+            <column header="user_id" name="user_id" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1673937937859-28">
         <createIndex indexName="FK9wnt3odvo603yal8no66gbctv" tableName="auto">
             <column name="model_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-26">
+    <changeSet author="HP (generated)" id="1673937937859-29">
         <createIndex indexName="FKbx72bew4d9t8qlen43owcrdmx" tableName="auto_details">
             <column name="body_type_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-27">
+    <changeSet author="HP (generated)" id="1673937937859-30">
         <createIndex indexName="FKin8y2ch39hhlx4ftwp64hb9yu" tableName="order_car">
             <column name="auto_order_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-28">
+    <changeSet author="HP (generated)" id="1673937937859-31">
         <createIndex indexName="FKj58goo1w1gj95sr2eknqm35dj" tableName="auto">
             <column name="brand_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-29">
+    <changeSet author="HP (generated)" id="1673937937859-32">
         <createIndex indexName="FKj86u1x7csa8yd68ql2y1ibrou" tableName="user_order">
             <column name="user_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-30">
+    <changeSet author="HP (generated)" id="1673937937859-33">
         <createIndex indexName="FKjo7ko4ni6qpetkj6kjeq5wtq5" tableName="order_car">
             <column name="user_order_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-31">
+    <changeSet author="HP (generated)" id="1673937937859-34">
         <createIndex indexName="FKn82ha3ccdebhokx3a8fgdqeyy" tableName="user">
             <column name="role_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-32">
+    <changeSet author="HP (generated)" id="1673937937859-35">
         <createIndex indexName="FKq8ko0ll8p7tvp6pdpsgyh674j" tableName="brand">
             <column name="model_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-33">
+    <changeSet author="HP (generated)" id="1673937937859-36">
         <createIndex indexName="FKrc9w61iuykyv719j7ej60tae6" tableName="auto_order">
             <column name="auto_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-34">
+    <changeSet author="HP (generated)" id="1673937937859-37">
         <createIndex indexName="FKrvhjnns4bvlh4m1n97vb7vbar" tableName="permission">
             <column name="role_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-35">
+    <changeSet author="HP (generated)" id="1673937937859-38">
         <addForeignKeyConstraint baseColumnNames="model_id" baseTableName="auto" constraintName="FK9wnt3odvo603yal8no66gbctv" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="model_id" referencedTableName="model" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-36">
+    <changeSet author="HP (generated)" id="1673937937859-39">
         <addForeignKeyConstraint baseColumnNames="body_type_id" baseTableName="auto_details" constraintName="FKbx72bew4d9t8qlen43owcrdmx" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="body_type_id" referencedTableName="body_type" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-37">
+    <changeSet author="HP (generated)" id="1673937937859-40">
         <addForeignKeyConstraint baseColumnNames="auto_order_id" baseTableName="order_car" constraintName="FKin8y2ch39hhlx4ftwp64hb9yu" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="auto_order_id" referencedTableName="auto_order" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-38">
+    <changeSet author="HP (generated)" id="1673937937859-41">
         <addForeignKeyConstraint baseColumnNames="brand_id" baseTableName="auto" constraintName="FKj58goo1w1gj95sr2eknqm35dj" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="brand_id" referencedTableName="brand" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-39">
+    <changeSet author="HP (generated)" id="1673937937859-42">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_order" constraintName="FKj86u1x7csa8yd68ql2y1ibrou" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-40">
+    <changeSet author="HP (generated)" id="1673937937859-43">
         <addForeignKeyConstraint baseColumnNames="user_order_id" baseTableName="order_car" constraintName="FKjo7ko4ni6qpetkj6kjeq5wtq5" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_order_id" referencedTableName="user_order" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-41">
+    <changeSet author="HP (generated)" id="1673937937859-44">
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user" constraintName="FKn82ha3ccdebhokx3a8fgdqeyy" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="role_id" referencedTableName="role" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-42">
+    <changeSet author="HP (generated)" id="1673937937859-45">
         <addForeignKeyConstraint baseColumnNames="model_id" baseTableName="brand" constraintName="FKq8ko0ll8p7tvp6pdpsgyh674j" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="model_id" referencedTableName="model" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-43">
+    <changeSet author="HP (generated)" id="1673937937859-46">
         <addForeignKeyConstraint baseColumnNames="auto_id" baseTableName="auto_order" constraintName="FKrc9w61iuykyv719j7ej60tae6" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="auto_id" referencedTableName="auto" validate="true"/>
     </changeSet>
-    <changeSet author="HP (generated)" id="1672918989520-44">
+    <changeSet author="HP (generated)" id="1673937937859-47">
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="permission" constraintName="FKrvhjnns4bvlh4m1n97vb7vbar" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="role_id" referencedTableName="role" validate="true"/>
     </changeSet>
 </databaseChangeLog>
