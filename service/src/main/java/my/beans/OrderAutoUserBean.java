@@ -24,6 +24,7 @@ public class OrderAutoUserBean {
     private LocalDate dateStart;
     private LocalDate dateFinish;
     private Integer amountOfDays;
+    private Double price;
 
     @Override
     public String toString() {

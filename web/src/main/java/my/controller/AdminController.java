@@ -2,8 +2,10 @@ package my.controller;
 
 import lombok.SneakyThrows;
 import my.beans.AutoCommonBean;
+import my.beans.AutoWithOrders;
 import my.beans.RoleBean;
 import my.beans.UserCommonBean;
+import my.service.auto_services.AutoService;
 import my.service.order_services.AdminOrderService;
 import my.service.order_services.OrderService;
 import my.service.user_services.AdminUserService;
@@ -34,6 +36,8 @@ public class AdminController {
     private AdminOrderService adminOrderService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private AutoService autoService;
 
     @Secured({"ROLE_ADMIN"})
     @GetMapping("/admin.view")
@@ -78,13 +82,43 @@ public class AdminController {
                 Map.of("listOrders", adminOrderService.getOrderFilterByDate()));
     }
 
-    @GetMapping("/admin_list_of_orders/{pageId}.view")
-    public ModelAndView listOfCarPageWithPagination(@PathVariable int pageId) {
-        int total = 10;
-        long countOrders = orderService.countOrders();
-        List list = orderService.getAllOrderPage(pageId - 1, total);
-        long amountOfPages = countOrders / total;
-        if (countOrders % total != 0) {
+//    @GetMapping("/admin_list_of_orders/{pageId}.view")
+//    public ModelAndView listOfCarPageWithPagination(@PathVariable int pageId) {
+//        int total = 10;
+//        long countOrders = orderService.countOrders();
+//        List list = orderService.getAllOrderPage(pageId - 1, total);
+//        long amountOfPages = countOrders / total;
+//        if (countOrders % total != 0) {
+//            amountOfPages++;
+//        }
+//        List<Integer> pages = new ArrayList<>();
+//        for (int i = 1; i <= amountOfPages; i++) {
+//            pages.add(i);
+//        }
+//        return new ModelAndView(
+//                "admin_list_of_orders",
+//                Map.of("listOrders", list,
+//                        "pages", pages)
+//        );
+//    }
+
+    @Secured({"ROLE_ADMIN"})
+    @GetMapping("/admin_delete_order/{order.id}.action")
+    public String deleteConfirmCarPage(@PathVariable("order.id") Integer id) {
+        orderService.deleteById(id);
+        return "redirect:/admin_list_of_orders.view";
+    }
+
+    @Secured({"ROLE_ADMIN"})
+    @GetMapping("/admin_list_of_car_with_orders/{pageId}.view")
+    public ModelAndView showListOfCarsWithOrders(@PathVariable int pageId) {
+        int total = 8;
+        long countAuto = autoService.countAuto();
+        System.out.println(countAuto);
+        List<AutoWithOrders> list = adminOrderService.getAutoWithOrderList(pageId - 1, total);
+        System.out.println(list);
+        long amountOfPages = countAuto / total;
+        if (countAuto % total != 0) {
             amountOfPages++;
         }
         List<Integer> pages = new ArrayList<>();
@@ -92,10 +126,23 @@ public class AdminController {
             pages.add(i);
         }
         return new ModelAndView(
-                "admin_list_of_orders",
-                Map.of("listOrders", list,
+                "admin_list_of_cars_with_orders",
+                Map.of("listCars", list,
                         "pages", pages)
         );
     }
 
+    @Secured({"ROLE_ADMIN"})
+    @GetMapping("/admin_one_car_orders/{car.id}.view")
+    public ModelAndView showListOfOrdersByCar(@PathVariable("car.id") Integer id) {
+        return new ModelAndView("admin_orders_by_car",
+                Map.of("listOrders", adminOrderService.getListOfOrdersByAuto(id)));
+    }
+
+    @Secured({"ROLE_ADMIN"})
+    @GetMapping("/admin_order/{order.id}.view")
+    public ModelAndView showOrdersById(@PathVariable("order.id") Integer id) {
+        return new ModelAndView("admin_order",
+                Map.of("order", adminOrderService.getInfoOrderForAdmin(id)));
+    }
 }

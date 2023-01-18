@@ -42,7 +42,7 @@
             <td><c:out value="${order.dateFinish}"/></td>
             <td><c:out value="${order.amountOfDays}"/></td>
             <td>
-                <a class="nav-link" href="${pageContext.request.contextPath}/admin_delete_order/${order.id}.view">
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin_delete_order/${order.id}.action">
                     <button type="button" class="btn btn-danger">Delete order</button>
                 </a>
             </td>
@@ -51,13 +51,13 @@
         </tbody>
     </table>
 
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <c:forEach items="${pages}" var="pages">
-                <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/${pages}.view">${pages}</a></li>
-            </c:forEach>
-        </ul>
-    </nav>
+<%--    <nav aria-label="Page navigation">--%>
+<%--        <ul class="pagination justify-content-center">--%>
+<%--            <c:forEach items="${pages}" var="pages">--%>
+<%--                <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/${pages}.view">${pages}</a></li>--%>
+<%--            </c:forEach>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
 
 </main>
 

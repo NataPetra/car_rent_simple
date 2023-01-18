@@ -37,8 +37,11 @@
                 List of orders sort by date.
             </a>
         </li>
-        <li>Элемент списка</li>
-        <li>Элемент списка</li>
+        <li>
+            <a class="nav-link" href="${pageContext.request.contextPath}/admin_list_of_car_with_orders/1.view">
+                List of cars with orders.
+            </a>
+        </li>
     </ul>
 
 </main>

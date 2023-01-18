@@ -22,10 +22,10 @@ public class AdminOrderService {
     @Autowired
     private OrderService orderService;
 
-    public List<AutoWithOrders> getAutoWithOrderList(){
-        List<Auto> autos = autoService.allAuto();
+    public List<AutoWithOrders> getAutoWithOrderList(int pageNumber, int pageSize) {
+        List<Auto> autos = autoService.allAuto(pageNumber, pageSize);
         List<AutoWithOrders> finalList = new ArrayList<>();
-        for (Auto car: autos) {
+        for (Auto car : autos) {
             AutoWithOrders autoWithOrders = new AutoWithOrders();
             autoWithOrders.setModel(car.getModel().getModelName().toUpperCase());
             autoWithOrders.setBrand(car.getBrand().getBrandName().toUpperCase());
@@ -33,21 +33,22 @@ public class AdminOrderService {
             autoWithOrders.setColour(car.getColour());
             autoWithOrders.setYearRealize(car.getAutoDetails().getReleaseYear().toString());
             List<Order> orderList = orderService.findByAuto(car);
-            if(orderList==null){
+            if (orderList == null) {
                 autoWithOrders.setCountOfOrders(0);
             } else {
                 autoWithOrders.setCountOfOrders(orderList.size());
             }
+            finalList.add(autoWithOrders);
         }
         return finalList;
     }
 
-    public List<OrderListBean> getListOfOrdersByAuto(Integer id){
+    public List<OrderListBean> getListOfOrdersByAuto(Integer id) {
         Auto auto = autoService.findById(id);
         List<Order> orderList = orderService.findByAuto(auto);
         List<OrderListBean> listBeans = new ArrayList<>();
-        if (orderList.size()>0){
-            for (Order or: orderList) {
+        if (orderList.size() > 0) {
+            for (Order or : orderList) {
                 OrderListBean listBean = new OrderListBean();
                 listBean.setModelName(or.getAutoOrder().getAuto().getModel().getModelName().toUpperCase());
                 listBean.setBrandName(or.getAutoOrder().getAuto().getBrand().getBrandName().toUpperCase());
@@ -61,16 +62,16 @@ public class AdminOrderService {
         return listBeans;
     }
 
-    public OrderAutoUserBean getInfoOrderForAdmin(Integer id){
+    public OrderAutoUserBean getInfoOrderForAdmin(Integer id) {
         Order or = orderService.findById(id);
         OrderAutoUserBean orderAutoUserBean = new OrderAutoUserBean();
         return mapperOrderAutoUserBean(or, orderAutoUserBean);
     }
 
-    public List<OrderAutoUserBean> getOrderFilterByDate(){
+    public List<OrderAutoUserBean> getOrderFilterByDate() {
         List<Order> orders = orderService.findInOrderDate();
         List<OrderAutoUserBean> orderAutoUserBeans = new ArrayList<>();
-        for (Order or: orders) {
+        for (Order or : orders) {
             OrderAutoUserBean orderAutoUserBean = new OrderAutoUserBean();
             orderAutoUserBeans.add(mapperOrderAutoUserBean(or, orderAutoUserBean));
         }
@@ -89,6 +90,7 @@ public class AdminOrderService {
         orderAutoUserBean.setAmountOfDays(or.getAmountOfDays());
         orderAutoUserBean.setDateStart(or.getDateStart());
         orderAutoUserBean.setDateFinish(or.getDateFinish());
+        orderAutoUserBean.setPrice(or.getAutoOrder().getAuto().getPrice().doubleValue() * or.getAmountOfDays());
         return orderAutoUserBean;
     }
 
