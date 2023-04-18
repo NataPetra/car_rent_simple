@@ -32,7 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/index.html", true)
                 .failureUrl("/registration.view")
-//                .failureHandler(authenticationFailureHandler())
                 .and()
                 .logout()
                 .deleteCookies("JSESSIONID");

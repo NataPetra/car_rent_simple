@@ -46,10 +46,6 @@
                     </security:authorize>
                 </li>
 
-<%--                <security:authorize access="isAuthenticated()">--%>
-<%--                    &nbsp;<security:authentication property='name'/>&nbsp;--%>
-<%--                </security:authorize>--%>
-
             </ul>
         </div>
     </div>

@@ -59,12 +59,6 @@ public class AdminController {
     public ModelAndView showInfoUser(@PathVariable("user.userId") Integer id) {
         return new ModelAndView("admin_update_user",
                 Map.of("userCommonBean", adminUserService.showUserById(id)));
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<UserCommonBean> userCommonBean = restTemplate.getForEntity(
-//            "http://localhost:8080/car_rent/admin_update_user/{user.userId}.view",
-//            UserCommonBean.class);
-//        return new ModelAndView("admin_update_user",
-//                                Map.of("userCommonBean", userCommonBean));
     }
 
     @PostMapping("/admin_update_user/{user.userId}.action")
@@ -81,26 +75,6 @@ public class AdminController {
         return new ModelAndView("admin_list_of_orders",
                 Map.of("listOrders", adminOrderService.getOrderFilterByDate()));
     }
-
-//    @GetMapping("/admin_list_of_orders/{pageId}.view")
-//    public ModelAndView listOfCarPageWithPagination(@PathVariable int pageId) {
-//        int total = 10;
-//        long countOrders = orderService.countOrders();
-//        List list = orderService.getAllOrderPage(pageId - 1, total);
-//        long amountOfPages = countOrders / total;
-//        if (countOrders % total != 0) {
-//            amountOfPages++;
-//        }
-//        List<Integer> pages = new ArrayList<>();
-//        for (int i = 1; i <= amountOfPages; i++) {
-//            pages.add(i);
-//        }
-//        return new ModelAndView(
-//                "admin_list_of_orders",
-//                Map.of("listOrders", list,
-//                        "pages", pages)
-//        );
-//    }
 
     @Secured({"ROLE_ADMIN"})
     @GetMapping("/admin_delete_order/{order.id}.action")

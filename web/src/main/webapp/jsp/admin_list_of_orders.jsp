@@ -51,14 +51,6 @@
         </tbody>
     </table>
 
-<%--    <nav aria-label="Page navigation">--%>
-<%--        <ul class="pagination justify-content-center">--%>
-<%--            <c:forEach items="${pages}" var="pages">--%>
-<%--                <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/list_cars/${pages}.view">${pages}</a></li>--%>
-<%--            </c:forEach>--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
-
 </main>
 
 </body>

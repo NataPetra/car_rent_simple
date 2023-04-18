@@ -1,4 +1,4 @@
-package my.controller;
+package my.pdf;
 
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
