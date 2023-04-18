@@ -1,4 +1,4 @@
-# Test project for BootCamp - custom-service-spring-boot
+# Graduation project
 
 ## Technical task
 
