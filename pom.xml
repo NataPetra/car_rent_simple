@@ -40,7 +40,7 @@
         <profile>
             <id>boot</id>
             <modules>
-                <module>dao</module>
+                <module>dao_tomcat2</module>
                 <module>model</module>
                 <module>web_spring</module>
                 <module>service</module>

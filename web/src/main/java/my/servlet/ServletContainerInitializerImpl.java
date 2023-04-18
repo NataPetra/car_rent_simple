@@ -1,7 +1,6 @@
 package my.servlet;
 
 import my.config.RootConfig;
-import my.controller.WebConfiguration;
 import my.rest.RestConfig;
 import my.service.ServiceContextConfig;
 import org.slf4j.Logger;
@@ -26,7 +25,6 @@ public class ServletContainerInitializerImpl implements ServletContainerInitiali
         logger.info("Start ServletContainerInitializer");
         AnnotationConfigWebApplicationContext context =
                 new AnnotationConfigWebApplicationContext();
-        context.register(WebConfiguration.class);
         context.register(RootConfig.class);
         context.register(RestConfig.class);
         context.register(ServiceContextConfig.class);
